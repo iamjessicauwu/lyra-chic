@@ -30,13 +30,13 @@
     {
         "name": "Jessica Noleen Alka",
         "nickname": "Jessica",
-        "description": "Jessica Noleen, also known as Jessica, is a music producer and artist who contribute to Lyra by creating original music and sound effects for the project. She is known for her unique style and ability to create immersive audio experiences that enhance the overall user experience of Lyra.",
+        "description": "'I'm a gentle person on the outside, but I have a lot of ideas that I want to realize and share with others,' that's what Jessica said. <br><br>Jessica Noleen Alka, also known as Jessica, is a music producer and artist who is currently the owner of this website. She contributed by creating original music and sound effects for the project. She is known for her unique style and ability to create immersive audio experiences that enhance the overall user experience of Lyra.",
         "role": "Music Producer",
         "banner_image": "./assets/image/jessica_noleen/jessica_banner.jpg",
         "image": "./assets/image/jessica_noleen/Jessica.webp",
         "id": "jessica",
         "aliases": "jessie m wolen",
-        "badges": ["Music Producer"],
+        "badges": [],
         "zodiac": "Taurus"
     }, 
     {

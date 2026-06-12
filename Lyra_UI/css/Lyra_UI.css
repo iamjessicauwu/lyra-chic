@@ -437,6 +437,10 @@ dialog .tab-content {
     margin-bottom: 12px;
 }
 
+.talk-to-lyra .greeting p {
+    text-align: center;
+}
+
 .chat-content {
     display: flex;
     flex-direction: column;
@@ -4213,7 +4217,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     font-size: 16px;
     line-height: 27px;
     font-weight: 400;
-    text-align: justify;
+    text-align: left;
     margin: 0;
 }
 .side-panel .people-banner {
@@ -4279,6 +4283,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
 }
 .side-panel .social-media {
     gap: 30px;
+    margin: 10px 0 12px 0 !important;
 }
 .side-panel .social-media span {
     display: none;

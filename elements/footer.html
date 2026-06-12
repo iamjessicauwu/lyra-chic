@@ -79,7 +79,7 @@
     </div>
     <div class="content" id="content">
         <div class="chat-content">
-            <div class="greeting">
+            <div class="greeting" style="display: none">
                 <img class="logo lyra-logo" src="/assets/logo/Lyra_simple.webp" alt="Lyra logo">
                 <h1>Hi, I'm Lyra!</h1>
                 <p>Let's make charm by asking with a soft heart.</p>
@@ -89,10 +89,17 @@
                     <div class="category">Buatkan aku cerita lore singkat antara Carin dan Monique.</div>
                 </div>
             </div>
+            <div class="greeting">
+                <img class="logo lyra-logo" src="/assets/logo/Lyra_simple.webp" alt="Lyra logo">
+                <h1>Whoops-a-daisy!</h1>
+                <p>It looks like Lyra AI is currently on leave. We'll let you know when it's ready! </p>
+                <br>
+                <a href="https://github.com/iamjessicauwu/lyra-chic/releases"><button class="btn accent">View releases on GitHub </button</a>
+            </div>
         </div>
     </div>
     <div class="chat-input">
-        <textarea rows="1" type="text" id="user-input" placeholder="Type here to start chat now!" aria-label="Chat input"></textarea>
-        <button class="btn" id="send-chat"><i class="ri-send-plane-2-line"></i></button>
+        <textarea rows="1" type="text" id="user-input" placeholder="Type here to start chat now!" aria-label="Chat input" hidden></textarea>
+        <button style="display: none" class="btn" id="send-chat"><i class="ri-send-plane-2-line"></i></button>
     </div>
 </dialog>
