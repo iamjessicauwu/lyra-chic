@@ -187,9 +187,6 @@
 }
 
 @media (max-width: 920px) {
-    main {
-        margin: 0;
-    }
     .section-header {
         margin: 10px 14px;
     }

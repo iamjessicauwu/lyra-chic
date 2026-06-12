@@ -25,7 +25,7 @@
         "description": "Carin Miracle, known as her stage name 'crshyle', is a member in Lyra who joined the dancer team named 'ST☆RGΛINZ' placed in Kediri Regency, East Java. <br>She is known as Jessica Noleen's friend at the same school. Not much is known about her, but she is often seen in the background of Lyra's development and is rumored to have a significant role in the future of the project. ",
         "id": "crshyle",
         "badges": ["Creative Dancer", "3rd place Winner of School Contest Dance 2025🏆🥉", "ST☆RGΛINZ Member"],
-        "zodiac": "Sagittarius"
+        "zodiac": ""
     },
     {
         "name": "Jessica Noleen Alka",
@@ -60,7 +60,7 @@
         "image": "./assets/image/member_avatar/mae.webp",
         "id": "mae",
         "badges": ["Performer", "Music Enthusiast"],
-        "zodiac": "Leo"
+        "zodiac": ""
     }
     ,
     {
@@ -71,7 +71,7 @@
         "aliases": "",
         "image": "./assets/image/member_avatar/charis.webp",
         "id": "charis",
-        "zodiac": "Pisces"
+        "zodiac": ""
     },
     {
         "name": "Reagan Putra Lobis",

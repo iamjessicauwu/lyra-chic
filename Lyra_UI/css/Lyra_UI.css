@@ -5458,6 +5458,7 @@ html:has(.nav-pane:not(.hidden)) {
     }
     
     main {
+        margin-top: 60px;
         padding: 0;
     }
     .hero-section {
@@ -5700,6 +5701,7 @@ html:has(.nav-pane:not(.hidden)) {
 @media (max-width: 870px) {
     .section-header {
         margin: 10px 14px;
+        align-items: flex-start;
     }
     .section-title.title {
         line-height: normal;
