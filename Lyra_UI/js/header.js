@@ -172,7 +172,7 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
                     btn.classList.add('fade-out');
                     brand.classList.remove('fade-in');
                     brand.classList.add('fade-out');
-                }, index * 100);
+                }, index * 0);
                 
             })
             
