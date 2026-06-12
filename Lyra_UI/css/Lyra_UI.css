@@ -24,11 +24,12 @@
         color-scheme: light;
     }
 
-    /* @media (prefers-color-scheme: dark) {
+    @media (prefers-color-scheme: dark) {
         :root {
             --color-bg: rgb(31, 22, 18) ;
             --color-primary-500: #C89D84 ;
             --color-surface-0: rgb(36, 28, 24);
+            --color-surface-500: #1a1915;
             --bg-color-value: 31, 22, 18;
             --color-surface-text: rgb(172, 149, 114);
             --color-text-main: rgb(242, 236, 233);
@@ -37,7 +38,7 @@
         .lyra-logo {
             filter: invert(1);
         }
-    } */
+    }
 
 }
 html {
