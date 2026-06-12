@@ -1,0 +1,18 @@
+{
+  "short_name": "Lyra Chic",
+  "name": "Lyra Chic",
+  "icons": [
+    {
+      "src": "/assets/logo/lyra.png",
+      "type": "image/png",
+      "sizes": "500x500",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#FDFDFD",
+  "display": "standalone",
+  "scope": "/",
+  "description": "An editorial-like website that focused on creative art, music, and mutual relationship.",
+  "orientation": "portrait"
+}

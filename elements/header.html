@@ -1,0 +1,182 @@
+<header class="header">
+    <div class="header-container">
+        <div class="header-desktop">
+            <div class="actions header-left">
+                <div class="actionsBtns">
+                    <div>
+                        <button class="btn empty"><i class="ri-search-line" ></i></button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="flex center column header-center">
+                <a href="/" class="brand">
+                    <img class="logo lyra-logo" src="./assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" />
+                </a>
+                <div class="navigation">
+                    <div class="drop-down">
+                        <button class="navBtn"><a href="./projects.html" data-lang="home">Work</a></button>
+                        <div class="drop-down-content">
+                            <a href="./interior.html"><button class="drop-down-button">Interior design</button></a>
+                            <a href="./fashion.html"><button class="drop-down-button">Fashion and Muse</button></a>
+                            <a href="./graphics.html"><button class="drop-down-button">UI/UX Designer</button></a>
+                        </div>
+                    </div>
+                    <button class="navBtn"><a href="/blog.html">Blog</a></button>
+                    <button class="navBtn"><a href="/about.html">About</a></button>
+                </div>
+            </div>
+            <div class="actions header-right">
+                <div class="actionsBtns">
+                    <div>
+                        <button class="btn empty"><i class="ri-search-line" ></i></button>
+                    </div>
+                    <div >
+                        <button class="navBtn" data-dialog-open="cart-dialog" data-tooltip="Keranjang Anda">
+                            <i class="ri-shopping-bag-line"></i>
+                        </button>
+                        <dialog class="side-panel cart-dialog">
+                            <div class="dialog-header">
+                                <div>
+                                    <h1 class="dialog-mintopbar">Your cart<span class="promo small">Alpha</span></h1>
+                                </div>
+                                <div class="dialog-btns">
+                                    <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><span class="div-1"></span><span class="div-2"></span></button>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="wishlist">
+                                    <div class="badge-container custom wishlist-item">
+                                        <h1 class="divider">On Demand</h1>
+                                        <div class="pinned-items">
+                                            <div class="badge">
+                                                <span>Jessica Noleen's private music</span>
+                                                <span class="gray">$12.00</span>
+                                            </div>
+                                            <div class="badge">
+                                                <span>Be a Good Dancer - Carin Miracle</span>
+                                                <span class="gray">$5.00</span>
+                                            </div>
+                                            <div class="badge">
+                                                <span>Tips for Travel by Mae</span>
+                                                <span class="gray">$10.00</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn accent" data-dialog-open="add-wishlist"><i class="ri-add-line"></i><span>Add wishlist</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-mobile">
+            <div>
+                <input type="checkbox" id="cbx" name="changetheme" hidden />
+                <button class=" empty toggleTheme" id="toggleTheme"><i class="ri-sun-line" id="themeIcon"></i></button>
+            </div>
+            <div class="brand">
+                <a href="/"><img class="logo adaptive-logo" src="./assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" /></a>
+            </div>
+            <div class="actions">
+                <div class="actionsBtns">
+                    <div>
+                        <button class="navBtn hamburger" aria-label="hamburger button to open the hamburger menu" id="hamburger" >
+                            <div class="equal">
+                                <div class="div1"></div>
+                                <div class="div2"></div>
+                                <div class="div3"></div>
+                            </div>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <dialog class="add-wishlist">
+            <div class="dialog-header">
+                <div>
+                    <h1 class="dialog-mintopbar">Add wishlist</h1>
+                </div>
+                <div class="dialog-btns">
+                    <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOut"><span class="div-1"></span><span class="div-2"></span></button>
+                </div>
+            </div>
+            <div class="content">
+                <form>
+                    <input type="text" id="wishlist-name" placeholder="Search items... e.g. The Book by Mae" required>
+                    <button type="submit" class="btn medium accent">Submit</button>
+                </form>
+            </div>
+        </dialog>
+    </div>
+</header>
+<div class="overlay header-overlay"></div>
+<div class="nav-pane hidden">  
+    <div class="nav-pane-header">
+        <button class="btn empty close-btn" id="close2"><span class="div-1"></span><span class="div-2"></span></button>
+    </div>
+    <div class="nav-container">
+        <div class="content" data-lenis-prevent>
+            <span class="divider">Start here</span>
+            <div class="content-item menu">
+                <a href="./projects.html"><button class="menuButton" id="projects">Work</button></a>
+                <a href="./blog.html"><button class="menuButton" id="blog">Blog</button></a>
+                <a href="./about.html"><button class="menuButton" id="about">About</button></a>
+            </div>
+            <span class="divider">Get in touch</span>
+            <div class="content-item menu">
+                <a href="./contact.html"><button class="menuButton" id="projects">Contact</button></a>
+                <a href="./starmember.html"><button class="menuButton" id="blog">Star Member<span class="promo small">
+                    Beta
+                </span></button></a>
+            </div>
+        </div>
+        <div class="footer"> 
+            <div class="footer-flex">
+                <div class="navpane-footer-actions">
+                    <button class="btn accent chat" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
+                    <i class="ri-accessibility-line" id="labs" data-dialog-open="float-menu"></i>
+                </div>
+            </div>
+            <div class="footer-flex-1">
+                <button class="btn large accent chat-alt" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<dialog class="float-menu" data-lenis-prevent>
+    <div class="dialog-header">
+        <div>
+            <h1 class="dialog-mintopbar">Accessibility</h1>
+        </div>
+        <div class="dialog-btns">
+            <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOut"><span class="div-1"></span><span class="div-2"></span></button>
+        </div>
+    </div>
+    <div class="content" id="content">
+        <div class="accordion-item">
+            <h5 class="accordion-item-title">Kurangi animasi<br><span class="accordion-item-desc">Kurangi gerakan animasi dan transisi jika Anda sensitif dengan gerakan tertentu atau untuk meningkatkan performa web.</span></h5> 
+            <label class="toggle">
+                <input type="checkbox" class="toggleCheckbox" id="dsbAnimCbx" />
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="accordion-item hidden">
+            <h5 class="accordion-item-title">Aktifkan kontras tinggi</h5> 
+            <label class="toggle">
+                <input type="checkbox" class="toggleCheckbox" id="contrastCbx" />
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="accordion-item">
+            <h5 class="accordion-item-title">Font dyslexia</h5> 
+            <label class="toggle">
+                <input type="checkbox" class="toggleCheckbox" id="dyslexiaCbx" />
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+</dialog>
+

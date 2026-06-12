@@ -1,0 +1,15 @@
+{
+    "name": "lyra-ui",
+    "displayName": "Lyra UI",
+    "preview": true,
+    "type": "module",
+    "version": "1.0",
+    "description": "A micro-framework CSS with editorial, calm styles and design consistency. ",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Nathania Anneta",
+    "maintainers": ["Nathania Anneta"],
+    "license": "(GNU OR Apache-2.0)"
+}

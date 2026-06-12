@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <!-- SEO / Social -->
+    <meta property="og:title" content="Lyra Chic — Music, art, and design go with the flow." />
+    <meta property="og:description" content="An editorial-like website that focused on creative art, music, and mutual relationship." />
+    <meta name="description" content="An editorial-like website that focused on creative art, music, and mutual relationship." />
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
+    <meta name="google-site-verification" content="spu8X2x5qM9NJ457sIAnvQoqs57PhH-k-0o4gOpA4bY" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+
+    <!-- ================= CSP ================= -->
+    <meta http-equiv="Content-Security-Policy"
+      content="
+        script-src
+          'self'
+          'unsafe-inline'
+          https:;
+        style-src
+          'self'
+          'unsafe-inline'          
+          https:;
+        font-src
+          'self'
+          https:;
+        img-src
+          'self'
+          data:
+          https:;
+        object-src 'none';
+        
+      ">
+
+
+    
+    <!-- ================= PERFORMANCE ================= -->
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.20/dist/lenis.css">
+    <link rel="prefetch" href="./json/peopleBio.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link rel="preload" href="./Lyra_UI/css/Lyra_UI.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link rel="preload" href="./styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    
+
+    <!-- ================= STYLES ================= -->
+    <link rel="stylesheet" href="./Lyra_UI/css/Lyra_UI.css">
+    <link rel="stylesheet" href="./styles.css" />
+    
+    <!-- ================= SCRIPTS (ES MODULES) ================= -->
+    <script type="module" defer nonce="random123" src="./Lyra_UI/js/header.js"></script>
+    <script type="module" defer nonce="random123" src="./Lyra_UI/js/main.js"></script>
+    <script type="module" nonce="random123" src="./Lyra_UI/js/footer.js"></script>
+    <script type="module" nonce="random123" src="./indexScript.js"></script>
+    <script type="module" defer nonce="random123" src="./script.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.20/dist/lenis.min.js"></script> 
+    <title>Lyra Chic — Music, art, and design go with the flow.</title>
+    <script defer type="module">
+        const stored = localStorage.getItem("darkMode");
+        let preferredColorTheme;
+
+        if (stored !== null) {
+            preferredColorTheme = (stored === "true");
+        } else {
+            preferredColorTheme = window.matchMedia && window.matchMedia('prefers-color-scheme: dark').matches;
+        }
+
+        document.documentElement.setAttribute('data-theme', preferredColorTheme ? 'dark' : 'light');
+        var Lenis = window.Lenis;
+        const lenis = new Lenis({
+            duration: 1.0,
+            autoRaf: true,
+            
+            smoothTouch: false,
+            smooth: true,
+            direction: 'vertical',
+        })
+    </script>
+</head>
+<body >
+    <header></header>
+    <main id="scroll">
+        <section class="section desc intro" id="home">
+            <div class="hero-section">
+                <div class="hero-top">
+                    <h1 class="divider">Art, Go with the flow</h1>
+                    <h1>Music, Art, and Design go with the <i>flow</i></h1>
+                    <h2 data-lang="hero-section-intro-desc">Blurring the lines between sound and emotion. Explore the latest beats, mixes, and exclusive art design production work</h2>
+                    <br> 
+                    <div class="flex center">
+                        <a href="/build.html"><button class="btn xl outline">Our projects<i class="ri-arrow-right-up-line"></i></button></a>
+                    </div>
+                </div>
+                <div class="hero-bottom">
+                    <div class="gallery-container">
+                        <img src="/assets/image/smaktest1.webp" alt="showcase 1">
+                        <img src="/assets/image/smaktest2.webp" alt="showcase 2" class="span-2">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="section-content">
+                <div class="list">
+                    <div class="list-content">
+                        <div class="list-item">
+                            <div class="list-item-header">
+                                <h1>About Us</h1>
+                            </div>
+                            <div class="list-item-content">
+                                <p>We also recognize that the fields of design and innovation are vast and diverse, with specialized agencies focusing on UX/UI strategy, fashion branding, and interior design. Making these decisions can feel overwhelming, and you naturally want to work with a professional in your field. We understand that you want to know why choosing us is the right decision</p>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-header">
+                                <h1>Lyra is a safe space for creative designers</h1>
+                            </div>
+                            <div class="list-item-content">
+                                <p>We’re sure you have creative ideas just waiting to be brought to life—but when will you make them a reality? At Lyra, thousands of design communities are here to help you in taking your designs to the next level.</p>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-header">
+                                <h1>Something good and consistent will yield useful results</h1>
+                            </div>
+                            <div class="list-item-content">
+                                <p>At first, Lyra's adventure will feel challenging, but what if you’re already used to those challenges? That’s not a big deal. It’s your growth and consistency that will shape your future and the futures of others.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" >
+             <div class="section-header">
+                <h1 class="section-title title">Explore</h1>
+            </div>
+            <div class="section-content features" id="list-features">
+                <div class="nested-content">
+                    <div class="flex-box">
+                        <div class="img-container">
+                            <img class="img " alt="Jessica Noleen logo image 1" src="./assets/logo/jessica_noleen_logo.png" />
+                        </div>
+                        <div class="box-content">
+                            <div class="box-biography">
+                                <h2 class="name">
+                                    Jessica Noleen
+                                </h2>
+                            </div>
+                            <div class="flex">
+                               <div class="box-content-desc">
+                                    <p>
+                                        "Tanpa distraksi, tanpa iklan mengganggu" merupakan prioritas kami. Nikmatilah ribuan konten kursus tanpa jeda iklan untuk meningkatkan produktivitas Anda.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="flex-box">
+                        <div class="img-container">
+                            <img class="img raveLogo" alt="rave" src="./assets/logo/rave_black.webp" />
+                        </div>
+                        <div class="box-content">
+                            <div class="box-biography">
+                                <h2 class="name">
+                                    Rave UI: Lebih modular dan ciamik!
+                                </h2>
+                            </div>
+                            <div class="flex">
+                               <div class="box-content-desc">
+                                    <p>
+                                        Bosan dengan tampilan yang monoton? Dengan Rave UI, kami memberikan pengalaman pengguna dan antarmuka yang lebih intuitif dan mudah diakses! Dengan desain yang modern dan responsif, Anda dapat dengan mudah menavigasi melalui berbagai fitur dan konten kursus kami, sehingga meningkatkan pengalaman belajar Anda secara keseluruhan.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="flex center"><button class="btn xl outline">Lihat proyek lainnya<i class="ri-arrow-right-up-line"></i></button></div>                
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>

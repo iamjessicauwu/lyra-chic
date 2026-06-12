@@ -1,0 +1,19 @@
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xmlin
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
+<files *.html>
+SetOutputFilter DEFLATE
+</files>
+<FilesMatch "\.(css)">
+    ForceType application/x-httpd-php
+#    php_value auto_prepend_file "/gzip-css.php"
+</FilesMatch>
+
+Options -Indexes

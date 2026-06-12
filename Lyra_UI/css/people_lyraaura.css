@@ -1,0 +1,346 @@
+
+.grid {
+    padding: 0 10px;
+    gap: 20px;
+}
+.grid.rtl {
+    direction: rtl;
+    grid-template-columns: repeat(2, 40vw);
+    column-gap: 1vw ;
+}
+.people {
+    grid-row: span 20;
+    width: 320px;
+    overflow: hidden;
+    transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), border .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    padding: 8px 6px;
+    pointer-events: auto;
+    border: none;
+}
+.people * {
+    transition: none;
+}
+.people.row-2 {
+    grid-column: 1 / span 2;
+}
+.people.span-1 {
+    grid-column: span 27;
+}
+.people.span-2 {
+    margin-top: 6em;
+    grid-row: span 23;
+}
+
+.people:hover {
+    cursor: pointer;
+}
+
+.people .people-img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 0;
+    height: 100%;
+    background: rgba(117, 115, 113, 0.1) url('/assets/logo/lyra.webp') no-repeat;
+}
+
+.people .people-img.centered img, .people-type .people-img.centered img {
+    object-position: center center;
+}
+
+.people:hover .name {
+    border-top-color: var(--color-primary-500);
+}
+
+.people-img:has(img) {
+    background: rgba(100, 100, 100, 0) no-repeat !important;
+}
+
+.people .people-img img {
+    object-fit: cover;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    object-position: center 20%;
+    background-color: rgba(131, 131, 131, 0.034);
+    aspect-ratio: 3 / 4;
+}
+
+.people .name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 2px;
+    width: 100%;
+    transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), border-top .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: 0px 0px 8px 0px;
+    padding-top: 6px !important;
+    order: -1;
+    top: 0;
+    position: relative;
+}
+
+
+.people .name::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0%;
+    background-color: var(--color-border-100);
+    height: 1px;
+    transition: width 2s cubic-bezier(1, 0, 0, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.people *.visible .name::before {
+    width: 100%;
+}
+
+.badge::before, .people .name h2::before {
+    display: none;
+    content: "";
+    position: absolute;
+    left: 0px;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: var(--color-primary-500);
+}
+
+.people .people-bio {
+    user-select: none;
+    width: 100%;
+    padding: 0px;
+    gap:0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: opacity .2s, transform .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.people .name h2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-main);
+    font-size: 16px;    
+    font-family: "Source Serif 4", monospace !important;
+    font-weight: 500;
+    margin: auto;
+    width: 100% !important;
+    font-style: italic;
+    transition: padding-left .5s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+}
+
+.people:hover .name h2, .people.focus .name h2 {
+    padding-left: 25px;
+}
+.people:hover .name h2::before, .people.focus .name h2::before {
+    display: block;
+    animation: fadeIn .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.person-zodiac {
+    display: none !important;
+}
+
+.people .role {
+    position: relative;
+    width: auto;
+    text-align: right;
+    font-size: 16px; 
+    letter-spacing: 0;
+    text-transform: none;
+    font-style: italic;
+    font-family: "Source Serif 4", sans-serif !important;
+}
+
+.people .people-bio span {
+    color: var(--color-primary-500);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.people .people-bio .alias {
+    font-weight: 700;
+    color: inherit !important;
+}
+
+.people .alias::after {
+    content: "|";
+    margin: 0 8px;
+}
+
+.people .people-bio p {
+    font-family: "Source Serif 4", serif;
+    font-size: 16px;
+    line-height: 26px;
+    overflow: hidden;
+    max-height: calc(2em * 5);
+    display: none;
+    line-clamp: 4;
+    font-weight: 400;
+    box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.people-bio p.empty {
+    color: rgb(100, 100, 100);
+}
+
+.people .social-media a {
+    color: inherit !important;
+}
+
+.people .people-btns {
+    display: none;
+    flex-direction: column;
+    margin-bottom: 18px;
+    padding: 0px 20px 10px 20px;
+    justify-content: space-between;
+}
+
+.people .social-media {
+    width: fit-content !important;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 8px 10px;
+    padding: 6px 10px !important;
+    background-color: rgba(100, 100, 100, 0.05);
+}
+
+.people .social-media span {
+    display: none;
+}
+
+.people .social-media i {
+    padding: 4px;
+    font-size: 32px !important;
+}
+
+.people .social-media i:hover {
+    color: var(--color-primary-100);
+}
+
+.people-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 5px #808080;
+}
+
+.people .social-media i[class="ri-instagram-line"] {
+    position: relative;
+    background: #833ab4;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-emphasis-color: transparent;
+}
+
+.people .social-media i[class="ri-tiktok-fill"] {
+    position: relative;
+    background: transparent;
+    color: inherit;
+}
+
+@media (max-width: 900px) {
+    main {
+        margin: 60px 0 0 0;
+    }
+    .people {
+        width: unset; height: unset;
+        max-width: 80%;
+    }
+    .grid {
+        justify-items: stretch;
+        align-items: stretch;
+        padding: 4px 4px 4px 4px;
+        gap: 10px;
+    }
+    .grid.rtl, .grid.two-column {
+        grid-template-columns: repeat(2, 50vw);
+        padding: 4px 4px 4px 10px;
+    }
+    .people.row-2 {
+        grid-column: unset;
+    }
+    .people.span-2 {
+        grid-column: unset;
+    }
+    .grid .people.expr {
+        margin-left: 0;
+    }
+    .grid.rtl .people.expr {
+        margin-right: 0;
+    }
+    
+    .people .name {
+        padding-top: 4px;
+        margin-bottom: 8px;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .people .name h2 {
+        min-width: none !important;
+        width: auto;
+        font-size: 15px;
+    }
+    
+    .people .people-bio span {
+        width: auto;
+        text-align: right;
+        font-size: 15px !important;
+        font-weight: 500;
+    }
+    
+    .people .people-img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .people .people-img img {
+        width: 100%;
+        height: 100%;
+        object-position: center 17%;
+    }
+    .people .people-bio p {
+        padding: 0px 1.3em 40px 1.3em !important;
+    }
+}
+
+@media (max-width: 570px) {
+    .grid.rtl, .grid.two-column {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 4px 2px 4px 2px;
+        gap: 4px;
+    }
+    .people {
+        width: 100%;
+        max-width: none;
+        grid-row: unset;
+    }
+    .people.span-2 {
+        grid-row: unset;
+        margin-top: 0;
+    }
+    .people .people-img, .people .people-img img {
+        height: 100%;
+        width: 100%;
+        object-position: center center;
+    }
+    .header-container.hide {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.97);
+    }
+    .people .people-bio {
+        flex-wrap: nowrap !important;
+    }
+    
+}

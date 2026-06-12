@@ -1,0 +1,3 @@
+[submodule "lyra-chic"]
+    path = lyra-chic
+    url = https://github.com/YuukiConan/lyra-chic.git
