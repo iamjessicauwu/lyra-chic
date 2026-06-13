@@ -12,6 +12,7 @@
     pointer-events: auto ;
     grid-row: unset;
     border: none;
+    isolation: isolate;
 }
 .people * {
     transition: none;
@@ -77,7 +78,7 @@
 }
 
 /* Layer 1: dark gradient for readability */
-.people::after {
+.people .people-bio::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -92,7 +93,7 @@
 }
 
 /* Layer 2: blur only at the bottom */
-.people::before {
+.people .people-bio::before {
     content: "";
     position: absolute;
     inset: 0;
