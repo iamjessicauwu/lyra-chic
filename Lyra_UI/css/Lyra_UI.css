@@ -33,38 +33,6 @@
         color-scheme: light;
     }
 
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --color-bg: rgb(31, 22, 18) ;
-            --color-primary-500: #C89D84 ;
-            --color-surface-0: rgb(36, 28, 24);
-            --color-surface-500: #1a1915;
-            --bg-color-value: 31, 22, 18;
-            --color-surface-text: rgb(172, 149, 114);
-            --color-text-main: rgb(242, 236, 233);
-            color-scheme: dark;
-        }
-        .lyra-logo, .people .person-zodiac {
-            filter: invert(1);
-        }
-
-        .hamburger.active .equal div {
-            filter: invert(0);
-        }
-    }
-
-    :root.dark-mode .actions .navBtn, :root.dark-mode .navBtn {
-        color: white;
-    }
-
-    :root.dark-mode :is(#send-chat, .btn.accent) {
-        color: black !important;
-    }
-
-    :root.dark-mode .content-blurred {
-        background-color: rgba(20, 20, 20, 0.7);
-    }
-
     @keyframes upToDown {
         25% {
             transform: translateY(20px);
@@ -425,6 +393,32 @@
             width: 0%;
             filter: hue-rotate(360deg);
         }
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-bg: rgb(31, 22, 18) ;
+            --color-primary-500: #C89D84 ;
+            --color-surface-0: rgb(36, 28, 24);
+            --color-surface-500: #1a1915;
+            --bg-color-value: 31, 22, 18;
+            --color-surface-text: rgb(172, 149, 114);
+            --color-text-main: rgb(242, 236, 233);
+            --color-text-100: #4C3312;
+            color-scheme: dark;
+        }
+        
+        .actions .navBtn, .navBtn {
+            color: white;
+        }
+        .content-blurred {
+            background-color: rgba(20, 20, 20, 0.7);
+        }
+        
+        .people .people-img img {
+            background-color: #151515;
+        }
+        
+        .
     }
 }
 
@@ -4151,7 +4145,6 @@ header:has(.nav-pane:not(.hidden)) .navigation {
 }
 
 .navBtn .promo.small {
-    font-family: Manrope, sans-serif;
     position: absolute;
     top: unset;
     bottom: 0;
@@ -6071,3 +6064,4 @@ html:has(.nav-pane:not(.hidden)) {
         width: 140px; height: 140px;
     }
 }
+
