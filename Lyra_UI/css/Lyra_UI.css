@@ -4722,6 +4722,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     width: 22px;
 }
 .hamburger.active .equal div {
+    filter: invert(0);
     width: 37px !important;
 }
 .hamburger.active .equal .div1 {
