@@ -839,8 +839,13 @@
     }
 }
 
-@layer theme, components;
+@layer base, components;
 
+@layer base {
+    h1.divider {
+        font-size: 12px;
+    }
+}
 @layer components {
     .people .name h2 {
         display: flex;
@@ -851,12 +856,12 @@
         width: 100%;
         font-family: var(--sans-serif);
         margin: 0;
-        transition: padding-left .4s cubic-bezier(0.475, 0.82, 0.165, 1) !important;
+        transition: padding-left .4s cubic-bezier(0.475, 0.82, 0.165, 1);
     }
-    .divider {
+    h1.divider {
         margin: 5px 0 3px 0;
         text-transform: uppercase;
-        font-size: 14px;
+        font-size: 12px;
         font-family: var(--monospace);
     }
     .people .role {
