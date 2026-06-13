@@ -4633,7 +4633,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     width: 100%;
     border-radius: inherit;
     height: 100%;
-    object-position: center center;
+    object-position: center center !important;
 }
 .side-panel .social-media {
     gap: 30px;
