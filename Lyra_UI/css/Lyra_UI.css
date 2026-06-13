@@ -418,7 +418,6 @@
             background-color: #151515;
         }
         
-        .
     }
 }
 
@@ -4634,7 +4633,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     width: 100%;
     border-radius: inherit;
     height: 100%;
-    object-position: center 0%;
+    object-position: center center;
 }
 .side-panel .social-media {
     gap: 30px;
@@ -6064,4 +6063,3 @@ html:has(.nav-pane:not(.hidden)) {
         width: 140px; height: 140px;
     }
 }
-

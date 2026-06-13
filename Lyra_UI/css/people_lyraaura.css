@@ -151,7 +151,7 @@
 .people .role {
     width: auto;
     text-align: right;
-    font-size: 22px !important; 
+    font-size: 22px; 
     letter-spacing: 0;
     text-transform: none;
     color: var(--color-text-muted);
@@ -276,7 +276,15 @@
         grid-row: unset;
         margin-top: 0;
     }
-    
+    .people .name {
+        padding-inline: 24px;
+    }
+    .people .name h2 {
+        font-size: 22px;
+    }
+    .people .role {
+        font-size: 18px !important;
+    }
 }
 
 @media (min-width: 1025px) {
