@@ -209,7 +209,7 @@
 .sidebar-btn span {
     font-size: 15px;
     display: none;
-    font-family: "Source Serif 4", serif;
+    font-family: var(--serif);
     animation: fadeInLeft .6s cubic-bezier(1, 0, 0, 1);
 }
 
