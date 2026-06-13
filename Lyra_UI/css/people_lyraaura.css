@@ -12,6 +12,7 @@
     pointer-events: auto ;
     grid-row: unset;
     border: none;
+    border-radius: 42px;
     isolation: isolate;
 }
 .people * {
@@ -34,32 +35,30 @@
 
 .people .people-img {
     object-fit: cover;
-    width: 100%;
     height: 100%;
-    z-index: 0;
-    border-radius: 0;
-    background: rgba(117, 115, 113, 0.1) url('/assets/logo/lyra.webp') no-repeat;
+    width: 100%;
+    background: rgba(244, 244, 244, 0.9) url('/assets/logo/lyra.webp') no-repeat;
 }
 
 .people .people-img.centered img, .people-type .people-img.centered img {
-    object-position: center center;
+    object-position: center top;
 }
-
 .people:hover .name {
     border-top-color: var(--color-primary-500);
 }
 
 .people-img:has(img) {
-    background: rgba(100, 100, 100, 0) no-repeat !important;
+    background: rgba(244, 244, 244, 0) no-repeat !important;
 }
 
 .people .people-img img {
     object-fit: cover;
-    border-radius: 0;
+    border-radius: 16px;
     width: 100%;
     height: 100%;
+    transform: scale(1.05);
     object-position: center top;
-    background-color: var(--color-surface-500);
+    background-color: rgba(244, 244, 244, 0.85);
     aspect-ratio: 3 / 4;
 }
 
@@ -67,28 +66,28 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: flex-start;
-    padding: 14px 4px 18px 24px;
+    align-items: center;
+    padding: 20px 4px 14px 24px;
     transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), border-top .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    row-gap: 4px;
+    row-gap: 6px;
     z-index: 10;
     background-color: transparent;
     position: absolute;
-    bottom: 0; left: 0; right: 0;
+    top: 0; left: 0; right: 0;
 }
 
 /* Layer 1: dark gradient for readability */
 .people .people-bio::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -2px;
     pointer-events: none;
     z-index: 2;
     background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.85) 0%,
-        rgba(0, 0, 0, 0.3) 45%,
-        transparent 70%
+        to bottom,
+        rgba(244, 244, 244, 0.9) 0%,
+        rgba(244, 244, 244, 0.1) 20%,
+        transparent 60%
     );
 }
 
@@ -99,19 +98,20 @@
     inset: 0;
     backdrop-filter: blur(20px);
     mask-image: linear-gradient(
-        to top,
+        to bottom,
         black 0%,
-        black 30%,
-        transparent 60%
+        black 14%,
+        transparent 65%
     );
     -webkit-mask-image: linear-gradient(
         to top,
         black 0%,
-        black 30%,
-        transparent 60%
+        black 4%,
+        transparent 65%
     );
     pointer-events: none;
     z-index: 1;
+    transform: translateZ(0);
 }
 
 .badge::before, .people .name h2::before {
@@ -134,9 +134,12 @@
 }
 
 .people .name h2 {
-    color: var(--color-text-muted);
+    color: var(--color-text-main);
     font-size: 24px;   
-    font-weight: 500;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
     transition: padding-left .5s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
 }
 
@@ -158,7 +161,7 @@
     font-size: 22px !important; 
     letter-spacing: 0;
     text-transform: none;
-    color: var(--color-text-muted);
+    color: var(--color-primary-500);
     font-weight: 500;
 }
 
@@ -252,7 +255,7 @@
         margin: 60px 0 0 0;
     }
     .people {
-        width: unset; height: unset;
+        width: 100%; height: unset;
     }
     .grid {
         justify-items: stretch;
@@ -263,32 +266,6 @@
     .grid.rtl, .grid.two-column {
         grid-template-columns: repeat(2, 50vw);
         padding: 4px 4px 4px 10px;
-    }
-    .people.row-2 {
-        grid-column: unset;
-    }
-    .people.span-2 {
-        grid-column: unset;
-    }
-    .grid .people.expr {
-        margin-left: 0;
-    }
-    .grid.rtl .people.expr {
-        margin-right: 0;
-    }
-    .people .people-img {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-    
-    .people .people-img img {
-        width: 100%;
-        height: 100%;
-        object-position: center 17%;
-    }
-    .people .people-bio p {
-        padding: 0px 1.3em 40px 1.3em !important;
     }
 }
 
@@ -304,11 +281,6 @@
     .people.span-2 {
         grid-row: unset;
         margin-top: 0;
-    }
-    .people .people-img, .people .people-img img {
-        height: 100%;
-        width: 420px;
-        object-position: center center;
     }
     .header-container.hide {
         opacity: 0;
