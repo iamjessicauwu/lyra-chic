@@ -35,38 +35,6 @@
                         <button class="navBtn" data-dialog-open="cart-dialog" data-tooltip="Keranjang Anda">
                             <i class="ri-shopping-bag-line"></i>
                         </button>
-                        <dialog class="side-panel cart-dialog">
-                            <div class="dialog-header">
-                                <div>
-                                    <h1 class="dialog-mintopbar">Your cart<span class="promo small">Alpha</span></h1>
-                                </div>
-                                <div class="dialog-btns">
-                                    <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><span class="div-1"></span><span class="div-2"></span></button>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <div class="wishlist">
-                                    <div class="badge-container custom wishlist-item">
-                                        <h1 class="divider">On Demand</h1>
-                                        <div class="pinned-items">
-                                            <div class="badge">
-                                                <span>Jessica Noleen's private music</span>
-                                                <span class="gray">$12.00</span>
-                                            </div>
-                                            <div class="badge">
-                                                <span>Be a Good Dancer - Carin Miracle</span>
-                                                <span class="gray">$5.00</span>
-                                            </div>
-                                            <div class="badge">
-                                                <span>Tips for Travel by Mae</span>
-                                                <span class="gray">$10.00</span>
-                                            </div>
-                                        </div>
-                                        <button class="accent" data-dialog-open="add-wishlist"><i class="ri-add-line"></i><span>Add wishlist</span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </dialog>
                     </div>
                 </div>
             </div>
@@ -180,4 +148,36 @@
         </div>
     </div>
 </dialog>
-
+<dialog class="side-panel cart-dialog">
+    <div class="dialog-header">
+        <div>
+            <h1 class="dialog-mintopbar">Your cart<span class="promo small">Alpha</span></h1>
+        </div>
+        <div class="dialog-btns">
+            <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><span class="div-1"></span><span class="div-2"></span></button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="wishlist">
+            <div class="badge-container custom wishlist-item">
+                <h1 class="divider">On Demand</h1>
+                <!-- The products below are just placeholders for testing layouts. We don't sell these products in our actual storefront. -->
+                <div class="pinned-items">
+                    <div class="badge">
+                        <span>Jessica Noleen's private music</span>
+                        <span class="gray">$12.00</span>
+                    </div>
+                    <div class="badge">
+                        <span>Be a Good Dancer - Carin Miracle</span>
+                        <span class="gray">$5.00</span>
+                    </div>
+                    <div class="badge">
+                        <span>Tips for Travel by Mae</span>
+                        <span class="gray">$10.00</span>
+                    </div>
+                </div>
+                <button class="accent" data-dialog-open="add-wishlist"><i class="ri-add-line"></i><span>Add wishlist</span></button>
+            </div>
+        </div>
+    </div>
+</dialog>
