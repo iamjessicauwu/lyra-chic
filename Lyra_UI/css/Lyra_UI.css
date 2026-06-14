@@ -654,7 +654,7 @@
         text-align: center;
         width: 90%;
         border: 1px solid rgba(100, 100, 100, 0.1) !important;
-        margin: 12px auto;
+        margin: 4px auto;
     }
     
     p {
@@ -847,6 +847,7 @@
 
 @layer base {
     .divider {
+        margin: 10px 0 5px 0;
         font-size: 14px;
         text-transform: uppercase;
     }
@@ -860,11 +861,10 @@
         font-weight: 400;
         width: 100%;
         font-family: var(--sans-serif);
-        margin: 0;
         transition: padding-left .4s cubic-bezier(0.475, 0.82, 0.165, 1);
     }
     .divider {
-        margin: 5px 0 3px 0;
+        margin: 5px 0 5px 0;
         font-size: 14px;
         font-family: var(--monospace);
     }
@@ -2660,16 +2660,16 @@ body.dyslexia :is(p, h1, h2, h3, h4, h5, h6, span, a) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     gap: 24px;
-    padding: 5px 8px 16px 8px;
+    padding: 18px 8px 18px 8px;
 }
 
 .people .name {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
-    row-gap: 2px;
     position: relative;
     top: -2.5px;
 }
@@ -3073,7 +3073,7 @@ body.dyslexia :is(p, h1, h2, h3, h4, h5, h6, span, a) {
 .item {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 12px;
     padding: 12px 0px 12px 0px;
     width: 100%;
     transition: .4s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
@@ -3980,7 +3980,7 @@ header * {
     width: 50px;
     bottom: 10px;
     padding: 12px;
-    z-index: 10;
+    z-index: 3;
     transition: width .3s cubic-bezier(0.475, 0.82, 0.165, 1) !important;
 }
 
@@ -4471,8 +4471,6 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     align-items: center;
 }
 .people-type.alt .social-media {
-    margin: 0;
-    padding: 0px 0;
     flex-direction: row;
 }
 
@@ -4484,7 +4482,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
 .side-panel .name {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
     gap: 7px;
 }
 
@@ -4588,7 +4586,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     line-height: 27px;
     font-weight: 400;
     text-align: left;
-    margin: 0px 0px 5px 0;
+    margin: 0px 0px 0px 0;
 }
 .side-panel .people-banner {
     position: relative;
@@ -4631,7 +4629,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    padding: 0 28px;
+    padding: 0 16px;
 }
 .side-panel .people-img {
     display: flex;
@@ -4641,7 +4639,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     border-radius: 50%;
     height: 150px;
     z-index: 1;
-    margin: 0 24px 0px 28px;
+    margin: 0 24px 0px 24px;
     border: 12px solid var(--color-surface-0);
 }
 .side-panel .people-img img {
@@ -4652,8 +4650,8 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     object-position: center center !important;
 }
 .side-panel .social-media {
-    gap: 30px;
-    margin: 10px 0 8px 0 !important;
+    gap: 26px;
+    margin: 0px 0 0px 0 !important;
 }
 .side-panel .social-media span {
     display: none;
@@ -5997,7 +5995,7 @@ html:has(.nav-pane:not(.hidden)) {
     }
     .grid {
         padding: 16px 4px 16px 4px;
-        gap: 10px;
+        gap: 0px;
         grid-template-columns: repeat(1, 1fr);
     }
     .grid.rtl, .grid.two-column {
@@ -6038,15 +6036,8 @@ html:has(.nav-pane:not(.hidden)) {
         flex-direction: column;
         align-items: center;
     }
-    .side-panel .name {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: none;
-    }
     .side-panel .name h2 {
         font-size: 26px;
-        text-align: center;
     }
     .side-panel .role {
         display: none;
