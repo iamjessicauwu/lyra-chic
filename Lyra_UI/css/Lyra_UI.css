@@ -23,6 +23,7 @@
         --color-icon-bg: rgba(219, 179, 146, 0.212);
         --color-border-100: rgba(190, 135, 77, 0.377);
         --color-text-muted: #ffffff;
+        --color-text-100: #CABB9A;
         --color-text-main:  #2e2824;
 
         --sans-serif: "Plus Jakarta Sans", sans-serif;
@@ -30,38 +31,6 @@
         --monospace: "JetBrains Mono", monospace;
 
         color-scheme: light;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        :root {
-            --color-bg: rgb(31, 22, 18) ;
-            --color-primary-500: #C89D84 ;
-            --color-surface-0: rgb(36, 28, 24);
-            --color-surface-500: #1a1915;
-            --bg-color-value: 31, 22, 18;
-            --color-surface-text: rgb(172, 149, 114);
-            --color-text-main: rgb(242, 236, 233);
-            color-scheme: dark;
-        }
-        .lyra-logo, .people .person-zodiac {
-            filter: invert(1);
-        }
-
-        .hamburger.active .equal div {
-            filter: invert(0);
-        }
-    }
-
-    :root.dark-mode .actions .navBtn, :root.dark-mode .navBtn {
-        color: white;
-    }
-
-    :root.dark-mode :is(#send-chat, .btn.accent) {
-        color: black !important;
-    }
-
-    :root.dark-mode .content-blurred {
-        background-color: rgba(20, 20, 20, 0.7);
     }
 
     @keyframes upToDown {
@@ -425,6 +394,35 @@
             filter: hue-rotate(360deg);
         }
     }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-bg: rgb(31, 22, 18) ;
+            --color-primary-500: #C89D84 ;
+            --color-surface-0: rgb(36, 28, 24);
+            --color-surface-500: #1a1915;
+            --bg-color-value: 31, 22, 18;
+            --color-surface-text: rgb(172, 149, 114);
+            --color-text-main: rgb(242, 236, 233);
+            --color-text-100: #4C3312;
+            color-scheme: dark;
+        }
+        
+        .actions .navBtn, .navBtn {
+            color: white;
+        }
+        .lyra-logo, .equal div {
+            filter: invert(1);
+        }
+        
+        .content-blurred {
+            background-color: rgba(20, 20, 20, 0.7);
+        }
+        
+        .people .people-img img {
+            background-color: #151515;
+        }
+        
+    }
 }
 
 @layer base {
@@ -650,9 +648,9 @@
 
     hr {
         text-align: center;
-        max-width: 90%;
+        width: 90%;
         border: 1px solid rgba(100, 100, 100, 0.1) !important;
-        margin: 20px auto;
+        margin: 12px auto;
     }
     
     p {
@@ -841,8 +839,14 @@
     }
 }
 
-@layer theme, components;
+@layer base, components;
 
+@layer base {
+    .divider {
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+}
 @layer components {
     .people .name h2 {
         display: flex;
@@ -853,12 +857,11 @@
         width: 100%;
         font-family: var(--sans-serif);
         margin: 0;
-        transition: padding-left .4s cubic-bezier(0.475, 0.82, 0.165, 1) !important;
+        transition: padding-left .4s cubic-bezier(0.475, 0.82, 0.165, 1);
     }
     .divider {
         margin: 5px 0 3px 0;
-        text-transform: uppercase;
-        font-size: 14px;
+        font-size: 12px;
         font-family: var(--monospace);
     }
     .people .role {
@@ -3969,7 +3972,7 @@ header * {
     width: 50px;
     bottom: 10px;
     padding: 12px;
-    z-index: 1;
+    z-index: 10;
     background-color: black !important;
     transition: width .3s cubic-bezier(0.475, 0.82, 0.165, 1) !important;
     color: white;
@@ -4150,7 +4153,6 @@ header:has(.nav-pane:not(.hidden)) .navigation {
 }
 
 .navBtn .promo.small {
-    font-family: Manrope, sans-serif;
     position: absolute;
     top: unset;
     bottom: 0;
@@ -4509,21 +4511,22 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     padding: 0px 24px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 16px;
 }
 .badge-container {
-    display: flex; gap: 16px; flex-wrap: wrap; margin: 0px 4px; color: var(--color-surface-text);
+    display: flex; flex-direction: column; gap: 16px; margin: 0px 4px; color: var(--color-surface-text);
 }
 .badge-container.bg {
     background-color: var(--color-icon-bg);
-    padding: 14px 10px 14px 10px;
+    gap: 0px;
+    padding: 6px 10px 6px 10px;
 }
 .badge-container.compact {
     margin: 20px 5%;
 }
 .badge-container.custom {
     margin: 20px 2px;
-    flex-direction: column;
 }
 .badge {
     display: flex;
@@ -4533,7 +4536,8 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     border-bottom: 1px solid var(--color-border-100);
     color: var(--color-text-main);
     text-align: left;
-    font-family: 'JetBrains Mono', monospace;
+    margin:0;
+    font-family: var(--monospace);
     padding: 12px 0px 12px 0px;
     font-weight: 500;
     width: 100%;
@@ -4565,6 +4569,9 @@ header:has(.nav-pane:not(.hidden)) .navigation {
 .badge:hover {
     padding-left: 30px;
 }
+.badge-container.bg .badge {
+    padding: 14px 8px 14px inherit;
+}
 
 .badge:hover::before {
     display: block;
@@ -4579,7 +4586,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     line-height: 27px;
     font-weight: 400;
     text-align: left;
-    margin: 0;
+    margin: 0px 0px 5px 0;
 }
 .side-panel .people-banner {
     position: relative;
@@ -4640,7 +4647,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     width: 100%;
     border-radius: inherit;
     height: 100%;
-    object-position: center 0%;
+    object-position: center center !important;
 }
 .side-panel .social-media {
     gap: 30px;
@@ -4714,8 +4721,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     width: 37px;
     height: 2px;
     top: 0px;
-    background-color: white;
-    filter: invert(1);
+    background-color: black;
     transition: all .4s cubic-bezier(1, 0, 0, 1);
 }
 
