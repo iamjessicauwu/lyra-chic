@@ -2660,6 +2660,7 @@ body.dyslexia :is(p, h1, h2, h3, h4, h5, h6, span, a) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     gap: 24px;
     padding: 18px 8px 18px 8px;
 }
