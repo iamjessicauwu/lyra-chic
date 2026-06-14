@@ -44,15 +44,14 @@ function renderCard() {
                         text = `${text} | ${person.zodiac} • ${person.role}`;
                     } else {
                         zodiacImg.style.display = 'none';
-                        text = `${text} | ${person.role}`;
+                        text = `${text} • ${person.role}`;
                     }
                 });
-
-                const old = document.querySelector('.old-people-card')
+                
+                const old = document.querySelector('.old-people-card');
                 if (old) {
-                    text = person.nickname.replace(/&bull;/g, "•");
+                    text = `${person.nickname.replace(/&bull;/g, "•")}  •  ${person.role}`;
                 }
-
 
                 nick.textContent = text;
             });

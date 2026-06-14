@@ -1,25 +1,20 @@
+
 .grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     padding: 0 10px;
     gap: 20px;
 }
-
-@media (min-width: 1440px) {
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    }
+.grid.rtl {
+    direction: rtl;
+    grid-template-columns: repeat(2, 40vw);
+    column-gap: 1vw ;
 }
-
 .people {
-    position: relative;
+    grid-row: span 20;
     overflow: hidden;
     transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), border .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
-    padding: 0px 0px;
-    pointer-events: auto ;
-    grid-row: unset;
+    padding: 8px 6px;
+    pointer-events: auto;
     border: none;
-    border-radius: 42px;
-    isolation: isolate;
 }
 .people * {
     transition: none;
@@ -35,84 +30,70 @@
     grid-row: span 23;
 }
 
+.people:hover {
+    cursor: pointer;
+}
+
 .people .people-img {
     object-fit: cover;
-    height: 520px;
     width: 100%;
-    background: rgba(244, 244, 244, 0.9) url('/assets/logo/lyra.webp') no-repeat;
+    border-radius: 0;
+    height: 100%;
+    background: rgba(117, 115, 113, 0.1) url('/assets/logo/lyra.webp') no-repeat;
 }
 
 .people .people-img.centered img, .people-type .people-img.centered img {
-    object-position: center top;
+    object-position: center center;
 }
+
 .people:hover .name {
     border-top-color: var(--color-primary-500);
 }
 
 .people-img:has(img) {
-    background: rgba(244, 244, 244, 0) no-repeat !important;
+    background: rgba(100, 100, 100, 0) no-repeat !important;
 }
 
 .people .people-img img {
     object-fit: cover;
-    border-radius: 16px;
+    border-radius: 0;
     width: 100%;
     height: 100%;
-    transform: scale(1.05);
-    object-position: center center;
-    background-color: var(--color-surface-500);
+    object-position: center 20%;
+    background-color: rgba(131, 131, 131, 0.034);
     aspect-ratio: 3 / 4;
 }
 
 .people .name {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 12px 28px 2.5em 32px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 2px;
+    width: 100%;
     transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), border-top .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    row-gap: 8px;
-    z-index: 3;
-    background-color: transparent;
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
+    margin: 0px 0px 8px 0px;
+    padding-top: 6px !important;
+    order: -1;
+    top: 0;
+    position: relative;
 }
 
-/* Layer 1: dark gradient for readability */
-.people .people-bio::after {
+
+.people .name::before {
     content: "";
     position: absolute;
-    inset: -2px;
-    pointer-events: none;
-    z-index: 2;
-    background: linear-gradient(
-        to top,
-        rgba(131, 124, 117, 0.5) 0%,
-        rgba(150, 150, 150, 0.1) 25%,
-        transparent 60%
-    );
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0%;
+    background-color: var(--color-border-100);
+    height: 1px;
+    transition: width 2s cubic-bezier(1, 0, 0, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-/* Layer 2: blur only at the bottom */
-.people .people-bio::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    mask-image: linear-gradient(
-        to top,
-        black 0%,
-        black 12%,
-        transparent 75%
-    );
-    -webkit-mask-image: linear-gradient(
-        to top,
-        black 0%,
-        black 12%,
-        transparent 75%
-    );
-    pointer-events: none;
-    z-index: 1;
-    transform: translateZ(0);
+.people *.visible .name::before {
+    width: 100%;
 }
 
 .badge::before, .people .name h2::before {
@@ -126,20 +107,28 @@
 }
 
 .people .people-bio {
-    position: relative;
     user-select: none;
+    width: 100%;
+    padding: 0px;
+    gap:0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     transition: opacity .2s, transform .4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .people .name h2 {
-    color: var(--color-text-muted);
-    font-size: 26px;   
-    font-weight: 600;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-main);
+    font-size: 16px;    
+    font-family: "Source Serif 4", monospace !important;
+    font-weight: 500;
+    margin: auto;
+    width: 100% !important;
+    font-style: italic;
     transition: padding-left .5s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
-    text-shadow: 1px 1px 8px #202020;
 }
 
 .people:hover .name h2, .people.focus .name h2 {
@@ -155,14 +144,20 @@
 }
 
 .people .role {
+    position: relative;
     width: auto;
-    font-size: 20px !important; 
+    text-align: right;
+    font-size: 16px; 
     letter-spacing: 0;
     text-transform: none;
-    color: var(--color-text-muted);
-    font-weight: 450;
-    word-spacing: 6px;
-    text-shadow: 1px 1px 8px #202020
+    font-style: italic;
+    font-family: "Source Serif 4", sans-serif !important;
+}
+
+.people .people-bio span {
+    color: var(--color-primary-500);
+    font-weight: 500;
+    font-size: 16px;
 }
 
 .people .people-bio .alias {
@@ -176,7 +171,7 @@
 }
 
 .people .people-bio p {
-    font-family: var(--serif);
+    font-family: "Source Serif 4", serif;
     font-size: 16px;
     line-height: 26px;
     overflow: hidden;
@@ -250,27 +245,71 @@
     color: inherit;
 }
 
-.side-panel .name h2 {
-    font-size: 28px;
-    font-style: italic;
-}
-
 @media (max-width: 900px) {
     main {
         margin: 60px 0 0 0;
     }
     .people {
-        width: 100%; height: unset;
+        width: unset; height: unset;
+        max-width: 80%;
     }
     .grid {
         justify-items: stretch;
         align-items: stretch;
         padding: 4px 4px 4px 4px;
-        gap: 20px;
+        gap: 10px;
     }
     .grid.rtl, .grid.two-column {
         grid-template-columns: repeat(2, 50vw);
         padding: 4px 4px 4px 10px;
+    }
+    .people.row-2 {
+        grid-column: unset;
+    }
+    .people.span-2 {
+        grid-column: unset;
+    }
+    .grid .people.expr {
+        margin-left: 0;
+    }
+    .grid.rtl .people.expr {
+        margin-right: 0;
+    }
+    
+    .people .name {
+        padding-top: 4px;
+        margin-bottom: 8px;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .people .name h2 {
+        min-width: none !important;
+        width: auto;
+        font-size: 15px;
+    }
+    
+    .people .people-bio span {
+        width: auto;
+        text-align: right;
+        font-size: 15px !important;
+        font-weight: 500;
+    }
+    
+    .people .people-img {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .people .people-img img {
+        width: 100%;
+        height: 100%;
+        object-position: center 17%;
+    }
+    .people .people-bio p {
+        padding: 0px 1.3em 40px 1.3em !important;
     }
 }
 
@@ -282,69 +321,25 @@
     }
     .people {
         width: 100%;
+        max-width: none;
+        grid-row: unset;
     }
     .people.span-2 {
         grid-row: unset;
         margin-top: 0;
     }
-    .people .name {
-        padding-inline: 24px;
+    .people .people-img, .people .people-img img {
+        height: 100%;
+        width: 100%;
+        object-position: center center;
     }
-    .people .name h2 {
-        font-size: 22px;
-    }
-}
-
-@media (min-width: 1025px) {
-    .people .people-bio::before {
-        backdrop-filter: blur(20px);
-        will-change: transform;
-        mask-image: linear-gradient(
-            to top,
-            black 0%,
-            black 5%,
-            transparent 65%
-        );
-        -webkit-mask-image: linear-gradient(
-            to top,
-            black 0%,
-            black 5%,
-            transparent 65%
-        );
+    .header-container.hide {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.97);
     }
     .people .people-bio {
-        background: linear-gradient(
-            to top,
-            rgba(244, 244, 244, 0.9) 0%,
-            rgba(244, 244, 244, 0.1) 20%,
-            transparent 85%
-        );
+        flex-wrap: nowrap !important;
     }
-    @media (prefers-color-scheme: dark) {
-        .people .people-bio::after {
-            background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0.9) 0%,
-                rgba(0, 0, 0, 0.3) 14%,
-                transparent 60%
-            );
-        }
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .people .people-img img {
-        background-color: var(--color-surface-0);
-    }
-    .people .people-bio::after {
-        background: linear-gradient(
-            to top,
-            rgba(29, 29, 29, 0.9) 0%,
-            rgba(29, 29, 29, 0.8) 20%,
-            transparent 60%
-        );
-    }
-    .people .role {
-        color: var(--color-primary-0 );
-    }
+    
 }

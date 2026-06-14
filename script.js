@@ -43,43 +43,29 @@ document.addEventListener('DOMContentLoaded', () => {
         history.scrollRestoration = 'manual';
     }
     lenis.scrollTo(0, { immediate: true });
+
+    let lastDirection = 0;
     
     lenis.on('scroll', (e) => {
-        const scrollY = e.scroll;
-        
         const header = document.querySelector('.header-container');
         const footer = document.querySelector('footer');
-
-        if (!header) return;
 
         const offsetTop = footer.offsetTop;
         const innerHeight = window.innerHeight;
 
-        if (scrollY >= 60 && scrollY < 350) {
-            header.classList.add('hide');
-        } else if (scrollY < 20 || scrollY >= 350) {
-            header.classList.remove('hide');
-        }
+        const direction = e.direction;
 
+        if (direction !== 0) {
+            lastDirection = direction;
+            header.classList.toggle('hide', direction === 1);
+        }
         const reachFooter = e.scroll + innerHeight >= offsetTop + 400;
         if (reachFooter) {
             header.classList.add('hide');
-        } else {
-            header.classList.remove('hide');
-        } 
+        }
 
-        // const secs = document.querySelectorAll('.people');
-
-        // secs.forEach(section => {
-        //     const rect = section.getBoundingClientRect();
-        //     const viewHeight = window.innerHeight;
-            
-        //     let distance = 1 - (rect.top / viewHeight);
-        //     distance = Math.min(1, Math.max(0, distance));
-
-        //     section.style.transform = `translateY(-${distance * 40}px)`;
-        // })
     })
+
     
     const root = document.documentElement;
     
