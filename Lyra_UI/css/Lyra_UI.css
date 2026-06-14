@@ -2672,7 +2672,7 @@ body.dyslexia :is(p, h1, h2, h3, h4, h5, h6, span, a) {
     align-items: flex-start;
     width: 100%;
     position: relative;
-    top: -2.5px;
+    top: -4px;
 }
 
 
