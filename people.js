@@ -133,11 +133,13 @@ people.forEach(card => {
         }
 
         // Replace the HTML line break tag with actual line break, then create a document fragment.
-        const lines = person.description.replace(/&bull;/g, "•").split("<br>");
+        const lines = person.description.replace(/&bull;/g, "•").replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\*(.*?)\*/g, '<i>$1</i>').split('<br>');
         const fragment = document.createDocumentFragment();
 
         lines.forEach((line, i) => {
-            fragment.appendChild(document.createTextNode(line.trim()));
+            const p = document.createElement('p');
+            p.innerHTML = line.trim();
+            fragment.appendChild(p);
 
             if (i < lines.length - 1) {
                 fragment.appendChild(document.createElement("br"));
@@ -184,9 +186,11 @@ people.forEach(card => {
         if (badgesArray && badgesArray.length > 0) {
             badgesArray.map(badge => {
                 const category = document.createElement('div');
-                category.classList.add('badge');
-                category.textContent = badge;
+                category.className = 'badge';
+                const span = document.createElement('span');
+                span.textContent = badge;
                 
+                category.appendChild(span);
                 badges.appendChild(category);
             }) 
         } else {

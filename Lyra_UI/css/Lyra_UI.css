@@ -648,9 +648,9 @@
 
     hr {
         text-align: center;
-        max-width: 90%;
+        width: 90%;
         border: 1px solid rgba(100, 100, 100, 0.1) !important;
-        margin: 20px auto;
+        margin: 12px auto;
     }
     
     p {
@@ -842,8 +842,9 @@
 @layer base, components;
 
 @layer base {
-    h1.divider {
+    .divider {
         font-size: 12px;
+        text-transform: uppercase;
     }
 }
 @layer components {
@@ -858,9 +859,8 @@
         margin: 0;
         transition: padding-left .4s cubic-bezier(0.475, 0.82, 0.165, 1);
     }
-    h1.divider {
+    .divider {
         margin: 5px 0 3px 0;
-        text-transform: uppercase;
         font-size: 12px;
         font-family: var(--monospace);
     }
@@ -4511,21 +4511,22 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     padding: 0px 24px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 16px;
 }
 .badge-container {
-    display: flex; gap: 16px; flex-wrap: wrap; margin: 0px 4px; color: var(--color-surface-text);
+    display: flex; flex-direction: column; gap: 16px; margin: 0px 4px; color: var(--color-surface-text);
 }
 .badge-container.bg {
     background-color: var(--color-icon-bg);
-    padding: 14px 10px 14px 10px;
+    gap: 0px;
+    padding: 6px 10px 6px 10px;
 }
 .badge-container.compact {
     margin: 20px 5%;
 }
 .badge-container.custom {
     margin: 20px 2px;
-    flex-direction: column;
 }
 .badge {
     display: flex;
@@ -4535,7 +4536,8 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     border-bottom: 1px solid var(--color-border-100);
     color: var(--color-text-main);
     text-align: left;
-    font-family: 'JetBrains Mono', monospace;
+    margin:0;
+    font-family: var(--monospace);
     padding: 12px 0px 12px 0px;
     font-weight: 500;
     width: 100%;
@@ -4567,6 +4569,9 @@ header:has(.nav-pane:not(.hidden)) .navigation {
 .badge:hover {
     padding-left: 30px;
 }
+.badge-container.bg .badge {
+    padding: 14px 8px 14px inherit;
+}
 
 .badge:hover::before {
     display: block;
@@ -4581,7 +4586,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     line-height: 27px;
     font-weight: 400;
     text-align: left;
-    margin: 0;
+    margin: 0px 0px 5px 0;
 }
 .side-panel .people-banner {
     position: relative;

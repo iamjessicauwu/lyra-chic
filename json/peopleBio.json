@@ -2,7 +2,7 @@
     {
         "name": "Nathania Anneta",
         "nickname": "Neta",
-        "description": "Nathania Anneta, exclusively known as Nia or Neta, is a Yuuki’s new assistant developer, actress and model that often helps Yuuki to test new features in Lyra before they’re released to the public. <br><br>In addition to her work as a developer, Nia is also known for her captivating performances and stunning looks when she become the photogenic champion of Kediri Regency in 2025. With her unique blend of technical expertise and creative talent, Nia is a valuable asset to the Lyra team and a rising star in the entertainment industry.",
+        "description": "Nathania Anneta Wayak Payong — or just Neta — is honestly one of those people who can do it all. She's the main developer keeping Lyra Chic's website alive and running, but that's only half the story. Outside of her dev work, Nia is also an actress and model who took home the photogenic champion title of Kediri Regency in 2025. Yeah, she codes AND she slays. <br>With her rare mix of technical brain and creative soul, Nia is easily one of Lyra's most valuable pillars — and honestly, she's just getting started.",
         "role": "Developer",
         "id": "anneta",
         "image": "./assets/image/nathania_anneta/Nia_avatar-nobg.png",
@@ -22,7 +22,7 @@
         "role": "Dancer",
         "image": "./assets/image/member_avatar/carin.webp",
         "banner_image": "./assets/image/member_avatar/carin_banner.webp",
-        "description": "Carin Miracle, known as her stage name 'crshyle', is a member in Lyra who joined the dancer team named 'ST☆RGΛINZ' placed in Kediri Regency, East Java. <br>She is known as Jessica Noleen's friend at the same school. Not much is known about her, but she is often seen in the background of Lyra's development and is rumored to have a significant role in the future of the project. ",
+        "description": "Carin Miracle — stage name <b>crshyle</b> — is Lyra's resident dancer and a proud member of the dance team <b>ST☆RGΛINZ</b> along with Monique based in Kediri Regency, East Java. She's also Jessica Noleen's friend from the same school, which is honestly such a fun origin story. <br>She might not be the loudest in the room, but Carin has this quiet magnetism that draws people in. She placed 3rd in her school's dance contest in 2025, and those who've seen her move say she's got something special. Whatever's next for her in Lyra — we're watching. 👀 <br><i>\"I may not be the loudest, but when I move, I say everything I need to.\"</i> — Carin",
         "id": "crshyle",
         "badges": ["Creative Dancer", "3rd place Winner of School Contest Dance 2025🏆🥉", "ST☆RGΛINZ Member"],
         "zodiac": ""
@@ -30,7 +30,7 @@
     {
         "name": "Jessica Noleen Alka",
         "nickname": "Jessica",
-        "description": "'I'm a gentle person on the outside, but I have a lot of ideas that I want to realize and share with others,' that's what Jessica said. <br><br>Jessica Noleen Alka, also known as Jessica, is a music producer and artist who is currently the owner of this website. She contributed by creating original music and sound effects for the project. She is known for her unique style and ability to create immersive audio experiences that enhance the overall user experience of Lyra.",
+        "description": "<i>\"I'm a gentle person on the outside, but I have a lot of ideas that I want to realize and share with others.\"</i> — and honestly? That quote says everything about her. <br>Jessica Noleen Alka is a music producer, artist, and the owner of Lyra Chic itself. She's the one behind the original music and sound effects that give Lyra its unique vibe and feel. Her ability to create immersive audio experiences is something else — you don't just hear it, you <i>feel</i> it. <br>Gentle on the surface, but full of vision underneath. That's Noleen.",
         "role": "Music Producer",
         "banner_image": "./assets/image/jessica_noleen/jessica_banner.jpg",
         "image": "./assets/image/jessica_noleen/Jessica.webp",
@@ -42,7 +42,7 @@
     {
         "name": "Monique Tri Tunggadewi",
         "nickname": "Monique",
-        "description": "Monique is Noleen and Carin's first friend at school. She is a student and contributor to Lyra who is passionate about fashion, design, and creativity.",
+        "description": "Monique was actually Noleen and Carin's first friend at school — and it's easy to see why she left an impression. She's passionate about fashion, design, and all things creative, and those interests naturally found a home in Lyra Chic. <br>And yes — she's also part of the same dance group as Carin, <b>ST☆RGΛINZ</b>. So the creative chemistry between them? Totally makes sense. <br>As a fashion designer and creative illustrator, Monique brings a visual flair to the team that's hard to replicate. Whether it's a concept sketch or a full-on design, she puts her whole personality into it. Quietly expressive, endlessly creative.",
         "role": "Artist",
         "aliases": "",
         "image": "./assets/image/member_avatar/monnn.webp",
@@ -54,7 +54,7 @@
     {
         "name": "Rhiannon Ava Mae",
         "nickname": "Mae",
-        "description": "Mae is Noleen and Carin's second friend at school. Known as her extroverted nature and infectious laughter, Mae is a student and contributor to Lyra who is passionate about performing arts, music, and entertainment.",
+        "description": "Mae is the kind of person who lights up a room without even trying. At school, she's widely known as one of the most attractive girls around. It's not just looks though; it's the whole package. Noleen and Carin's second friend from school, she's known for her extroverted energy and that infectious laugh that somehow makes everything more fun. <br>As Lyra's performer and resident music enthusiast, Mae brings the hype and heart to the team. She's passionate about performing arts and entertainment, and when she's on — she's really on. If Lyra ever had a hype person, it'd be her.",
         "role": "Performer",
         "aliases": "",
         "image": "./assets/image/member_avatar/mae.webp",
@@ -66,7 +66,7 @@
     {
         "name": "Miracel Charis Gracia",
         "nickname": "Charis",
-        "description": "This character is coming soon. Stay tune!",
+        "description": "Charis is still a bit of a mystery — even to us. 🤫 <br>What we do know is that she's Lyra's UI Tester, quietly making sure everything looks and feels right behind the scenes. She might not be in the spotlight yet, but something tells us that when her full story drops, it'll be worth the wait. <br><i>Stay tuned. ✨</i>",
         "role": "UI Tester",
         "aliases": "",
         "image": "./assets/image/member_avatar/charis.webp",
@@ -76,7 +76,7 @@
     {
         "name": "Reagan Putra Lobis",
         "nickname": "Reagan",
-        "description": "Reagan is the co-developer of Lyra Chic. He is known as a member of the student council's sports section and possesses strong leadership and social skills at school.",
+        "description": "Reagan is Lyra Chic's co-developer and honestly one of the more grounded people on the team. At school, he's part of the student council's sports section — so yeah, he knows how to lead, how to organize, and how to keep things moving. <br>Those same skills carry right into Lyra. He's the kind of person you want in your corner when things get complicated — calm, reliable, and socially sharp. Behind the scenes, Reagan is doing more than most people realize.",
         "role": "Developer",
         "aliases": "",
         "image": "./assets/image/member_avatar/reagan.webp",
