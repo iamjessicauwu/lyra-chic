@@ -19,10 +19,10 @@
     {
         "name": "Carin Miracle",
         "nickname": "Carin",
+        "description": "Carin Miracle — stage name <b>crshyle</b> — is Lyra's resident dancer and a proud member of the dance team <b>ST☆RGΛINZ</b> along with Monique based in Kediri Regency, East Java. She's also Jessica Noleen's friend from the same school, which is honestly such a fun origin story. <br>She might not be the loudest in the room, but Carin has this quiet magnetism that draws people in. She placed 3rd in her school's dance contest in 2025, and those who've seen her move say she's got something special. Whatever's next for her in Lyra — we're watching. 👀 <br><i>\"I may not be the loudest, but when I move, I say everything I need to.\"</i> — Carin",
         "role": "Dancer",
         "image": "./assets/image/member_avatar/carin.webp",
         "banner_image": "./assets/image/member_avatar/carin_banner.webp",
-        "description": "Carin Miracle — stage name <b>crshyle</b> — is Lyra's resident dancer and a proud member of the dance team <b>ST☆RGΛINZ</b> along with Monique based in Kediri Regency, East Java. She's also Jessica Noleen's friend from the same school, which is honestly such a fun origin story. <br>She might not be the loudest in the room, but Carin has this quiet magnetism that draws people in. She placed 3rd in her school's dance contest in 2025, and those who've seen her move say she's got something special. Whatever's next for her in Lyra — we're watching. 👀 <br><i>\"I may not be the loudest, but when I move, I say everything I need to.\"</i> — Carin",
         "id": "crshyle",
         "badges": ["Creative Dancer", "3rd place Winner of School Contest Dance 2025🏆🥉", "ST☆RGΛINZ Member"],
         "zodiac": ""
@@ -58,6 +58,7 @@
         "role": "Performer",
         "aliases": "",
         "image": "./assets/image/member_avatar/mae.webp",
+        "banner_image": "",
         "id": "mae",
         "badges": ["Performer", "Music Enthusiast"],
         "zodiac": ""
@@ -70,6 +71,7 @@
         "role": "UI Tester",
         "aliases": "",
         "image": "./assets/image/member_avatar/charis.webp",
+        "banner_image": "",
         "id": "charis",
         "zodiac": ""
     },
@@ -80,18 +82,19 @@
         "role": "Developer",
         "aliases": "",
         "image": "./assets/image/member_avatar/reagan.webp",
+        "banner_image": "",
         "id": "reagan"
     }, 
     {
-    "name": "Velanie Agatha",
-    "nickname": "Velanie",
-    "description": "Velanie Agatha is another proud member of <b>ST☆RGΛINZ</b> — the same dance group as Carin and Monique — and honestly, the moment you see her, you understand why she fits right in. She carries this charming, almost magnetic presence that translates beautifully both on the dance floor and in fashion. <br><br>As a dancer and writer, Velanie brings a unique duality to Lyra Chic — she moves with grace and writes with intention. Her sense of style is expressive and illuminating, always turning heads without trying too hard. <br><br><i>\"Even when the world feels dim, keep your light burning — because someone out there needs to see it.\"</i> — Velanie ✨",
-    "role": "Dancer, Writer",
-    "aliases": "",
-    "image": "/assets/image/member_avatar/velanie.webp",
-    "banner_image": "",
-    "id": "velanie",
-    "badges": ["Fashion Illuminator", "ST☆RGΛINZ Member"],
-    "zodiac": "Unpublished"
-}
+        "name": "Velanie Zerlina Agatha",
+        "nickname": "Velanie",
+        "description": "Velanie Agatha is another proud member of <b>ST☆RGΛINZ</b> — the same dance group as Carin and Monique — and honestly, the moment you see her, you understand why she fits right in. She carries this charming, almost magnetic presence that translates beautifully both on the dance floor and in fashion. <br>As a dancer and writer, Velanie brings a unique duality to Lyra Chic — she moves with grace and writes with intention. Her sense of style is expressive and illuminating, always turning heads without trying too hard. <br><i>\"Even when the world feels dim, keep your light burning — because someone out there needs to see it.\"</i> — Velanie ✨",
+        "role": "Dancer, Writer",
+        "aliases": "",
+        "image": "/assets/image/member_avatar/velanie.webp",
+        "banner_image": "./assets/image/member_avatar/velanie_banner.webp",
+        "id": "velanie",
+        "badges": ["Fashion Illuminator", "ST☆RGΛINZ Member"],
+        "zodiac": "Unpublished"
+    }
 ]

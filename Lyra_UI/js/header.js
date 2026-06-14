@@ -205,45 +205,43 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
 
     window.addEventListener('scroll', () => {
         body.scrollTop > 200 || document.documentElement.scrollTop > 100 ? document.querySelector('.header-container').classList.add('scrolled') : document.querySelector('.header-container').classList.remove('scrolled');
-
     })
 
     function disableAnimation(checkbox) {
-    const cbx = document.querySelector(checkbox);
-    const isAnimEnabled = localStorage.getItem('anim-mode') === 'enabled';
-    
-
-    if (isAnimEnabled) {
-        document.body.classList.add('anim-disabled');
-        cbx.checked = true;
+        const cbx = document.querySelector(checkbox);
+        const isAnimEnabled = localStorage.getItem('anim-mode') === 'enabled';
         
-    }
-    else {
-        document.body.classList.remove('anim-disabled');
-        cbx.checked = false;
-        localStorage.setItem("anim-mode", "disabled");
-    }
-    
-    cbx.addEventListener('change', () => {
-        if (cbx.checked) {
+
+        if (isAnimEnabled) {
             document.body.classList.add('anim-disabled');
             cbx.checked = true;
-            localStorage.setItem("anim-mode", "enabled");
         }
         else {
             document.body.classList.remove('anim-disabled');
             cbx.checked = false;
             localStorage.setItem("anim-mode", "disabled");
         }
-    })
-}
+        
+        cbx.addEventListener('change', () => {
+            if (cbx.checked) {
+                document.body.classList.add('anim-disabled');
+                cbx.checked = true;
+                localStorage.setItem("anim-mode", "enabled");
+            }
+            else {
+                document.body.classList.remove('anim-disabled');
+                cbx.checked = false;
+                localStorage.setItem("anim-mode", "disabled");
+            }
+        })
+    }
 
-const dsbAnim = '#dsbAnimCbx';
-disableAnimation(dsbAnim);
+    const dsbAnim = '#dsbAnimCbx';
+    disableAnimation(dsbAnim);
 
     const dyslexiaCbx = document.getElementById('dyslexiaCbx');
     if (!dyslexiaCbx) return;
-    
+
     const dyslexiaState = localStorage.getItem('dyslexia') === 'true';
 
     document.body.classList.toggle('dyslexia', dyslexiaState);
@@ -255,4 +253,20 @@ disableAnimation(dsbAnim);
         document.body.classList.toggle('dyslexia', enabled);
         localStorage.setItem('dyslexia', enabled);
     })
+
+    const bounds = document.getElementById('boundsCbx');
+    if (!bounds) return;
+
+    const boundsState = localStorage.getItem('bounds') === 'true';
+
+    document.body.classList.toggle('bounds', boundsState);
+    bounds.checked = boundsState;
+
+    bounds.addEventListener('change', () => {
+        const enabled = bounds.checked;
+
+        document.body.classList.toggle('bounds', enabled);
+        localStorage.setItem('bounds', enabled);
+    })
+
 })

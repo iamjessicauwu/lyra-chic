@@ -3,10 +3,10 @@
         <div class="header-desktop">
             <div class="actions header-left">
                 <div class="actionsBtns">
+                    <button class="navBtn" data-dialog-open="search-panel"><i class="ri-search-line" ></i></button>
+                    <a href="https://github.com/iamjessicauwu/lyra-chic/releases"><button class="navBtn"  data-tooltip="Releases"><i class="ri-github-fill" ></i></button></a>
                     <div>
-                        <button class="btn empty"><i class="ri-search-line" ></i></button>
                     </div>
-
                 </div>
             </div>
             <div class="flex center column header-center">
@@ -15,21 +15,24 @@
                 </a>
                 <div class="navigation">
                     <div class="drop-down">
-                        <button class="navBtn"><a href="./projects.html" data-lang="home">Work</a></button>
+                        <a href="./projects.html" data-lang="home"><button class="navBtn">Work</button></a>
                         <div class="drop-down-content">
                             <a href="./interior.html"><button class="drop-down-button">Interior design</button></a>
                             <a href="./fashion.html"><button class="drop-down-button">Fashion and Muse</button></a>
                             <a href="./graphics.html"><button class="drop-down-button">UI/UX Designer</button></a>
                         </div>
                     </div>
-                    <button class="navBtn"><a href="/blog.html">Blog</a></button>
-                    <button class="navBtn"><a href="/about.html">About</a></button>
+                    <a href="/blog.html"><button class="navBtn">Blog</button></a>
+                    <a href="/about.html"><button class="navBtn">About</button></a>
+                    <a href="/gallery.html"><button class="navBtn">Gallery</button></a>
+                    <hr class="vl">
+                    <a href="/lyra_ui.html"><button class="navBtn">Lyra UI</button></a>
                 </div>
             </div>
             <div class="actions header-right">
                 <div class="actionsBtns">
                     <div>
-                        <button class="btn empty"><i class="ri-search-line" ></i></button>
+                        <button class="navBtn" data-dialog-open="talk-to-lyra"><i class="ri-chat-ai-line" ></i></button>
                     </div>
                     <div >
                         <button class="navBtn" data-dialog-open="cart-dialog" data-tooltip="Keranjang Anda">
@@ -106,7 +109,7 @@
             <div class="footer-flex">
                 <div class="navpane-footer-actions">
                     <button class="btn accent chat" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
-                    <i class="ri-accessibility-line" id="labs" data-dialog-open="float-menu"></i>
+                    <i class="ri-accessibility-line" id="labs" data-dialog-open="settings-ui"></i>
                 </div>
             </div>
             <div class="footer-flex-1">
@@ -115,7 +118,7 @@
         </div>
     </div>
 </div>
-<dialog class="float-menu" data-lenis-prevent>
+<dialog class="settings-ui" data-lenis-prevent>
     <div class="dialog-header">
         <div>
             <h1 class="dialog-mintopbar">Accessibility</h1>
@@ -126,23 +129,31 @@
     </div>
     <div class="content" id="content">
         <div class="accordion-item">
-            <h5 class="accordion-item-title">Kurangi animasi<br><span class="accordion-item-desc">Kurangi gerakan animasi dan transisi jika Anda sensitif dengan gerakan tertentu atau untuk meningkatkan performa web.</span></h5> 
+            <h5 class="accordion-item-title">Reduce motion<br><span class="accordion-item-desc">Reduce animations and transitions if you are sensitive to certain movements or want to improve web performance.</span></h5> 
             <label class="toggle">
                 <input type="checkbox" class="toggleCheckbox" id="dsbAnimCbx" />
                 <span class="slider"></span>
             </label>
         </div>
-        <div class="accordion-item hidden">
-            <h5 class="accordion-item-title">Aktifkan kontras tinggi</h5> 
+        <div class="accordion-item">
+            <h5 class="accordion-item-title">Enable high contrast</h5> 
             <label class="toggle">
                 <input type="checkbox" class="toggleCheckbox" id="contrastCbx" />
                 <span class="slider"></span>
             </label>
         </div>
         <div class="accordion-item">
-            <h5 class="accordion-item-title">Font dyslexia</h5> 
+            <h5 class="accordion-item-title">Dyslexia font</h5> 
             <label class="toggle">
                 <input type="checkbox" class="toggleCheckbox" id="dyslexiaCbx" />
+                <span class="slider"></span>
+            </label>
+        </div>
+        <span class="divider">Debugging</span>
+        <div class="accordion-item">
+            <h5 class="accordion-item-title">Show layout bounds</h5> 
+            <label class="toggle">
+                <input type="checkbox" class="toggleCheckbox" id="boundsCbx" />
                 <span class="slider"></span>
             </label>
         </div>
@@ -160,7 +171,7 @@
     <div class="content">
         <div class="wishlist">
             <div class="badge-container custom wishlist-item">
-                <h1 class="divider">On Demand</h1>
+                <span class="divider">On Demand</span>
                 <!-- The products below are just placeholders for testing layouts. We don't sell these products in our actual storefront. -->
                 <div class="pinned-items">
                     <div class="badge">
@@ -178,6 +189,22 @@
                 </div>
                 <button class="accent" data-dialog-open="add-wishlist"><i class="ri-add-line"></i><span>Add wishlist</span></button>
             </div>
+        </div>
+    </div>
+</dialog>
+<dialog class="side-panel search-panel" data-lenis-prevent>
+    <div class="dialog-header">
+        <div>
+            <h1 class="dialog-mintopbar"></h1>
+        </div>
+        <div class="dialog-btns">
+            <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><span class="div-1"></span><span class="div-2"></span></button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="search-container flex">
+            <input type="text" id="search-input" placeholder="Search for products, blog posts, and more..." autofocus>
+            <button class="accent" id="search-button"><i class="ri-search-line"></i></button>
         </div>
     </div>
 </dialog>
