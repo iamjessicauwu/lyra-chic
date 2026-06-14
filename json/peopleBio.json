@@ -81,5 +81,17 @@
         "aliases": "",
         "image": "./assets/image/member_avatar/reagan.webp",
         "id": "reagan"
-    }
+    }, 
+    {
+    "name": "Velanie Agatha",
+    "nickname": "Velanie",
+    "description": "Velanie Agatha is another proud member of <b>ST☆RGΛINZ</b> — the same dance group as Carin and Monique — and honestly, the moment you see her, you understand why she fits right in. She carries this charming, almost magnetic presence that translates beautifully both on the dance floor and in fashion. <br><br>As a dancer and writer, Velanie brings a unique duality to Lyra Chic — she moves with grace and writes with intention. Her sense of style is expressive and illuminating, always turning heads without trying too hard. <br><br><i>\"Even when the world feels dim, keep your light burning — because someone out there needs to see it.\"</i> — Velanie ✨",
+    "role": "Dancer, Writer",
+    "aliases": "",
+    "image": "/assets/image/member_avatar/velanie.webp",
+    "banner_image": "",
+    "id": "velanie",
+    "badges": ["Fashion Illuminator", "ST☆RGΛINZ Member"],
+    "zodiac": "Unpublished"
+}
 ]
