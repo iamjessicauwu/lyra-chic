@@ -1,7 +1,15 @@
 .grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 0 10px;
     gap: 20px;
+}
+
+.grid.accordion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
 }
 
 @media (min-width: 1440px) {
@@ -13,14 +21,19 @@
 .people {
     position: relative;
     overflow: hidden;
-    transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), border .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), width .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
     padding: 0px 0px;
     pointer-events: auto ;
-    grid-row: unset;
     border: none;
     border-radius: 42px;
+    backface-visibility: hidden;
     isolation: isolate;
 }
+.grid.accordion .people {
+    flex: 0 0 auto;
+    width: 150px;
+}
+
 .people * {
     transition: none;
 }
@@ -37,9 +50,9 @@
 
 .people .people-img {
     object-fit: cover;
-    height: 520px;
+    height: 460px;
     width: 100%;
-    background: rgba(244, 244, 244, 0.9) url('/assets/logo/lyra.webp') no-repeat;
+    background: var(--color-surface-500) url('/assets/logo/lyra.webp') no-repeat;
 }
 
 .people .people-img.centered img, .people-type .people-img.centered img {
@@ -57,8 +70,8 @@
     object-fit: cover;
     border-radius: 16px;
     width: 100%;
-    height: 100%;
-    transform: scale(1.05);
+    height: 460px;
+    transform: scale(1.07);
     object-position: center center;
     background-color: var(--color-surface-500);
     aspect-ratio: 3 / 4;
@@ -70,12 +83,27 @@
     justify-content: flex-end;
     align-items: flex-start;
     padding: 12px 28px 2.5em 32px;
-    transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), border-top .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    row-gap: 8px;
+    transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1), border-top .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    row-gap: 6px;
     z-index: 3;
     background-color: transparent;
     position: absolute;
     bottom: 0; left: 0; right: 0;
+}
+
+.grid.accordion .people .name {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.grid.accordion .people:hover .name, .grid.accordion .people.focus .name {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.grid.accordion .people:hover {
+    width: 500px
 }
 
 /* Layer 1: dark gradient for readability */
@@ -301,22 +329,22 @@
         will-change: transform;
         mask-image: linear-gradient(
             to top,
-            black 0%,
-            black 5%,
+            var(--espresso) 0%,
+            var(--espresso) 5%,
             transparent 65%
         );
         -webkit-mask-image: linear-gradient(
             to top,
-            black 0%,
-            black 5%,
+            var(--espresso) 0%,
+            var(--espresso) 5%,
             transparent 65%
         );
     }
     .people .people-bio {
         background: linear-gradient(
             to top,
-            rgba(244, 244, 244, 0.9) 0%,
-            rgba(244, 244, 244, 0.1) 20%,
+            rgba(var(--espresso), 0.9) 0%,
+            rgba(var(--espresso), 0.1) 20%,
             transparent 85%
         );
     }

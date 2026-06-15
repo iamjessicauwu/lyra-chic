@@ -46,28 +46,340 @@
     <script defer src="people.js"></script>
     <title></title>
 </head>
-<body data-title="About Us">
+<body data-title="Playground" class="wrapper">
     <header></header>
-    <main>
-        <section class="section">
-            <div class="section-header">
-                <h1 class="section-title small">About, Chapter 1</h1>
-         
+    <!-- ══ 2. TYPOGRAPHY ══════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 01 — Typography</span>
+        <h1 class="h1">The Art of <em>Simplicity</em></h1>
+        <h2 class="h2">Heading Dua — Serif Display</h2>
+        <h3 class="h3">Heading tiga bergaya italic dan lebih ringan</h3>
+        <p class="h4">Heading Empat — Sans Uppercase Spaced</p>
+        <p class="lead">Teks lead tampil dalam italic serif, membuka sebuah bagian dengan keanggunan yang tenang dan bobot visual yang lebih kuat dari paragraf biasa.</p>
+        <p class="body-text">Teks isi disajikan dalam DM Sans weight 300, memberikan kesan udara dan keterbacaan pada halaman. Panjang baris dijaga agar nyaman dibaca, tidak terlalu lebar. Warna espresso menjaga kontras yang cukup tanpa terasa keras.</p>
+        <p class="caption">Caption — 11px · Uppercase · Spaced · Muted</p>
+    </section>
+
+    <!-- DIVIDER: Editorial text -->
+    <div class="divider-editorial">typographie &amp; formes</div>
+
+    <!-- ══ 3. BUTTONS ═════════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 02 — Tombol</span>
+        <div class="btn-row">
+            <button class="btn btn-primary btn-icon">Simpan Perubahan</button>
+            <button class="btn btn-outline">Batal</button>
+            <button class="btn btn-tan">Terbitkan</button>
+            <button class="btn btn-ghost">Pratinjau</button>
+        </div>
+    </section>
+
+    <!-- DIVIDER: Double rule -->
+    <div class="divider-double"></div>
+
+    <!-- ══ 4. FORM INPUTS ═════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 03 — Input &amp; Form</span>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0 28px;">
+            <div class="form-group">
+                <label class="form-label" for="nama">Nama Lengkap</label>
+                <input id="nama" type="text" class="input" placeholder="cth. Ariana de Voss" />
             </div>
-            <div class="section-content">
-               <label class="toggle">
-                  <input type="checkbox" class="toggleCheckbox" id="dyslexiaCbx" />
-                  <span class="slider"></span>
-                </label>
-                <label class="check-item">
-                  <input type="checkbox" checked />
-                  <span class="check-box"></span>
-                  <span class="check-label">Minimalisme</span>
-                </label>
-                <progress value="35" max="60">85%</progress>
+            <div class="form-group">
+                <label class="form-label" for="email">Alamat Email</label>
+                <input id="email" type="email" class="input" placeholder="nama@domain.com" />
             </div>
-        </section>
-    </main>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="kategori">Kategori</label>
+            <div class="select-wrapper">
+                <select id="kategori" class="select-input input">
+                    <option>Pilih kategori…</option>
+                    <option>Gaya Hidup</option>
+                    <option>Arsitektur</option>
+                    <option>Kuliner</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="pesan">Pesan</label>
+            <textarea id="pesan" class="textarea" placeholder="Tuliskan sesuatu yang bermakna…"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Cari Artikel</label>
+            <div class="search-wrap">
+                <span class="search-icon">⌕</span>
+                <input type="search" class="input" placeholder="Ketik kata kunci…" />
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER: Ornament -->
+    <div class="divider-ornament"><span>✦ ✦ ✦</span></div>
+
+    <!-- ══ 5. CHECKBOX & RADIO & TOGGLE ══════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 04 — Pilihan &amp; Toggle</span>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; align-items: start;">
+            <div>
+                <p class="form-label" style="margin-bottom:14px;">Checkbox</p>
+                <div class="check-group">
+                    <label class="check-item">
+                        <input type="checkbox" checked />
+                        <span class="check-box"></span>
+                        <span class="check-label">Minimalisme</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" />
+                        <span class="check-box"></span>
+                        <span class="check-label">Editorial</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" />
+                        <span class="check-box"></span>
+                        <span class="check-label">Organic</span>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <p class="form-label" style="margin-bottom:14px;">Radio</p>
+                <div class="check-group">
+                    <label class="check-item">
+                        <input type="radio" name="r" checked />
+                        <span class="radio-dot"></span>
+                        <span class="check-label">Harian</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="radio" name="r" />
+                        <span class="radio-dot"></span>
+                        <span class="check-label">Mingguan</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="radio" name="r" />
+                        <span class="radio-dot"></span>
+                        <span class="check-label">Bulanan</span>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <p class="form-label" style="margin-bottom:14px;">Toggle</p>
+                <div style="display:flex; flex-direction:column; gap:16px;">
+                    <label class="toggle-wrap">
+                        <input type="checkbox" checked />
+                        <span class="toggle-track"></span>
+                        <span class="check-label">Mode Fokus</span>
+                    </label>
+                    <label class="toggle-wrap">
+                        <input type="checkbox" />
+                        <span class="toggle-track"></span>
+                        <span class="check-label">Notifikasi</span>
+                    </label>
+                    <div class="form-group" style="margin-bottom:0; margin-top:6px;">
+                        <p class="form-label" style="margin-bottom:8px;">Range</p>
+                        <input type="range" class="range-input" min="0" max="100" value="65" />
+                        <p class="caption" style="margin-top:4px;">65 / 100</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER: Bold rule -->
+    <hr class="divider-bold" />
+
+    <!-- ══ 6. BADGE / TAG ═════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 05 — Badge &amp; Tag</span>
+        <div class="badge-row">
+            <span class="badge badge-linen">Desain</span>
+            <span class="badge badge-tan">Pilihan Editor</span>
+            <span class="badge badge-roast">Unggulan</span>
+            <span class="badge badge-outline">Baru</span>
+            <div class="chip-wrap">
+                <span class="chip">Hover saya</span>
+                <span class="chip-tooltip">Tooltip editorial muncul di sini</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER: Dash ornament -->
+    <div class="divider-dash">— — —</div>
+
+    <!-- ══ 7. CARDS ═══════════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 06 — Kartu</span>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-num">01</div>
+                <p class="card-title">Slow Living</p>
+                <p class="card-body">Menemukan keindahan dalam rutinitas yang tenang dan ruang yang tidak terburu-buru.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">02</div>
+                <p class="card-title">Material Jujur</p>
+                <p class="card-body">Kayu, linen, dan keramik — bahan yang menua dengan indah dan bercerita.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">03</div>
+                <p class="card-title">Ruang Kosong</p>
+                <p class="card-body">Whitespace bukan kekosongan; ia adalah napas yang membuat yang lain lebih bermakna.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER: Editorial text 2 -->
+    <div class="divider-editorial">citation &amp; citations</div>
+
+    <!-- ══ 8. BLOCKQUOTE ══════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 07 — Kutipan</span>
+        <blockquote class="blockquote">
+            <p>Kesederhanaan adalah puncak kecanggihan — bukan ketiadaan usaha, melainkan buah dari kerja keras yang telah menemukan bentuknya.</p>
+            <cite>— Dieter Rams, Ten Principles of Good Design</cite>
+        </blockquote>
+    </section>
+
+    <!-- DIVIDER: Ornament 2 -->
+    <div class="divider-ornament"><span>· · ·</span></div>
+
+    <!-- ══ 9. PROGRESS ════════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 08 — Progress</span>
+        <div class="progress-item">
+            <div class="progress-header"><span class="progress-name">Tipografi</span><span class="progress-val">92%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div>
+        </div>
+        <div class="progress-item">
+            <div class="progress-header"><span class="progress-name">Warna</span><span class="progress-val">78%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+        </div>
+        <div class="progress-item">
+            <div class="progress-header"><span class="progress-name">Spasi</span><span class="progress-val">65%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+        </div>
+    </section>
+
+    <!-- DIVIDER: Double rule 2 -->
+    <div class="divider-double"></div>
+
+    <!-- ══ 10. TABLE ══════════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 09 — Tabel</span>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elemen</th>
+                        <th>Kategori</th>
+                        <th>Status</th>
+                        <th>Versi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Tombol</td><td>Interaktif</td><td><span class="badge badge-tan" style="font-size:9px;padding:3px 8px;">Selesai</span></td><td>2.1</td></tr>
+                    <tr><td>Input</td><td>Form</td><td><span class="badge badge-tan" style="font-size:9px;padding:3px 8px;">Selesai</span></td><td>2.0</td></tr>
+                    <tr><td>Kartu</td><td>Layout</td><td><span class="badge badge-outline" style="font-size:9px;padding:3px 8px;">Draft</span></td><td>1.8</td></tr>
+                    <tr><td>Modal</td><td>Overlay</td><td><span class="badge badge-linen" style="font-size:9px;padding:3px 8px;">Rencana</span></td><td>—</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- DIVIDER: Editorial text 3 -->
+    <div class="divider-editorial">alertes &amp; navigation</div>
+
+    <!-- ══ 11. ALERTS ═════════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 10 — Notifikasi</span>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="alert alert-info">
+                <span class="alert-icon">◈</span>
+                <div><strong style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Informasi</strong><br>Perubahan Anda tersimpan secara otomatis setiap 5 menit.</div>
+            </div>
+            <div class="alert alert-warm">
+                <span class="alert-icon">◉</span>
+                <div><strong style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">Perhatian</strong><br>Sesi Anda akan berakhir dalam 10 menit. Simpan pekerjaan sekarang.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVIDER: Dash 2 -->
+    <div class="divider-dash">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+    <!-- ══ 12. BREADCRUMB ═════════════════════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 11 — Breadcrumb</span>
+        <nav class="breadcrumb">
+            <a href="#">Beranda</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="#">Koleksi</a>
+            <span class="breadcrumb-sep">›</span>
+            <a href="#">Musim Gugur</a>
+            <span class="breadcrumb-sep">›</span>
+            <span>Jaket Wol Herringbone</span>
+        </nav>
+    </section>
+
+    <!-- ══ 13. TABS ═══════════════════════════════════════════ -->
+    <section class="section" style="padding-top: 20px;">
+        <span class="section-label">§ 12 — Tab</span>
+        <div class="tab-bar">
+            <button class="tab-btn active">Ringkasan</button>
+            <button class="tab-btn">Artikel</button>
+            <button class="tab-btn">Galeri</button>
+            <button class="tab-btn">Tentang</button>
+        </div>
+        <div style="padding: 24px 0 0; color: var(--espresso); font-size:13px; line-height:1.7; max-width:560px;">
+            Konten tab aktif akan muncul di sini. Setiap tab menyimpan pandangan yang berbeda — ringkasan memberi gambaran, artikel mendalami narasi, galeri memperlihatkan visual.
+        </div>
+    </section>
+
+    <!-- DIVIDER: Bold 2 -->
+    <hr class="divider-bold" style="margin-top: 16px;" />
+
+    <!-- ══ 14. AVATAR GROUP & PAGINATION ══════════════════════ -->
+    <section class="section">
+        <span class="section-label">§ 13–14 — Avatar &amp; Paginasi</span>
+        <div style="display:flex; align-items:center; gap:40px; flex-wrap:wrap; margin-bottom: 32px;">
+            <div>
+                <p class="form-label" style="margin-bottom:12px;">Kontributor</p>
+                <div style="display:flex; align-items:center; gap:14px;">
+                    <div class="avatar-group">
+                        <div class="avatar">AR</div>
+                        <div class="avatar">BL</div>
+                        <div class="avatar">CM</div>
+                        <div class="avatar avatar-more">+4</div>
+                    </div>
+                    <span style="font-size:12px; color:var(--muted);">7 penulis aktif</span>
+                </div>
+            </div>
+        </div>
+        <p class="form-label" style="margin-bottom:12px;">Paginasi</p>
+        <div class="pagination">
+            <button class="page-btn">‹</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn dots">…</button>
+            <button class="page-btn">9</button>
+            <button class="page-btn">›</button>
+        </div>
+    </section>
+
+    <!-- DIVIDER: Ornament final -->
+    <div class="divider-ornament"><span>❧</span></div>
+
+    <!-- ══ 15. COMBINED CTA SECTION ═══════════════════════════ -->
+    <section class="section" style="background:var(--cream); border:1px solid var(--sand); padding:48px; margin-bottom: 64px;">
+        <span class="section-label">§ 15 — Ajakan Bertindak</span>
+        <h2 class="h2" style="max-width:440px;">Mulai membangun sesuatu yang <em>layak diingat.</em></h2>
+        <p class="body-text" style="margin: 16px 0 28px;">Setiap antarmuka adalah sebuah pernyataan. Pilihlah bentuk yang mencerminkan isi, dan warna yang tidak berteriak — hanya berbisik dengan tepat.</p>
+        <div class="btn-row">
+            <button class="btn btn-primary btn-icon">Mulai Proyek</button>
+            <button class="btn btn-ghost">Lihat Panduan</button>
+        </div>
+    </section>
+
     <footer></footer>
 </body>
 </html>

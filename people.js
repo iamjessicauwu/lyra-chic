@@ -37,7 +37,7 @@ function renderCard() {
             nicks.forEach(nick => {
                 let text = person.nickname.replace(/&bull;/g, "•");
                 const isZodiac = document.body.classList.contains('zodiac');
-                
+                                
                 zodiacImgs.forEach(zodiacImg => {
                     if (isZodiac) {
                         zodiacImg.style.display = 'block';

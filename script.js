@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-    
     const root = document.documentElement;
     
     const isAnimEnabled = localStorage.getItem('anim-mode') === 'enabled';
