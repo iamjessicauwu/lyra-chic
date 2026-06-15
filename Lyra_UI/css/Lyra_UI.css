@@ -432,7 +432,15 @@
             --color-surface-text: rgb(172, 149, 114);
             --color-text-main: rgb(242, 236, 233);
             --color-text-100: #4C3312;
-            --sand: #4C3A11;
+            
+            --linen:    #1A1410;
+            --sand:     #2A2018;
+            --tan:      #3D2E1E;
+            --ochre:    #7A5F3A;
+            --espresso: #A8845A;
+            --roast:    #F5EFE6;
+            --cream:    #221A13;
+            --muted:    #5C4A32;
             color-scheme: dark;
         }
 
