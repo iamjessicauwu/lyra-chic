@@ -78,6 +78,10 @@
     background-color: var(--color-primary-500);
 }
 
+.people .name {
+    row-gap: 3px;
+}
+
 .people .people-bio {
     user-select: none;
     width: 100%;
@@ -85,26 +89,26 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding: 10px 14px;
     transition: opacity .2s, transform .4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .people .name h2 {
     display: flex;
-    justify-content: center;
-    text-align: center;
     position: relative;
+    font-family: var(--serif);
     color: var(--color-text-main);
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .people .role {
-    font-size: 20px; 
-    text-align: center;
+    font-size: 14px !important; 
     letter-spacing: 0;
-    text-transform: none;
+    text-transform: uppercase;
 }
 
 .people .people-bio span {
@@ -126,14 +130,14 @@
 .people .people-btns {
     display: flex;
     padding: 10px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .people .social-media {
     background-color: transparent;
     gap: 38px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .people .social-media span {
