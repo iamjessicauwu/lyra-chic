@@ -83,7 +83,7 @@ const panel = document.querySelector('.people-panel');
 const nameEl = panel.querySelector('.name h2');
 const roleEl = panel.querySelector('.nickname');
 const desc = panel.querySelector('p');
-const badges = panel.querySelector('.badge-container');
+const badges = panel.querySelector('.badge-row');
 const peopleCtr = document.querySelector('.grid');
 const activeMembers = ["anneta", "crshyle", "jessica", "velanie", "monique", "mae", "charis", "reagan"];
 let hiddenCounts = 0;
@@ -184,12 +184,13 @@ people.forEach(card => {
         
         if (badgesArray && badgesArray.length > 0) {
             badgesArray.map(badge => {
-                const category = document.createElement('div');
-                category.className = 'badge';
-                const span = document.createElement('span');
-                span.textContent = badge;
+                const category = document.createElement('span');
+                category.className = 'badge badge-roast';
+                if (badge === 'ST☆RGΛINZ Member') {
+                    category.className = 'badge badge-outline';
+                }
+                category.textContent = badge;
                 
-                category.appendChild(span);
                 badges.appendChild(category);
             }) 
         } else {
