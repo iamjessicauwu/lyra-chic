@@ -101,3 +101,8 @@
     z-index: 0;
     background-color: rgba(15, 8, 0, 0.87);
 }
+
+.wrapper .section {
+    display: flex;
+    flex-direction: column;
+}
