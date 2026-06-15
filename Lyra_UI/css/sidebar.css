@@ -88,7 +88,7 @@
 
 #expander i {
     transition: .2s cubic-bezier(1, 0, 0, 1);
-    color: var(--color-surface-text) !important;
+    color: var(--color-surface-text);
 }
 
 #expander .sidebar-btn {
@@ -150,11 +150,11 @@
     box-shadow: inset rgba(100, 100, 100, 0.466) 1px 1px 5px;
     padding: 4px 12px;
     font-weight: 600;
-    font-family: Manrope, sans-serif;
+    
 }
 
 .time-condition {
-    font-family: Manrope, sans-serif;
+    
     margin: 5px 0;
     font-size: 16px;
     font-weight: 400;
@@ -215,11 +215,11 @@
 
 .sidebar-btn i {
     padding: 8px;
-    color: var(--color-surface-text) !important;
+    color: var(--color-surface-text);
 }
 
 .sidebar-item:hover {
-    border-color: var(--color-primary-900) !important;
+    border-color: var(--color-primary-900);
 }
 
 .sidebar-item:focus,
@@ -227,7 +227,7 @@
 .sidebar-btn.active,
 .sidebar-btn:focus {
     background-color: var(--color-primary-500);
-    border-color: var(--color-primary-900) !important;
+    border-color: var(--color-primary-900);
 }
 
 .sidebar-item:active {

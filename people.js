@@ -31,6 +31,10 @@ function renderCard() {
             const name = el.querySelectorAll(".name h2");
             const nicks = el.querySelectorAll(".name .role");
             const zodiacImgs = el.querySelectorAll("img.person-zodiac");
+            const role = person.role;
+            const roles = container.querySelectorAll(".person-role");
+            
+            roles.forEach(el => el.textContent = role);
 
             name.forEach(n => { n.textContent = person.name; });
 
@@ -41,16 +45,16 @@ function renderCard() {
                 zodiacImgs.forEach(zodiacImg => {
                     if (isZodiac) {
                         zodiacImg.style.display = 'block';
-                        text = `${person.nickname.replace(/&bull;/g, "•")} | ${person.zodiac} • ${person.role}`;
+                        text = `${person.nickname.replace(/&bull;/g, "•")} | ${person.zodiac} • ${role}`;
                     } else {
                         zodiacImg.style.display = 'none';
-                        text = `${person.nickname.replace(/&bull;/g, "•")} • ${person.role}`;
+                        text = `${person.nickname.replace(/&bull;/g, "•")} • ${role}`;
                     }
                 });
                 
                 const old = document.querySelector('.old-people-card');
                 if (old) {
-                    text = `${person.nickname.replace(/&bull;/g, "•")}  •  ${person.role}`;
+                    text = `${person.nickname.replace(/&bull;/g, "•")}`;
                 }
 
                 nick.textContent = text;
@@ -194,7 +198,7 @@ people.forEach(card => {
                 badges.appendChild(category);
             }) 
         } else {
-            badges.textContent = `No badges for ${person.nickname.replace(/&bull;/g, "/")}`;
+            badges.textContent = `No badges yet!}`;
         }
 
     })

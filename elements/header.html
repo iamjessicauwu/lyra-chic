@@ -45,25 +45,18 @@
         <div class="header-mobile">
             <div>
                 <button class="navBtn" data-dialog-open="cart-dialog" data-tooltip="Keranjang Anda">
-                        <i class="ri-shopping-bag-line"></i>
+                    <i class="ri-shopping-bag-line"></i>
                 </button>
             </div>
             <div class="brand">
                 <a href="/"><img class="logo lyra-logo" src="./assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" /></a>
             </div>
-            <div class="actions">
-                <div class="actionsBtns">
-                    <div>
-                        <button class="navBtn hamburger" aria-label="hamburger button to open the hamburger menu" id="hamburger" >
-                            <div class="equal">
-                                <div class="div1"></div>
-                                <div class="div2"></div>
-                                <div class="div3"></div>
-                            </div>
-                        </button>
-                    </div>
-                    
-                </div>
+            <div>
+                <button class="navBtn hamburger" aria-label="hamburger button to open the hamburger menu" id="hamburger">
+                    <div class="line line-1"></div>
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
+                </button>
             </div>
         </div>
         <dialog class="add-wishlist">
@@ -72,7 +65,7 @@
                     <h1 class="dialog-mintopbar">Add wishlist</h1>
                 </div>
                 <div class="dialog-btns">
-                    <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOut"><span class="div-1"></span><span class="div-2"></span></button>
+                    <button class="close-btn" data-dialog-close data-dialog-anim="fadeOut"><div class="line div-1"></div><div class="line div-2"></div></button>
                 </div>
             </div>
             <div class="content">
@@ -87,7 +80,7 @@
 <div class="overlay header-overlay"></div>
 <div class="nav-pane hidden">  
     <div class="nav-pane-header">
-        <button class="btn empty close-btn" id="close2"><span class="div-1"></span><span class="div-2"></span></button>
+        <button class="close-btn" id="close2"><div class="line div-1"></div><div class="line div-2"></div></button>
     </div>
     <div class="nav-container">
         <div class="content" data-lenis-prevent>
@@ -108,12 +101,12 @@
         <div class="footer"> 
             <div class="footer-flex">
                 <div class="navpane-footer-actions">
-                    <button class="btn accent chat" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
+                    <button class="btn btn-primary chat" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
                     <i class="ri-accessibility-line" id="labs" data-dialog-open="settings-ui"></i>
                 </div>
             </div>
             <div class="footer-flex-1">
-                <button class="btn large accent chat-alt" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
+                <button class="btn btn-primary chat-alt" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
             </div>
         </div>
     </div>
@@ -124,7 +117,7 @@
             <h1 class="dialog-mintopbar">Accessibility</h1>
         </div>
         <div class="dialog-btns">
-            <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOut"><span class="div-1"></span><span class="div-2"></span></button>
+            <button class="close-btn" data-dialog-close data-dialog-anim="fadeOut"><div class="line div-1"></div><div class="line div-2"></div></button>
         </div>
     </div>
     <div class="content" id="content">
@@ -167,7 +160,7 @@
             <h1 class="dialog-mintopbar">Your cart<span class="promo small">Alpha</span></h1>
         </div>
         <div class="dialog-btns">
-            <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><span class="div-1"></span><span class="div-2"></span></button>
+            <button class="close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><div class="line div-1"></div><div class="line div-2"></div></button>
         </div>
     </div>
     <div class="content">
@@ -189,7 +182,7 @@
                         <span class="gray">$10.00</span>
                     </div>
                 </div>
-                <button class="accent" data-dialog-open="add-wishlist"><i class="ri-add-line"></i><span>Add wishlist</span></button>
+                <button class="btn btn-primary" data-dialog-open="add-wishlist"><i class="ri-add-line"></i><span>Add wishlist</span></button>
             </div>
         </div>
     </div>
@@ -200,13 +193,13 @@
             <h1 class="dialog-mintopbar"></h1>
         </div>
         <div class="dialog-btns">
-            <button class="btn empty close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><span class="div-1"></span><span class="div-2"></span></button>
+            <button class="close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><div class="line div-1"></div><div class="line div-2"></div></button>
         </div>
     </div>
     <div class="content">
         <div class="search-container flex">
             <input type="text" id="search-input" placeholder="Search for products, blog posts, and more..." autofocus>
-            <button class="accent" id="search-button"><i class="ri-search-line"></i></button>
+            <button class="btn btn-primary" id="search-button"><i class="ri-search-line"></i></button>
         </div>
     </div>
 </dialog>
