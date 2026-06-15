@@ -140,7 +140,7 @@
 
 .people .social-media {
     background-color: transparent;
-    gap: 38px;
+    gap: 26px;
     flex-wrap: wrap;
     justify-content: flex-start;
 }

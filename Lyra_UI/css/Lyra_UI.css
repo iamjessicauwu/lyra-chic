@@ -1390,7 +1390,7 @@ dialog .dialog-header {
     z-index: 1;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 24px 10px 24px;
 }
 
 .dialog-mintopbar {
@@ -1403,7 +1403,7 @@ dialog .dialog-header {
     align-items: center;
 }
 
-.dialog-mintopbar .promo {
+.dialog-mintopbar .status {
     top: 2px;
 }
 
@@ -1643,7 +1643,7 @@ dialog .dialog-topbar {
     overflow: hidden;
 }
 
-.promo {
+.status {
     margin: 0px 0px;
     padding: 8px 16px;
     border-radius: 45px;
@@ -1656,28 +1656,28 @@ dialog .dialog-topbar {
     font-weight: 400;
 }
 
-.promo.small {
+.status.small {
     background-color: var(--color-primary-500);
     padding: 4px 12px;
     font-size: 14px;
     text-transform: uppercase;
-    color: white;
+    color: var(--color-text-muted);
 }
 
-:root.dark-mode .promo.small {
+:root.dark-mode .status.small {
     color: black;
 }
 
-.promo.dev {
+.status.dev {
     background-color: #8098ff;
 }
 
-.promo.new {
+.status.new {
     background-color: var(--color-primary-500);
     color: white;
 }
 
-.promo.unstable {
+.status.unstable {
     background-color: #fa1818c7;
     color: white;
 }
@@ -3317,7 +3317,7 @@ section {
 }
 
 .people .social-media {
-    gap: 2em;
+    gap: 26px;
     justify-content: flex-start;
     background-color: rgba(100, 100, 100, 0.05);
 }
@@ -4521,7 +4521,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     font-size: 1.5rem;
 }
 
-.navBtn .promo.small {
+.navBtn .status.small {
     position: absolute;
     top: unset;
     bottom: 0;
@@ -4874,8 +4874,8 @@ header:has(.nav-pane:not(.hidden)) .navigation {
 }
 
 .side-panel p {
-    font-size: 16px;
-    line-height: 27px;
+    font-size: 15px;
+    line-height: 28px;
     font-weight: 400;
     text-align: left;
     margin: 0px 0px 0px 0;
