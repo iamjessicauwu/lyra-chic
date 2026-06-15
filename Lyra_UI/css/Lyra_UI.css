@@ -10,6 +10,7 @@
         --color-primary-500: rgb(117, 72, 40);
         --color-primary-900: rgb(148, 105, 75);
         --color-primary-100: rgb(150, 97, 19);
+        --color-primary-0: #ffffff;
         --color-bg: rgb(253, 251, 247) ;
         --bg-color-value:253, 251, 247;
         --backdrop-color: rgba(var(--bg-color-value), 0.95);
@@ -25,6 +26,8 @@
         --color-text-muted: #ffffff;
         --color-text-100: #CABB9A;
         --color-text-main:  #2e2824;
+        
+        --sand: #E8D9C4;
 
         --sans-serif: "Plus Jakarta Sans", sans-serif;
         --serif: "Source Serif 4", serif;
@@ -404,6 +407,7 @@
             --color-surface-text: rgb(172, 149, 114);
             --color-text-main: rgb(242, 236, 233);
             --color-text-100: #4C3312;
+            --sand: #4C3A11;
             color-scheme: dark;
         }
         
@@ -654,7 +658,7 @@
         text-align: center;
         width: 90%;
         border: 1px solid rgba(100, 100, 100, 0.1) !important;
-        margin: 12px auto;
+        margin: 4px auto;
     }
     
     p {
@@ -718,20 +722,21 @@
     input[type="email"],
     input[type="password"],
     textarea {
-        background-color: transparent;
+        background-color: var(--color-icon-bg);
         width: 100%;
-        padding: 10px 12px 12px 12px;
+        padding: 10px 12px 10px 12px;
         border: none;
         border-bottom: 1px solid var(--color-border-100);
         font-size: 14px;
         min-height: 0;
         height: auto;
         outline: none;
+        border-radius: 5px 5px 0 0;
         resize: none;
         field-sizing: content;
         max-height: 120px;
         font-family: var(--serif);
-        transition: .2s;
+        transition: border-bottom-color .2s;
     }
 
     input[type="text"]:focus,
@@ -847,6 +852,7 @@
 
 @layer base {
     .divider {
+        margin: 10px 0 5px 0;
         font-size: 14px;
         text-transform: uppercase;
     }
@@ -860,11 +866,10 @@
         font-weight: 400;
         width: 100%;
         font-family: var(--sans-serif);
-        margin: 0;
         transition: padding-left .4s cubic-bezier(0.475, 0.82, 0.165, 1);
     }
     .divider {
-        margin: 5px 0 3px 0;
+        margin: 5px 0 5px 0;
         font-size: 14px;
         font-family: var(--monospace);
     }
@@ -2662,18 +2667,18 @@ body.dyslexia :is(p, h1, h2, h3, h4, h5, h6, span, a) {
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-    padding: 5px 8px 16px 8px;
+    padding: 18px 8px 18px 8px;
 }
 
 .people .name {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
-    row-gap: 2px;
     position: relative;
-    top: -2.5px;
+    top: -4px;
 }
-
 
 .people .alias::after {
     content: "|";
@@ -3073,7 +3078,7 @@ body.dyslexia :is(p, h1, h2, h3, h4, h5, h6, span, a) {
 .item {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 12px;
     padding: 12px 0px 12px 0px;
     width: 100%;
     transition: .4s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
@@ -3290,27 +3295,41 @@ details[open] .accordion-header::after {
     place-content: center center;
 }
 
-.checkbox {
-    display: inline-flex;
-    align-items: center;
-    transition: background-color .4s cubic-bezier(0.39, 0.575, 0.565, 1);
-    padding: 10px;
-    border-radius: 5px;
-    width: 24px;
-    height: 24px;
-    background-color: var(--color-surface-0);
-    border: 1px solid rgba(100, 100, 100, 0.2);
-}
-
 label {
     display: inline-flex;
     font-weight: 600;
 }
 
-.checkbox:checked {
-    background-color: rgba(var(--bg-color-value), 0.85);
-    background-image: url('https://img.icons8.com/material-rounded/22/checkmark--v1.png');
-    background-blend-mode: multiply;
+.check-group { display: flex; flex-direction: column; gap: 14px; }
+.check-item { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.check-item input { display: none; }
+.check-box {
+     width: 18px; height: 18px;
+     border: 1.5px solid var(--color-border-100);
+     background: var(--color-surface-0);
+     display: flex; align-items: center; justify-content: center;
+     flex-shrink: 0;
+     transition: background 0.2s;
+}
+.check-item input:checked + .check-box {
+     background: var(--color-primary-100);
+     border-color: var(--color-primary-100);
+}
+.check-item input:checked + .check-box::after { content: '✓'; color: var(--color-text-muted); font-size: 11px; }
+.check-label { font-size: 13px; color: var(--color-text-main); }
+.radio-dot {
+     width: 18px; height: 18px;
+     border: 1.5px solid var(--tan);
+     border-radius: 50%;
+     background: var(--color-surface-0);
+     display: flex; align-items: center; justify-content: center;
+     flex-shrink: 0;
+}
+.check-item input:checked + .radio-dot::after {
+     content: '';
+     width: 8px; height: 8px;
+     border-radius: 50%;
+     background: var(--color-primary-500);
 }
 
 /* Lainnya */
@@ -3744,8 +3763,9 @@ label {
     position: relative;
     display: flex;
     align-items: center;
-    min-width: 65px !important;
-    border: 4px solid rgba(100, 100, 100, 0.11);
+    width: 65px !important;
+    height: 27px;
+    background-color: var(--sand);
     border-radius: 50px;
 }
 
@@ -3773,22 +3793,23 @@ label {
 .slider::before {
     position: absolute;
     content: "";
-    width: 22px;
-    height: 22px;
-    top: -11px;
-    left: -3px;
-    background-color: var(--color-primary-500);
+    width: 20px;
+    height: 20px;
+    top: 3.5px;
+    left: 3px;
+    background-color: var(--color-primary-0);
+    box-shadow: 1px 1px 5px #909090;
     transition: .3s cubic-bezier(0.475, 0.82, 0.165, 1);
     border-radius: 50px;
 }
 
 input[type=checkbox]:checked + .slider {
-    background-color: var(--color-icon-bg);
+    background-color: var(--color-primary-100);
     border-radius: 50px;
 }
 
 input[type=checkbox]:checked + .slider::before {
-    transform: translateX(45px);
+    transform: translateX(38px);
     border-radius: 50px;
 }
 .toggle:has(input[type=checkbox]:checked) {
@@ -3980,7 +4001,7 @@ header * {
     width: 50px;
     bottom: 10px;
     padding: 12px;
-    z-index: 10;
+    z-index: 3;
     transition: width .3s cubic-bezier(0.475, 0.82, 0.165, 1) !important;
 }
 
@@ -4471,8 +4492,6 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     align-items: center;
 }
 .people-type.alt .social-media {
-    margin: 0;
-    padding: 0px 0;
     flex-direction: row;
 }
 
@@ -4484,7 +4503,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
 .side-panel .name {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
     gap: 7px;
 }
 
@@ -4588,7 +4607,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     line-height: 27px;
     font-weight: 400;
     text-align: left;
-    margin: 0px 0px 5px 0;
+    margin: 0px 0px 0px 0;
 }
 .side-panel .people-banner {
     position: relative;
@@ -4631,7 +4650,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    padding: 0 28px;
+    padding: 0 16px;
 }
 .side-panel .people-img {
     display: flex;
@@ -4641,7 +4660,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     border-radius: 50%;
     height: 150px;
     z-index: 1;
-    margin: 0 24px 0px 28px;
+    margin: 0 24px 0px 24px;
     border: 12px solid var(--color-surface-0);
 }
 .side-panel .people-img img {
@@ -4652,8 +4671,8 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     object-position: center center !important;
 }
 .side-panel .social-media {
-    gap: 30px;
-    margin: 10px 0 8px 0 !important;
+    gap: 26px;
+    margin: 0px 0 0px 0 !important;
 }
 .side-panel .social-media span {
     display: none;
@@ -5997,7 +6016,7 @@ html:has(.nav-pane:not(.hidden)) {
     }
     .grid {
         padding: 16px 4px 16px 4px;
-        gap: 10px;
+        gap: 0px;
         grid-template-columns: repeat(1, 1fr);
     }
     .grid.rtl, .grid.two-column {
@@ -6038,15 +6057,8 @@ html:has(.nav-pane:not(.hidden)) {
         flex-direction: column;
         align-items: center;
     }
-    .side-panel .name {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: none;
-    }
     .side-panel .name h2 {
         font-size: 26px;
-        text-align: center;
     }
     .side-panel .role {
         display: none;

@@ -41,10 +41,10 @@ function renderCard() {
                 zodiacImgs.forEach(zodiacImg => {
                     if (isZodiac) {
                         zodiacImg.style.display = 'block';
-                        text = `${text} | ${person.zodiac} • ${person.role}`;
+                        text = `${person.nickname.replace(/&bull;/g, "•")} | ${person.zodiac} • ${person.role}`;
                     } else {
                         zodiacImg.style.display = 'none';
-                        text = `${text} • ${person.role}`;
+                        text = `${person.nickname.replace(/&bull;/g, "•")} • ${person.role}`;
                     }
                 });
                 
