@@ -16,8 +16,9 @@
 .people .labelTag {
     display: block;
 }
-.people:has(.labelTag) {
-    overflow: unset;
+.labelTag:has(.badge) {
+    background: none;
+    right: 0;
 }
 .person-zodiac {
     display: none !important;
