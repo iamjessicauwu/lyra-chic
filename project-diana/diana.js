@@ -46,6 +46,9 @@ const link = document.querySelector('link.people-card-style');
 const stylesheets = ['people_3.css', 'people_list.css', 'people_lyraaura.css'];
 const BASE_PATH = link.href.substring(0, link.href.lastIndexOf('/') + 1);
 const selected = new Set();
+console.log('BASE_PATH:', BASE_PATH);
+console.log('full href will be:', BASE_PATH + stylesheets[0]);
+console.log('link element:', link); // null = selector wrong
 
 function init() {
     const savedIndex = localStorage.getItem('sheetIndex');
@@ -83,6 +86,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
         localStorage.setItem('selectedGroups', JSON.stringify([...selected]));
         
         if (selected.size >= 3) {
+            console.log('worked!');
             swapCSS();
             selected.clear();
             localStorage.removeItem('selectedGroups');
