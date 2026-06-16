@@ -42,8 +42,9 @@ if (document.body.classList.contains('editable-sections')) {
     })
 }
 
+const link = document.querySelector('link.people-card-style');
 const stylesheets = ['people_3.css', 'people_list.css', 'people_lyraaura.css'];
-const BASE_PATH = './Lyra_UI/css/';
+const BASE_PATH = link.href.substring(0, link.href.lastIndexOf('/') + 1);
 const selected = new Set();
 
 function init() {
@@ -59,10 +60,8 @@ function init() {
 }
 
 function swapCSS() {
-    let sheetIndex = parseInt(localStorage.getItem('sheetIndex') || '0');
+    let sheetIndex = parseInt(localStorage.getItem('sheetIndex') ?? '-1');
     sheetIndex = (sheetIndex + 1) % stylesheets.length;
-
-    const link = document.querySelector('link.people-card-style');
     
     if (link) {
         link.href = BASE_PATH + stylesheets[sheetIndex];
@@ -90,3 +89,5 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
         }
     });
 });
+
+init();
