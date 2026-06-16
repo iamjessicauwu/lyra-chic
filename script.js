@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const innerHeight = window.innerHeight;
 
         const direction = e.direction;
+        if (Math.abs(e.velocity) < 0.4) return;
 
         if (direction !== 0) {
             lastDirection = direction;

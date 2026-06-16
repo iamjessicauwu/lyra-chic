@@ -515,24 +515,23 @@
         outline: 1px solid purple;
     }
 
-    body.anim-disabled *:not(.nav-pane, dialog, .side-panel),
+    body.anim-disabled *:not(.nav-pane, dialog),
     .anim-disabled {
-        transition: none;
-        animation: none;
+        transition: none !important;
+        animation: none !important;
     }
 
-    body.anim-disabled .people {
-        animation: fadeInDown .6s cubic-bezier(0.075, 0.82, 0.165, 1);
-        transition: transform .6s, opacity .6s;
-    }
-
-    body.anim-disabled>dialog {
+    body.anim-disabled>dialog.side-panel {
+        transition: opacity .5s !important;
         animation: none;
-        transition: .4s;
+    }
+    
+    body.anim-disabled  {
+        animation: none;
     }
 
     body.high-contrast main {
-        filter: contrast(1.5);
+        filter: contrast(1.8);
     }
 
     button {
@@ -1246,7 +1245,7 @@
         font-weight: 500;
         letter-spacing: 0.15em;
         text-transform: uppercase;
-        padding: 5px 12px;
+        padding: 8px 12px;
     }
 
     .badge-linen {
@@ -1262,7 +1261,7 @@
 
     .badge-roast {
         background: var(--roast);
-        color: var(--cream);
+        color: var(--color-text-muted);
     }
 
     .badge-outline {
@@ -1349,7 +1348,7 @@ dialog .dialog-header {
     z-index: 1;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 24px 10px 24px;
+    padding: 14px 24px 14px 24px;
 }
 
 .dialog-mintopbar {
@@ -4646,14 +4645,6 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     visibility: visible;
 }
 
-.side-panel #close-panel {
-    display: flex;
-    width: 14px;
-    height: 45px;
-    align-items: center;
-    border: 1px solid transparent;
-}
-
 .side-panel .panel-header {
     display: flex;
     justify-content: space-between;
@@ -4803,7 +4794,6 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     text-align: right;
     max-width: 400px;
     text-transform: none;
-    line-height: 26px;
     color: var(--color-surface-text);
 }
 
@@ -6092,17 +6082,15 @@ html:has(.nav-pane:not(.hidden)) {
         margin: 20px 10px;
     }
 
-    .badge-container.compact .badge-old {
+    .badge-container .badge-old {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
     }
 
     .badge-old span.gray {
-        line-height: normal;
         font-size: 14px;
         text-align: left;
-        margin: 10px 0;
     }
 
     .people:hover,
