@@ -66,22 +66,22 @@ function swapCSS() {
     let sheetIndex = parseInt(localStorage.getItem('sheetIndex') ?? '-1');
     sheetIndex = (sheetIndex + 1) % stylesheets.length;
     
-    if (link) {
-        link.href = BASE_PATH + stylesheets[sheetIndex];
-    } else {
+    if (!link) {
         const newLink = document.createElement('link');
         newLink.rel = 'stylesheet';
         newLink.classList.add('people-card-style')
         newLink.href = BASE_PATH + stylesheets[sheetIndex];
         document.head.appendChild(newLink);
     }
+    
+    link.href = BASE_PATH + stylesheets[sheetIndex];
 
     localStorage.setItem('sheetIndex', sheetIndex);
 }
 
 document.querySelectorAll('.radio-card-style').forEach(radio => {
     radio.addEventListener('change', (e) => {
-        selected.add(e.target.name);
+        selected.add(e.target.value);
         
         localStorage.setItem('selectedGroups', JSON.stringify([...selected]));
         
