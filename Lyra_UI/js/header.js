@@ -267,6 +267,21 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
 
         document.body.classList.toggle('bounds', enabled);
         localStorage.setItem('bounds', enabled);
+    });
+    
+    const hc = document.getElementById('contrastCbx');
+    if (!hc) return;
+
+    const hcState = localStorage.getItem('hc') === 'true';
+
+    document.body.classList.toggle('high-contrast', hcState);
+    hc.checked = hcState;
+
+    hc.addEventListener('change', () => {
+        const enabled = hc.checked;
+    
+        document.body.classList.toggle('high-contrast', enabled);
+        localStorage.setItem('hc', enabled);
     })
 
 })

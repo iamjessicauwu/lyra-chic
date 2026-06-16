@@ -440,7 +440,7 @@
     h5,
     h6 {
         font-family: var(--serif);
-        margin: 4px 0 4px 0;
+        margin: 0px 0 0px 0;
     }
 
     .h1 { font-size: 52px; line-height: 1.08; font-weight: 700; }
@@ -531,7 +531,20 @@
     }
 
     body.high-contrast main {
-        filter: contrast(1.8);
+        filter: contrast(150%);
+    }
+    
+    @media (prefers-contrast: more) {
+        :root {
+            --linen:    #FFFFFF;
+            --sand:     #F0E0C8;
+            --tan:      #8B5E2A;
+            --ochre:    #6B3D0F;
+            --espresso: #3D1F00;
+            --roast:    #000000;
+            --cream:    #FFFFFF;
+            --muted:    #5A3A10;
+        }
     }
 
     button {
@@ -6086,6 +6099,7 @@ html:has(.nav-pane:not(.hidden)) {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        gap: 5px;
     }
 
     .badge-old span.gray {
