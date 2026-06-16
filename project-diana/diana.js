@@ -42,8 +42,8 @@ if (document.body.classList.contains('editable-sections')) {
     })
 }
 
-const stylesheets = ["people_3.css", "people_list.css", "people_lyraaura.css"];
-const relativeUrl = '/Lyra_UI/css/';
+const stylesheets = ['people_3.css', 'people_list.css', 'people_lyraaura.css'];
+const BASE_PATH = './Lyra_UI/css/';
 const selected = new Set();
 
 function init() {
@@ -51,8 +51,8 @@ function init() {
     const savedSelected = JSON.parse(localStorage.getItem('selectedGroups') || '[]');
 
     if (savedIndex !== null) {
-        const link = document.querySelector('link[rel="stylesheet"]');
-        if (link) link.href = stylesheets[parseInt(savedIndex)];
+        const link = document.querySelector('link.people-card-style');
+        if (link) link.href = BASE_PATH + stylesheets[parseInt(savedIndex)];
     }
 
     savedSelected.forEach(name => selected.add(name));
@@ -62,15 +62,15 @@ function swapCSS() {
     let sheetIndex = parseInt(localStorage.getItem('sheetIndex') || '0');
     sheetIndex = (sheetIndex + 1) % stylesheets.length;
 
-    const link = document.querySelector('.people-card-style');
-    const relativePath = '/Lyra_UI/css/';
+    const link = document.querySelector('link.people-card-style');
     
     if (link) {
-        link.href = relativePath + stylesheets[sheetIndex];
+        link.href = BASE_PATH + stylesheets[sheetIndex];
     } else {
         const newLink = document.createElement('link');
         newLink.rel = 'stylesheet';
-        newLink.href = stylesheets[sheetIndex];
+        newLink.classList.add('people-card-style')
+        newLink.href = BASE_PATH + stylesheets[sheetIndex];
         document.head.appendChild(newLink);
     }
 
