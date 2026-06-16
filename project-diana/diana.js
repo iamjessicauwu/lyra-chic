@@ -41,3 +41,52 @@ if (document.body.classList.contains('editable-sections')) {
         });
     })
 }
+
+const stylesheets = ["people_3.css", "people_list.css", "people_lyraaura.css"];
+const relativeUrl = '/Lyra_UI/css/';
+const selected = new Set();
+
+function init() {
+    const savedIndex = localStorage.getItem('sheetIndex');
+    const savedSelected = JSON.parse(localStorage.getItem('selectedGroups') || '[]');
+
+    if (savedIndex !== null) {
+        const link = document.querySelector('link[rel="stylesheet"]');
+        if (link) link.href = stylesheets[parseInt(savedIndex)];
+    }
+
+    savedSelected.forEach(name => selected.add(name));
+}
+
+function swapCSS() {
+    let sheetIndex = parseInt(localStorage.getItem('sheetIndex') || '0');
+    sheetIndex = (sheetIndex + 1) % stylesheets.length;
+
+    const link = document.querySelector('.people-card-style');
+    const relativePath = '/Lyra_UI/css/';
+    
+    if (link) {
+        link.href = relativePath + stylesheets[sheetIndex];
+    } else {
+        const newLink = document.createElement('link');
+        newLink.rel = 'stylesheet';
+        newLink.href = stylesheets[sheetIndex];
+        document.head.appendChild(newLink);
+    }
+
+    localStorage.setItem('sheetIndex', sheetIndex);
+}
+
+document.querySelectorAll('.radio-card-style').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+        selected.add(e.target.name);
+        
+        localStorage.setItem('selectedGroups', JSON.stringify([...selected]));
+        
+        if (selected.size >= 3) {
+            swapCSS();
+            selected.clear();
+            localStorage.removeItem('selectedGroups');
+        }
+    });
+});

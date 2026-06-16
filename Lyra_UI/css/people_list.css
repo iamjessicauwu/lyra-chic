@@ -1,0 +1,257 @@
+.people {
+    break-inside: avoid;
+    position: relative;
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--color-border-100);
+    transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), border .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.people * {
+    transition: none;
+}
+
+.people:hover h2,
+.people.focus h2 {
+    padding-left: 25px;
+}
+
+.people:hover h2::before,
+.people.focus h2::before {
+    display: block;
+    animation: fadeIn .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.people:hover {
+    cursor: pointer;
+}
+
+.people .people-img {
+    object-fit: cover;
+    width: 70px;
+    height: 70px;
+    background: var(--color-surface-0) url('/assets/logo/lyra.webp') no-repeat;
+    border-radius: 50px;
+}
+
+.people .people-img.centered img,
+.people-type .people-img.centered img {
+    object-position: center center;
+}
+
+.people-img img {
+    background-color: var(--color-surface-0);
+}
+
+.people .people-img img {
+    object-fit: cover;
+    border-radius: 50px;
+    width: 70px;
+    height: 70px;
+    background-color: var(--color-icon-bg);
+    aspect-ratio: 1 / 1;
+}
+
+
+.badge-old::before,
+.people h2::before {
+    display: none;
+    content: "";
+    position: absolute;
+    left: 0px;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: var(--color-primary-500);
+}
+
+.people .people-bio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 18px 8px 18px 8px;
+}
+
+.people .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    top: -4px;
+}
+
+.people .alias::after {
+    content: "|";
+    margin: 0 8px;
+}
+
+.people .person-zodiac {
+    display: none;
+    width: 18px;
+    height: 18px;
+    /* mask-size: contain;
+    mask-type: alpha;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center; */
+}
+
+/* 
+.libra {
+    mask-image: url("/assets/logo/libra.png");
+    background-color: #ffce72;
+    -webkit-mask-image: url("/assets/logo/libra.png");
+}
+
+.gemini {
+    background-color: rgb(255, 206, 114);
+    mask-image: url("/assets/logo/gemini.png");
+    -webkit-mask-image: url("/assets/logo/gemini.png");
+}
+
+.aquarius {
+    mask-image: url("/assets/logo/aquarius.png");
+    -webkit-mask-image: url("/assets/logo/aquarius.png");
+}
+
+.taurus {
+    mask-image: url("/assets/logo/taurus.png");
+    -webkit-mask-image: url("/assets/logo/taurus.png");
+}
+
+.virgo {
+    mask-image: url("/assets/logo/virgo.png");
+    -webkit-mask-image: url("/assets/logo/virgo.png");
+}
+
+.capricorn {
+    mask-image: url("/assets/logo/capricorn.png");
+    -webkit-mask-image: url("/assets/logo/capricorn.png");
+}
+
+.pisces {
+    mask-image: url("/assets/logo/pisces.png");
+    -webkit-mask-image: url("/assets/logo/pisces.png");
+}
+
+.cancer {
+    mask-image: url("/assets/logo/cancer.png");
+    -webkit-mask-image: url("/assets/logo/cancer.png");
+}
+
+.scorpio {
+    mask-image: url("/assets/logo/scorpio.png");
+    -webkit-mask-image: url("/assets/logo/scorpio.png");
+}
+
+.aries {
+    mask-image: url("/assets/logo/aries.png");
+    -webkit-mask-image: url("/assets/logo/aries.png");
+}
+
+.leo {
+    mask-image: url("/assets/logo/leo.png");
+    -webkit-mask-image: url("/assets/logo/leo.png");
+}
+
+.sagittarius {
+    mask-image: url("/assets/logo/sag.png");
+    -webkit-mask-image: url("/assets/logo/sag.png");
+} */
+
+.people-bio p.empty {
+    color: rgb(100, 100, 100);
+}
+
+.people .social-media a {
+    color: inherit;
+}
+
+.people .people-btns {
+    display: none;
+    flex-direction: column;
+    padding: 0px 20px 0px 20px;
+    justify-content: space-between;
+}
+
+.people .social-media {
+    gap: 26px;
+    justify-content: flex-start;
+    background-color: rgba(100, 100, 100, 0.05);
+}
+
+.people .social-media span {
+    display: none;
+}
+
+.people .social-media i {
+    padding: 8px;
+    font-size: 26px;
+}
+
+.people .social-media i:hover {
+    color: var(--color-primary-100);
+}
+
+.people-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 5px #808080;
+}
+
+.people .social-media i[class="ri-instagram-line"] {
+    position: relative;
+    background: #833ab4;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-emphasis-color: transparent;
+}
+
+.people .social-media i[class="ri-tiktok-fill"] {
+    position: relative;
+    background: transparent;
+    color: inherit;
+}
+
+@media (max-width: 870px) {
+    .people {
+        width: 100%;
+    }
+
+    .people .people-img,
+    .people .people-img img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .people .people-bio {
+        gap: 18px;
+    }
+
+    .people .name h2 {
+        font-size: 18px;
+    }
+
+    .people .people-bio span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .people .people-bio {
+        flex-wrap: wrap;
+    }
+    
+    .people .people-img,
+    .people .people-img img {
+        width: 140px;
+        height: 140px;
+    }
+}

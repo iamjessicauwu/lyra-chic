@@ -52,7 +52,7 @@ function renderCard() {
                     }
                 });
                 
-                const old = document.querySelector('.old-people-card');
+                const old = document.querySelector('.people-card-style');
                 if (old) {
                     text = `${person.nickname.replace(/&bull;/g, "•")}`;
                 }
@@ -103,7 +103,9 @@ people.forEach(card => {
         hiddenCounts++;
     }
     
-    card.addEventListener('click', () => {
+    
+    
+    function showPeoplePanel() {
         document.body.style.overflowY = 'hidden';
         document.querySelectorAll('.side-panel div').forEach((item, i) => {
             setTimeout(() => {
@@ -200,8 +202,9 @@ people.forEach(card => {
         } else {
             badges.textContent = `No badges yet!`;
         }
-
-    })
+    }
+    
+    card.querySelectorAll('.pc-action').forEach(el => el.addEventListener('click', showPeoplePanel));
 })
 
 if (hiddenCounts > 0) {
