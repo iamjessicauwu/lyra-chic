@@ -96,5 +96,29 @@
         "id": "velanie",
         "badges": ["Fashion Illuminator", "ST☆RGΛINZ Member"],
         "zodiac": "Aries"
+    },
+    {
+        "name": "Sharon Bethania Djwa",
+        "nickname": "Sharon",
+        "description": "Sharon is a fellow member of <b>ST☆RGΛINZ</b> who brings a warm and socially charming energy wherever she goes. She's the type of person who can walk into any room and just... click with everyone effortlessly. <br>But there's a quieter, more introspective side to her too — Sharon has a deep love for writing novels, weaving stories and characters that live far beyond the dance floor. Performer by day, storyteller by night. That contrast is exactly what makes her so interesting. 📖✨",
+        "role": "Dancer, Writer",
+        "aliases": "",
+        "image": "/assets/image/member_avatar/sharon.webp",
+        "banner_image": "",
+        "id": "sharon",
+        "badges": ["ST☆RGΛINZ Member"],
+        "zodiac": "Unknown"
+    },
+    {
+        "name": "Quinsha A. A.",
+        "nickname": "Quinn",
+        "description": "Quinsha — or Quinn as everyone calls her — is one of Carin's closest friends, and once you get to know her, it's easy to see why they clicked. She's part of the dance group <b>SMAKAUG</b> alongside Velanie and Carin, bringing her performer instincts to every stage she steps on. <br>Outside of dance, Quinn is also an MC and performer at GMS Church, which says a lot about her — she's someone who performs with purpose, not just for the spotlight. And when she's not performing, she's writing, pouring the same intention into words that she brings to every stage. <br>Faithful, expressive, and quietly powerful. That's Quinn. 🎤✝️",
+        "role": "Writer",
+        "aliases": "",
+        "image": "",
+        "banner_image": "",
+        "id": "quinsha",
+        "badges": ["SMAKAUG Student"],
+        "zodiac": "Unknown"
     }
 ]

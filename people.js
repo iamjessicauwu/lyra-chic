@@ -89,7 +89,7 @@ const roleEl = panel.querySelector('.nickname');
 const desc = panel.querySelector('p');
 const badges = panel.querySelector('.badge-row');
 const peopleCtr = document.querySelector('.grid');
-const activeMembers = ["anneta", "crshyle", "jessica", "velanie", "monique", "mae", "charis", "reagan"];
+const activeMembers = ["anneta", "crshyle", "jessica", "velanie", "monique", "mae", "sharon", "quinsha", "charis", "reagan"];
 let hiddenCounts = 0;
 
 let activeCard = null;
