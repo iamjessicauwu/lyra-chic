@@ -245,7 +245,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                 bubble.innerHTML = `
                     <div class="message lyra">
                         <p>${aiText.replace('/\n/g', '<br>')}</p>
-                        <div class="actions-buttons>
+                        <div class="actions-buttons">
                             <button class="action-btn copy-btn" title="Copy"><i class="ri-file-copy-line"></i></button>
                             <button class="action-btn speak-btn" title="Speak"><i class="ri-speak-ai-line"></i></button>
                         </div>
