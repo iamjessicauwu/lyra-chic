@@ -79,7 +79,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
 
         const conversationHistory = [];
         
-        function typeWriter(element, text, speed = 23) {
+        function typeWriter(element, text, speed = 20) {
             element.textContent = '';
             let i = 0;
             return new Promise(resolve => {
@@ -94,9 +94,11 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
             });
         }
         
+        const chatPanel = document.querySelector('.talk-to-lyra');
         const input = document.getElementById('user-input');
         const ctr = document.querySelector('.suggested-text');
         const categories = ctr.querySelectorAll('.category');
+        const chatContent = document.querySelector('.chat-content');
         const userMessage = input.value.trim();
 
         categories.forEach(el => {
@@ -106,15 +108,92 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
             });
         });
 
+        function performCopy(bubble) {
+            const bubbleChat = bubble;
+            const copy = bubbleChat.querySelector('.copy-btn');
+            const icon = copy.querySelector('i');
+
+            copy.addEventListener('click', async () => {
+                icon.className = 'ri-check-line';
+                try {
+                    await navigator.clipboard.writeText(bubbleChat.querySelector('p').textContent);
+                    setTimeout(() => {
+                        icon.className = 'ri-file-copy-line';
+                    }, 3000)
+                } catch (err) {
+                    console.error('Cannot copy the message', err);
+                }
+            })
+        }
+
+        function textToSpeech(bubble) {
+            const bubbleChat = bubble;
+            const speak = bubbleChat.querySelector('.speak-btn');
+            const icon = speak.querySelector('i');
+
+            speak.addEventListener('click', async () => {
+                icon.className = 'ri-speak-ai-fill';
+
+                function speakGirl(text) {
+                    if ('speechSynthesis' in window) {
+                        const utterance = new SpeechSynthesisUtterance(text);
+                        const voices = window.speechSynthesis.getVoices();
+    
+                        const femaleVoice = voices.find(voice =>  voice.name.includes('Google US English Female') || voice.name.includes('Zira'));
+                        console.log(voices)
+                        
+    
+                        if (femaleVoice) {
+                            utterance.voice = femaleVoice;
+                        }
+                        
+                        utterance.rate = 1.3;
+                        utterance.pitch = 1.3;
+    
+                        utterance.addEventListener('end', () => {
+                            icon.className = 'ri-speak-ai-line';
+                        })
+                        
+                        window.speechSynthesis.cancel();
+                        window.speechSynthesis.speak(utterance);
+                    }
+                }
+
+                const text = bubbleChat.querySelector('p').textContent;
+
+                if (speechSynthesis.getVoices().length > 0) {
+                    speakGirl(text);
+                } else {
+                    speechSynthesis.onvoiceschanged = () => {
+                        speakGirl();
+                    }
+                }
+            })
+        }
+
+        const greeting = chatContent.querySelector('.greeting');
+        let greetingTitleEl = document.getElementById('greeting-title');
+        const greetingTitles = ["Ready, set, chat!", "What kind of magic are we making today?", "Me help you? Yes, me can! What you want today?", "Woohoo, you're here! 🎉", "Once upon a time... what happens next?", "Welcome back! What’s the scoop today? ☕"];
+        document.getElementById('delete-chat').addEventListener('click', () => {
+            chatContent.innerHTML = "";
+            conversationHistory.length = 0;
+            if (conversationHistory.length === 0) {
+                chatContent.prepend(greeting);
+            }
+        });
+
+        
+        const random = Math.floor(Math.random() * greetingTitles.length);
+        greetingTitleEl.textContent = greetingTitles[random];
+
         async function sendMessage() {
             const input = document.getElementById('user-input');
             const sendBtn = document.getElementById('send-chat');
-            const chatContent = document.querySelector('.chat-content');
             const contentDiv = document.getElementById('content');
             const userMessage = input.value.trim();
             if (!userMessage) return;
             
-            chatContent.querySelector('.greeting')?.remove();
+            chatContent.removeChild(greeting);
 
             // Render user bubble message
             chatContent.innerHTML += `
@@ -166,13 +245,25 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                 bubble.innerHTML = `
                     <div class="message lyra">
                         <p>${aiText.replace('/\n/g', '<br>')}</p>
+                        <div class="actions-buttons>
+                            <button class="action-btn copy-btn" title="Copy"><i class="ri-file-copy-line"></i></button>
+                            <button class="action-btn speak-btn" title="Speak"><i class="ri-speak-ai-line"></i></button>
+                        </div>
                     </div>
                 `;
                 chatContent.appendChild(bubble);
+
+                const actions = bubble.querySelector('.actions-buttons');
+                actions.hidden = true;
                 
                 const p = bubble.querySelector('p');
                 await typeWriter(p, aiText);
                 p.classList.add('done');
+
+                performCopy(bubble);
+                textToSpeech(bubble);
+                actions.hidden = false;
+
             } catch (err) {
                 document.getElementById(thinkingId)?.remove();
                 
@@ -181,13 +272,24 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                 bubble.innerHTML = `
                     <div class="message lyra">
                         <p></p>
+                        <div class="actions-buttons">
+                            <button class="btn btn-transparent action-btn copy-btn" title="Copy"><i class="ri-file-copy-line"></i></button>
+                            <button class="btn btn-transparent action-btn speak-btn" title="Speak"><i class="ri-speak-ai-line"></i></button>
+                        </div>
                     </div>
                 `;
                 chatContent.appendChild(bubble);
                 
+                const actions = bubble.querySelector('.actions-buttons');
+                actions.hidden = true;
+
                 const p = bubble.querySelector('p');
                 await typeWriter(p, "Oops! Something went wrong. Please try again later.");
                 p.classList.add('done');
+
+                performCopy(bubble);
+                textToSpeech(bubble);
+                actions.hidden = false;
             }
 
             sendBtn.disabled = false;

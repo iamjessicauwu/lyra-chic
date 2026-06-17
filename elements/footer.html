@@ -94,25 +94,42 @@
         </div>
     </div>
 </dialog>
+<dialog class="chat-settings">
+    <div class="dialog-header">
+        <div>
+            <h1 class="dialog-mintopbar">Chat settings</h1>
+        </div>
+        <div class="dialog-btns">
+            <button class="close-btn" data-dialog-close data-dialog-anim="fadeOut"><div class="line div-1"></div><div class="line div-2"></div></button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="item">
+            <div class="accordion-item">
+                <h5 class="accordion-item-title">Delete chat history<br><span class="accordion-item-desc error">Note: This will delete all of your chat history and bubbles without last warning!</span></h5>
+                <button class="btn btn-ghost" id="delete-chat">Delete</button>
+            </div>
+        </div>
+    </div>
+</dialog>
 <dialog class="side-panel talk-to-lyra" data-lenis-prevent>
+
     <div class="dialog-header">
         <div>
             <h1 class="dialog-mintopbar"></h1>
         </div>
         <div class="dialog-btns">
+            <button class="btn btn-transparent" data-dialog-open="chat-settings"><i class="ri-settings-line"></i></button>
             <button class="close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><div class="line div-1"></div><div class="line div-2"></div></button>
         </div>
     </div>
-    <div class="content" id="content">
+    <div class="content">
         <div class="chat-content">
             <div class="greeting">
-                <img class="logo lyra-logo" src="/assets/logo/Lyra_simple.webp" alt="Lyra logo">
-                <h1>Hi, I'm Lyra!</h1>
-                <p>Let's make charm by asking with a soft heart.</p>
+                <h1 id="greeting-title"></h1>
                 <div class="category-container suggested-text">
-                    <div class="category recommended">Berikan aku informasi tentang Mae</div>
-                    <div class="category">Apa itu Lyra Chic dan mengapa mereka ada?</div>
-                    <div class="category">Buatkan aku cerita lore singkat antara Carin dan Monique.</div>
+                    <div class="category">What is Lyra Chic, and why does it exist?</div>
+                    <div class="category">Introduce me to the Lyra Chic members!</div>
                 </div>
             </div>
             <!-- <div class="greeting">

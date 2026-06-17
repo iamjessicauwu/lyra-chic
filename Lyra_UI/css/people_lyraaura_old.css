@@ -1,5 +1,6 @@
 
 .grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     padding: 0 10px;
     gap: 20px;
 }
@@ -59,7 +60,7 @@
     border-radius: 0;
     width: 100%;
     height: 100%;
-    object-position: center 20%;
+    object-position: center;
     background-color: rgba(131, 131, 131, 0.034);
     aspect-ratio: 3 / 4;
 }

@@ -825,6 +825,8 @@
     dialog.fullscreen {
         inset: 0;
         width: 100%;
+        height: auto;
+        animation: fadeInRight .3s cubic-bezier(0.475, 0.12, 0.165, 1);
     }
 
     dialog .content {
@@ -1525,6 +1527,7 @@ dialog .dialog-topbar {
 .talk-to-lyra .greeting h1 {
     font-style: italic;
     font-weight: 500;
+    text-align: center;
     font-size: 2rem;
     margin-bottom: 12px;
 }
@@ -1665,7 +1668,7 @@ dialog .dialog-topbar {
 }
 
 .error {
-    color: red;
+    color: red !important;
 }
 
 .warning {
@@ -1788,22 +1791,22 @@ header:has(.header-container.hide) {
 }
 
 .category {
-    background-color: var(--color-surface-0);
+    background-color: transparent;
     display: flex;
     border: 1px solid var(--color-border-100);
     gap: 10px;
     font-family: inherit;
     font-size: 16px;
     padding: 12px 20px;
-    border-radius: 50px;
     align-items: center;
     transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .suggested-text .category {
-    font-size: 14px;
-    text-align: center;
-    padding: 10px 14px;
+    font-size: 12px;
+    font-family: var(--monospace);
+    font-weight: 500;
+    letter-spacing: 0.05em;
 }
 
 .category.blue {
@@ -1985,6 +1988,21 @@ a,
     text-decoration: none;
 }
 
+.action-btn {
+    padding: 8px;
+}
+
+.action-btn i {
+    font-size: 18px;
+}
+
+.actions-buttons {
+    margin: 10px 0;
+    border-radius: 50px;
+    background-color: var(--color-surface-0);
+    width: fit-content;
+}
+
 .btn-primary {
     background: var(--espresso);
     color: var(--cream);
@@ -2040,30 +2058,19 @@ a,
     border-color: var(--color-primary-100);
 }
 
-.btn.outline {
-    background-color: transparent;
-    border-color: var(--color-primary-500);
-}
-
-.btn.outline:hover {
-    border-color: transparent;
-    box-shadow: inset 0px -100px 50px 0px rgb(10, 10, 10);
-    color: white;
-}
-
-.btn.empty {
+.btn-transparent {
     background-color: transparent;
     border-color: transparent;
     color: var(--color-text-main);
 }
 
-.btn.empty:hover {
+.btn-transparent:hover {
     background-color: transparent;
     border-color: transparent;
     color: var(--color-primary-500);
 }
 
-.btn.empty:active {
+.btn-transparent:active {
     border-color: var(--color-primary-100);
 }
 
@@ -3206,7 +3213,7 @@ details[open] .accordion-header::after {
     align-items: center;
     width: 100%;
     transition: .4s;
-    padding: 12px 0px 12px 0px;
+    padding: 12px 3px 12px 3px;
     user-select: none;
 }
 
@@ -4015,7 +4022,7 @@ header,
 .brand {
     position: relative;
     display: flex;
-    width: fit-content;
+    padding: 4px 0;
     align-items: center;
 }
 
@@ -4076,6 +4083,7 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
     padding: 0px 16px;
     opacity: 1;
     transition: .5s cubic-bezier(0.075, 0.92, 0.403, 1);
@@ -4090,23 +4098,32 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     background-color: transparent;
     border: 1px solid transparent;
     font-size: 14px;
-    padding: 16px 12px;
+    padding: 20px 12px;
     cursor: pointer;
     transition: none;
+    width: 100%;
+    height: inherit;
+    word-spacing: 2px;
+    white-space: nowrap;
     text-transform: uppercase;
 }
 
-.navigation .navBtn {
-    min-width: 80px;
+.navBtn.serif {
+    font-family: var(--serif);
+    font-style: italic;
+    text-transform: none;
+    font-size: 18px;
+    padding: 16px 12px;
+    font-weight: 600;
 }
 
 .navBtn::before {
     display: none;
     content: "";
     position: absolute;
-    left: -4px;
-    padding: 6px;
-    border-radius: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
     background-color: var(--color-primary-500);
 }
 
@@ -5255,7 +5272,7 @@ html:has(.nav-pane:not(.hidden)) {
 
     .brand {
         padding: 0;
-        left: 0;
+        left: 5px;
     }
 
     .navigation {
@@ -5530,8 +5547,8 @@ html:has(.nav-pane:not(.hidden)) {
 
     .brand .logo {
         top: 0;
-        left: 5px;
-        width: 120px;
+        left: 0px;
+        width: 140px;
         opacity: 1;
         transform: scale(1.0);
     }
