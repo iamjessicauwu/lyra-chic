@@ -191,7 +191,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
             const userMessage = input.value.trim();
             if (!userMessage) return;
             
-            chatContent.removeChild(greeting);
+            document.querySelector('.greeting')?.remove();
 
             // Render user bubble message
             chatContent.innerHTML += `
@@ -261,6 +261,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                 performCopy(bubble);
                 textToSpeech(bubble);
                 actions.hidden = false;
+                sendBtn.disabled = false;
 
             } catch (err) {
                 document.getElementById(thinkingId)?.remove();
@@ -288,11 +289,8 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                 performCopy(bubble);
                 textToSpeech(bubble);
                 actions.hidden = false;
+                sendBtn.disabled = false;
             }
-
-            sendBtn.disabled = false;
-            contentDiv.scrollTop = contentDiv.scrollHeight;
-            input.focus();
         }
 
         function escapeHtml(text) {
