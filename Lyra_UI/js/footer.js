@@ -109,63 +109,66 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
         });
 
         function performCopy(bubble) {
-            const bubbleChat = bubble;
-            const copy = bubbleChat.querySelector('.copy-btn');
-            const icon = copy.querySelector('i');
-
-            copy.addEventListener('click', async () => {
-                icon.className = 'ri-check-line';
-                try {
-                    await navigator.clipboard.writeText(bubbleChat.querySelector('p').textContent);
-                    setTimeout(() => {
-                        icon.className = 'ri-file-copy-line';
-                    }, 3000)
-                } catch (err) {
-                    console.error('Cannot copy the message', err);
-                }
-            })
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const container = e.target.closest('.bubble-message');
+                    const copy = container.querySelector('.copy-btn');
+                    const icon = copy.querySelector('i');
+                    
+                    icon.className = 'ri-check-line';
+                    try {
+                        await navigator.clipboard.writeText(bubble.querySelector('p').textContent);
+                        setTimeout(() => {
+                            icon.className = 'ri-file-copy-line';
+                        }, 3000)
+                    } catch (err) {
+                        console.error('Cannot copy the message', err);
+                    }
+                })
+            });
         }
 
         function textToSpeech(bubble) {
-            const bubbleChat = bubble;
-            const speak = bubbleChat.querySelector('.speak-btn');
-            const icon = speak.querySelector('i');
-
-            speak.addEventListener('click', () => {
-                icon.className = 'ri-speak-ai-fill';
-
-                function speakGirl(text) {
-                    if ('speechSynthesis' in window) {
-                        const utterance = new SpeechSynthesisUtterance(text);
-                        const voices = window.speechSynthesis.getVoices();
+            document.querySelectorAll('.speak-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const container = e.target.closest('.bubble-message');
+                    const speak = container.querySelector('.speak-btn');
+                    const icon = speak.querySelector('i');
+                    icon.className = 'ri-speak-ai-fill';
     
-                        const femaleVoice = voices.find(voice =>  voice.name.includes('Google US English Female') || voice.name.includes('Zira'));
-                        
-                        if (femaleVoice) {
-                            utterance.voice = femaleVoice;
+                    function speakGirl(text) {
+                        if ('speechSynthesis' in window) {
+                            const utterance = new SpeechSynthesisUtterance(text);
+                            const voices = window.speechSynthesis.getVoices();
+        
+                            const femaleVoice = voices.find(voice =>  voice.name.includes('Google US English Female') || voice.name.includes('Zira'));
+                            
+                            if (femaleVoice) {
+                                utterance.voice = femaleVoice;
+                            }
+                            
+                            utterance.rate = 1.3;
+                            utterance.pitch = 1.3;
+        
+                            utterance.addEventListener('end', () => {
+                                icon.className = 'ri-speak-ai-line';
+                            })
+                            
+                            window.speechSynthesis.cancel();
+                            window.speechSynthesis.speak(utterance);
                         }
-                        
-                        utterance.rate = 1.3;
-                        utterance.pitch = 1.3;
+                    }
     
-                        utterance.addEventListener('end', () => {
-                            icon.className = 'ri-speak-ai-line';
-                        })
-                        
-                        window.speechSynthesis.cancel();
-                        window.speechSynthesis.speak(utterance);
+                    const text = bubble.querySelector('p').textContent;
+    
+                    if (speechSynthesis.getVoices().length > 0) {
+                        speakGirl(text);
+                    } else {
+                        speechSynthesis.onvoiceschanged = () => {
+                            speakGirl();
+                        }
                     }
-                }
-
-                const text = bubbleChat.querySelector('p').textContent;
-
-                if (speechSynthesis.getVoices().length > 0) {
-                    speakGirl(text);
-                } else {
-                    speechSynthesis.onvoiceschanged = () => {
-                        speakGirl();
-                    }
-                }
+                })
             })
         }
 
