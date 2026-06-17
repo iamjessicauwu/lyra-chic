@@ -58,15 +58,17 @@
             </div>
         </div>
         <div class="header-mobile">
-            <div>
+            <div class="header-left">
                 <button class="navBtn" data-dialog-open="cart-dialog" data-tooltip="Keranjang Anda">
                     <i class="ri-shopping-bag-line"></i>
                 </button>
             </div>
-            <div class="brand">
-                <a href="/"><img class="logo lyra-logo" src="./assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" /></a>
+            <div class="header-center">
+                <div class="brand">
+                    <a href="/"><img class="logo lyra-logo" src="./assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" /></a>
+                </div>
             </div>
-            <div>
+            <div class="header-right">
                 <button class="navBtn hamburger" aria-label="hamburger button to open the hamburger menu" id="hamburger">
                     <div class="line line-1"></div>
                     <div class="line line-2"></div>
@@ -94,8 +96,8 @@
 </header>
 <div class="overlay header-overlay"></div>
 <div class="nav-pane hidden">  
-    <div class="nav-pane-header">
-        <button class="close-btn" id="close2"><div class="line div-1"></div><div class="line div-2"></div></button>
+    <div class="nav-pane-header dialog-header">
+        <button class="close-btn" id="close2"><div class="line line-1"></div><div class="line line-2"></div></button>
     </div>
     <div class="nav-container">
         <div class="content" data-lenis-prevent>
@@ -104,20 +106,27 @@
                 <a href="./projects.html"><button class="menuButton" id="projects">Our Works</button></a>
                 <a href="./blog.html"><button class="menuButton" id="blog">Magazine</button></a>
                 <a href="./about.html"><button class="menuButton" id="about">About Lyra</button></a>
+                <a href="./gallery.html"><button class="menuButton" id="gallery">Gallery</button></a>
+                <button class="menuButton" data-dialog-open="search-panel">Search</button>
             </div>
             <span class="divider">Get in touch</span>
             <div class="content-item menu">
-                <a href="./contact.html"><button class="menuButton" id="projects">Contact Us!</button></a>
-                <a href="./starmember.html"><button class="menuButton" id="blog">Star Member<span class="status small">
+                <a href="./contact.html"><button class="menuButton">Contact Us!</button></a>
+                <a href="./starmember.html"><button class="menuButton">Star Member<span class="status small">
                     Beta
                 </span></button></a>
+            </div>
+            <span class="divider">Lyra Universe</span>
+            <div class="content-item menu">
+                <a href="./playground.html"><button class="menuButton">Editorial UI</button></a>
+                <a href="https://netaaawp.github.io/Lyra-Aura"><button class="menuButton">Lyra Aura</button></a>
+                <a href="https://lyraaurania.vercel.app"><button class="menuButton">Lyra Chic Legacy</button></a>
             </div>
         </div>
         <div class="footer"> 
             <div class="footer-flex">
                 <div class="navpane-footer-actions">
                     <button class="btn btn-primary chat" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
-                    <i class="ri-accessibility-line" id="labs" data-dialog-open="settings-ui"></i>
                 </div>
             </div>
             <div class="footer-flex-1">
