@@ -131,7 +131,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
             const speak = bubbleChat.querySelector('.speak-btn');
             const icon = speak.querySelector('i');
 
-            speak.addEventListener('click', async () => {
+            speak.addEventListener('click', () => {
                 icon.className = 'ri-speak-ai-fill';
 
                 function speakGirl(text) {
@@ -140,9 +140,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                         const voices = window.speechSynthesis.getVoices();
     
                         const femaleVoice = voices.find(voice =>  voice.name.includes('Google US English Female') || voice.name.includes('Zira'));
-                        console.log(voices)
                         
-    
                         if (femaleVoice) {
                             utterance.voice = femaleVoice;
                         }
@@ -244,10 +242,10 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                 bubble.className = 'bubble-message ai';
                 bubble.innerHTML = `
                     <div class="message lyra">
-                        <p>${aiText.replace('/\n/g', '<br>')}</p>
+                        <p></p>
                         <div class="actions-buttons">
-                            <button class="action-btn copy-btn" title="Copy"><i class="ri-file-copy-line"></i></button>
-                            <button class="action-btn speak-btn" title="Speak"><i class="ri-speak-ai-line"></i></button>
+                            <button class="btn btn-transparent action-btn copy-btn" title="Copy"><i class="ri-file-copy-line"></i></button>
+                            <button class="btn btn-transparent action-btn speak-btn" title="Speak"><i class="ri-speak-ai-line"></i></button>
                         </div>
                     </div>
                 `;
