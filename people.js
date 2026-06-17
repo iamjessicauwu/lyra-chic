@@ -204,7 +204,7 @@ people.forEach(card => {
         }
     }
     
-    card.querySelectorAll('.pc-action').forEach(el => el.addEventListener('click', showPeoplePanel));
+    card.addEventListener('click', showPeoplePanel);
 })
 
 if (hiddenCounts > 0) {

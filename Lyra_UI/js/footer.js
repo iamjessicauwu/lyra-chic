@@ -4,6 +4,27 @@ fetch('./elements/footer.html')
         document.querySelector('footer').innerHTML = footerData;
     })
     .finally(() => {
+        const link = document.querySelector('link.people-card-style');
+const appliedStyle = localStorage.getItem('selectedStyle');
+const BASE_PATH = '/Lyra_UI/css/';
+
+if (appliedStyle) {
+    link.href = BASE_PATH + appliedStyle;
+}
+
+document.querySelectorAll('.radio-card-style').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+        const value = e.target.value;
+
+        link.href = BASE_PATH + value;
+        localStorage.setItem('selectedStyle', value);
+    });
+
+    if (radio.value === appliedStyle) {
+        radio.checked = true;
+    }
+});
+
         // Gets the current year for id "year"
         let year = document.getElementById("year");
         if (year) {

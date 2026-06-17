@@ -4565,7 +4565,8 @@ header:has(.nav-pane:not(.hidden)) .navigation {
     width: 100%;
     border-radius: inherit;
     height: 100%;
-    object-position: center center;
+    background-color: var(--color-surface-500);
+    object-position: center !important;
 }
 
 .side-panel .social-media {
@@ -5510,27 +5511,6 @@ html:has(.nav-pane:not(.hidden)) {
         margin: 0;
     }
 
-    .people {
-        width: 100%;
-    }
-
-    .people .people-img,
-    .people .people-img img {
-        width: 50px;
-        height: 50px;
-    }
-
-    .people .people-bio {
-        gap: 18px;
-    }
-
-    .people .name h2 {
-        font-size: 18px;
-    }
-
-    .people .people-bio span {
-        font-size: 12px;
-    }
 }
 
 @media (max-width: 768px) {
