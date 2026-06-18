@@ -1,4 +1,5 @@
-console.log("Diana script loaded.");
+console.log('Diana script loaded!');
+document.addEventListener('DOMContentLoaded', () => {
 const diana = document.querySelector('.project-diana');
 
 const zodiacCbx = diana.querySelector('#zodiacCbx');
@@ -56,3 +57,4 @@ bounds.addEventListener('change', () => {
     document.body.classList.toggle('bounds', enabled);
     localStorage.setItem('bounds', enabled);
 });
+})

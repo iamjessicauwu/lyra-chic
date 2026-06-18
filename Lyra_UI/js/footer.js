@@ -4,8 +4,14 @@ fetch('./elements/footer.html')
         document.querySelector('footer').innerHTML = footerData;
     })
     .finally(() => {
+        function safe(parent, selector ) {
+            if (!parent) return null;
+            return parent.querySelector(selector);
+        }
+        
         const diana = document.querySelector('.project-diana');
         const link = document.querySelector('link.people-card-style');
+        if (!link) return Object;
         const appliedStyle = localStorage.getItem('selectedStyle');
         const BASE_PATH = '/Lyra_UI/css/';
 
@@ -314,4 +320,4 @@ fetch('./elements/footer.html')
             if (e.key === 'Enter') sendMessage();
         })
     })
-    .catch(error => console.error("Failed to fetch:", error));
+    .catch(error => console.log("Failed to fetch:", error));

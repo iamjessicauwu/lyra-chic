@@ -3363,6 +3363,7 @@ label {
 
 .check-item.radio {
     padding: 18px 16px;
+    overflow: hidden;
     border: 1px solid var(--color-border-100);
 }
 
@@ -3436,7 +3437,7 @@ label {
     color: var(--color-border-100);
     position: absolute;
     bottom: 10px;
-    right: 0
+    right: 0;
 }
 
 .check-item input:checked+.radio-dot::after {
