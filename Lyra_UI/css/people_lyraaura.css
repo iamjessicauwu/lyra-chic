@@ -1,19 +1,20 @@
+.side-panel .people-name * {
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+}
+
+.side-panel .people-type.alt, .side-panel .people-name {
+    width: 100%;
+    padding: 0 6px;
+}
+
 .side-panel .people-banner {
     display: none;
 }
 
-.people-panel {
-    width: 540px !important;
-}
-
-.people-type.alt, .side-panel .name, .side-panel .people-name, .side-panel .badge-row, .side-panel .social-media {
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-
-.side-panel .people-info, .side-panel .social-media, .people-type.alt, .side-panel .people-name {
-    width: 100%;
-    padding: 0 8px;
+.side-panel .people-info, .side-panel .people-bio {
+    padding-inline: 16px;
 }
 
 .side-panel .people-type.alt {
@@ -22,26 +23,28 @@
     margin-top: 4em;
 }
 
+.side-panel .people-name {
+    column-gap: 24px;
+}
+
 .side-panel .name {
-    row-gap: 4px
+    row-gap: 6px
 }
 
 .side-panel .name h2 {
-    font-size: 26px;
-}
-
-.side-panel .people-bio {
-    margin: 10px 12px;
+    font-size: 24px;
+    text-align: left;
 }
 
 .side-panel .people-img {
-    margin-inline: 8px;
+    width: 170px;
+    height: 170px;
+    margin-inline: 0px;
+}
+.side-panel .people-img img {
+    width: 170px;
 }
 
-.side-panel .people-img img {
-    width: 130px;
-    height: 130px;
-}
 
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -273,10 +276,6 @@
 
 .people .people-btns {
     display: none;
-    flex-direction: column;
-    margin-bottom: 18px;
-    padding: 0px 20px 10px 20px;
-    justify-content: space-between;
 }
 
 .people .social-media {
@@ -367,6 +366,9 @@
     }
     .people .name h2 {
         font-size: 22px;
+    }
+    .side-panel .people-type.alt {
+        flex-wrap: wrap;
     }
 }
 

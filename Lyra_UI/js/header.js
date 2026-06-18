@@ -40,7 +40,7 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
                 }
 
                 if (left < window.scrollX) {
-                    left += rect.left + window.scrollX + 15;
+                    left += rect.left + window.scrollX + 50;
                 } 
     
                 const maxRight = window.scrollX + window.innerWidth;
@@ -115,13 +115,6 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
     const btn = document.querySelector('.hamburger');
     const overlay = document.querySelector('.overlay');
     const menuButtons = document.querySelectorAll('.menuButton');
-    const brand = document.querySelector('.nav-pane .footer');
-
-    if (window.innerWidth >= 900) {
-        overlay.classList.remove('showOverlay');
-        navpane.classList.add('hidden');
-        btn.classList.remove('active');
-    }
     
     window.addEventListener('resize', () => {
         if (window.innerWidth > 900) {
@@ -133,8 +126,6 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
     
     function openNavPane() {
         overlay.classList.add('showOverlay');
-        brand.classList.remove('fade-out');
-        brand.classList.add('fade-in');
         header.classList.add('no-blend');
         btn.classList.add('active');
         
@@ -147,7 +138,7 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
                 if (navpane.style.animation.includes('fadeIn')) {
                     btn.classList.remove('no-pointer');
                 }
-            });
+            }, {once: true} );
         });
     }
 
@@ -157,32 +148,14 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
         
         requestAnimationFrame(() => {
             btn.classList.remove('active');
-            setTimeout(() => {
-                navpane.style.animation = `fadeOut .45s cubic-bezier(0.22, 1, 0.36, 1)`;
-            }, 0);
-            
+            navpane.style.animation = `fadeOut .45s cubic-bezier(0.22, 1, 0.36, 1)`;
             overlay.classList.remove('showOverlay');
-            brand.classList.add('fade-out');
-            
-            const items = Array.from(menuButtons);
-            items.reverse();
-            items.forEach((btn, index) => {
-                setTimeout(() => {
-                    btn.classList.remove('fade-in');
-                    btn.classList.add('fade-out');
-                    brand.classList.remove('fade-in');
-                    brand.classList.add('fade-out');
-                }, index * 0);
-                
-            })
             
             navpane.addEventListener('animationend', () => {
                 if (navpane.style.animation.includes('fadeOut')) {
                     navpane.classList.add('hidden');
                     header.classList.remove('no-blend');
-                    setTimeout(() => {
-                        btn.classList.remove('no-pointer');
-                    }, 50) 
+                    btn.classList.remove('no-pointer');
                 }
             }, {once: true});
         });
@@ -253,21 +226,6 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
         document.body.classList.toggle('dyslexia', enabled);
         localStorage.setItem('dyslexia', enabled);
     })
-
-    const bounds = document.getElementById('boundsCbx');
-    if (!bounds) return;
-
-    const boundsState = localStorage.getItem('bounds') === 'true';
-
-    document.body.classList.toggle('bounds', boundsState);
-    bounds.checked = boundsState;
-
-    bounds.addEventListener('change', () => {
-        const enabled = bounds.checked;
-
-        document.body.classList.toggle('bounds', enabled);
-        localStorage.setItem('bounds', enabled);
-    });
     
     const hc = document.getElementById('contrastCbx');
     if (!hc) return;

@@ -1,6 +1,7 @@
 console.log("Diana script loaded.");
+const diana = document.querySelector('.project-diana');
 
-const zodiacCbx = document.getElementById('zodiacCbx');
+const zodiacCbx = diana.querySelector('#zodiacCbx');
 const zodiacState = localStorage.getItem('zodiac') === 'true';
 
 document.body.classList.toggle('zodiac', zodiacState);
@@ -13,7 +14,7 @@ zodiacCbx.addEventListener('change', () => {
     localStorage.setItem('zodiac', enabled);
 })
 
-const editableSectionsCbx = document.getElementById('editableSections');
+const editableSectionsCbx = diana.querySelector('#editableSections');
 const editableSectionsState = localStorage.getItem('editableSections') === 'true';
 
 document.body.classList.toggle('editable-sections', editableSectionsState);
@@ -42,3 +43,16 @@ if (document.body.classList.contains('editable-sections')) {
         });
     })
 }
+
+const bounds = diana.querySelector('#boundsCbx');
+const boundsState = localStorage.getItem('bounds') === 'true';
+
+document.body.classList.toggle('bounds', boundsState);
+bounds.checked = boundsState;
+
+bounds.addEventListener('change', () => {
+    const enabled = bounds.checked;
+
+    document.body.classList.toggle('bounds', enabled);
+    localStorage.setItem('bounds', enabled);
+});

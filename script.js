@@ -7,23 +7,23 @@ const security = Security ? new Security('1.0', "Lyra") : null;
 lyra.setHeadTagType("icon", "/assets/logo/lyra.png");
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    const isMobile = /Mobi|Android|iPhone|iPod|iPad|BlackBerry|IEMobile/i.test(navigator.userAgent);
-    
-    if (isMobile) {
-        navigator.serviceWorker.register('/sw.js')
-       .then(reg => console.log('Service Worker registered!', reg))
-       .catch(err => console.log('Service Worker registration failed:', err));
-    } else {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-            for (let registration of registrations) {
-                registration.unregister();
-            }
-        });
-    }
-  });
+    window.addEventListener('load', () => {
+        const isMobile = /Mobi|Android|iPhone|iPod|iPad|BlackBerry|IEMobile/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+            navigator.serviceWorker.register('/sw.js')
+           .then(reg => console.log('Service Worker registered!', reg))
+           .catch(err => console.log('Service Worker registration failed:', err));
+        } else {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for (let registration of registrations) {
+                    registration.unregister();
+                }
+            });
+        }
+    });
 }
-lyra.setHeadTagType("script", "/project-diana/diana.js");
+lyra.setHeadTagType("script", "./project-diana/diana.js");
 
 document.addEventListener('DOMContentLoaded', () => {
     lyra.setHeadTagType("script", [

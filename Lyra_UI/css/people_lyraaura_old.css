@@ -1,17 +1,19 @@
 
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-auto-rows: auto;
+    grid-auto-flow: dense;
     padding: 0 10px;
     gap: 20px;
+    overflow: hidden;
 }
 .grid.rtl {
     direction: rtl;
     grid-template-columns: repeat(2, 40vw);
-    column-gap: 1vw ;
+    column-gap: 1vw;
 }
 .people {
     grid-row: span 20;
-    overflow: hidden;
     transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), border .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
     padding: 8px 6px;
     pointer-events: auto;
@@ -37,10 +39,7 @@
 
 .people .people-img {
     object-fit: cover;
-    width: 100%;
     border-radius: 0;
-    height: 100%;
-    background: rgba(117, 115, 113, 0.1) url('/assets/logo/lyra.webp') no-repeat;
 }
 
 .people .people-img.centered img, .people-type .people-img.centered img {
@@ -52,7 +51,7 @@
 }
 
 .people-img:has(img) {
-    background: rgba(100, 100, 100, 0) no-repeat !important;
+    background: rgba(100, 100, 100, 0) no-repeat;
 }
 
 .people .people-img img {
@@ -71,10 +70,9 @@
     justify-content: space-between;
     align-items: center;
     row-gap: 2px;
-    width: 100%;
     transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), border-top .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    margin: 0px 0px 8px 0px;
-    padding-top: 6px !important;
+    margin: 0px 0px 6px 0px;
+    width: 100%;
     order: -1;
     top: 0;
     position: relative;
@@ -109,7 +107,6 @@
 
 .people .people-bio {
     user-select: none;
-    width: 100%;
     padding: 0px;
     gap:0;
     display: flex;
@@ -124,10 +121,8 @@
     align-items: center;
     color: var(--color-text-main);
     font-size: 18px;    
-    font-family: "Source Serif 4", monospace !important;
+    font-family: var(--serif);
     font-weight: 500;
-    margin: auto;
-    width: 100% !important;
     font-style: italic;
     transition: padding-left .5s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
 }
@@ -146,24 +141,19 @@
 
 .people .role {
     position: relative;
-    width: auto;
     text-align: right;
     font-size: 18px; 
     letter-spacing: 0;
     text-transform: none;
     font-style: italic;
-    font-family: "Source Serif 4", sans-serif !important;
-}
-
-.people .people-bio span {
+    font-family: var(--serif);
     color: var(--color-primary-500);
     font-weight: 500;
-    font-size: 16px;
 }
 
 .people .people-bio .alias {
     font-weight: 700;
-    color: inherit !important;
+    color: inherit;
 }
 
 .people .alias::after {
@@ -189,7 +179,7 @@
 }
 
 .people .social-media a {
-    color: inherit !important;
+    color: inherit;
 }
 
 .people .people-btns {
@@ -201,12 +191,11 @@
 }
 
 .people .social-media {
-    width: fit-content !important;
     gap: 2em;
     flex-wrap: wrap;
     justify-content: flex-start;
     margin: 8px 10px;
-    padding: 6px 10px !important;
+    padding: 6px 10px;
     background-color: rgba(100, 100, 100, 0.05);
 }
 
@@ -216,7 +205,7 @@
 
 .people .social-media i {
     padding: 4px;
-    font-size: 32px !important;
+    font-size: 32px;
 }
 
 .people .social-media i:hover {
@@ -247,21 +236,12 @@
 }
 
 @media (max-width: 900px) {
-    main {
-        margin: 60px 0 0 0;
-    }
-    .people {
-        width: unset; height: unset;
-        max-width: 80%;
-    }
     .grid {
-        justify-items: stretch;
-        align-items: stretch;
         padding: 4px 4px 4px 4px;
         gap: 10px;
     }
     .grid.rtl, .grid.two-column {
-        grid-template-columns: repeat(2, 50vw);
+        grid-template-columns: repeat(2, 1fr);
         padding: 4px 4px 4px 10px;
     }
     .people.row-2 {
@@ -278,63 +258,47 @@
     }
     
     .people .name {
-        padding-top: 4px;
-        margin-bottom: 8px;
-        width: 100%;
+        padding-top: 2px;
+        margin-bottom: 4px;
         flex-direction: row;
         align-items: center;
     }
 
     .people .name h2 {
-        min-width: none !important;
-        width: auto;
         font-size: 16px;
+        width: auto;
     }
     
     .people .people-bio span {
-        width: auto;
         text-align: right;
-        font-size: 16px !important;
+        font-size: 16px;
+        width: auto;
         font-weight: 500;
     }
-    
-    .people .people-img {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-    
-    .people .people-img img {
-        width: 100%;
-        height: 100%;
-        object-position: center 17%;
-    }
+
     .people .people-bio p {
-        padding: 0px 1.3em 40px 1.3em !important;
+        padding: 0px 1.3em 40px 1.3em;
     }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
     .grid.rtl, .grid.two-column {
         grid-template-columns: repeat(1, 1fr);
         padding: 4px 2px 4px 2px;
         gap: 4px;
     }
     .people {
-        width: 100%;
-        max-width: none;
         grid-row: unset;
+        padding: 4px 6px;
     }
     .people.span-2 {
         grid-row: unset;
         margin-top: 0;
     }
     .people .people-img, .people .people-img img {
-        height: 100%;
-        width: 100%;
         object-position: center center;
-    }
-    .people .people-bio {
-        flex-wrap: nowrap !important;
     }
 }

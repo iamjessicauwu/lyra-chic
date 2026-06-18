@@ -190,6 +190,7 @@ people.forEach(card => {
         
         if (badgesArray && badgesArray.length > 0) {
             badgesArray.map(badge => {
+                badges.style.display = 'flex';
                 const category = document.createElement('span');
                 category.className = 'badge badge-roast';
                 if (badge === 'ST☆RGΛINZ Member') {
