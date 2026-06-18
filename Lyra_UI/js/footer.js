@@ -10,8 +10,15 @@ fetch('./elements/footer.html')
         }
         
         const diana = document.querySelector('.project-diana');
-        const link = document.querySelector('link.people-card-style');
-        if (!link) return Object;
+        let link = document.querySelector('link.people-card-style');
+        if (!link) {
+            const style = document.createElement("link");
+            style.rel = "stylesheet";
+            style.classList.add('people-card-style');
+            style.href = "/Lyra_UI/css/people_3.css";
+            document.head.appendChild(style);
+            link = style;
+        }
         const appliedStyle = localStorage.getItem('selectedStyle');
         const BASE_PATH = '/Lyra_UI/css/';
 

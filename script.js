@@ -31,13 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ])
     lyra.setHeadTagType("stylesheet", "https://unpkg.com/lenis@1.3.20/dist/lenis.css");
     
-    /* Temporary workaround to fix Labs are only available on the About page. Not the best. */
-    const style = document.createElement("link");
-    style.rel = "stylesheet";
-    style.classList.add('people-card-style');
-    style.href = "/Lyra_UI/css/people_3.css";
-    document.head.appendChild(style);
-
     var Lenis = window.Lenis;
     const lenis = new Lenis({
         duration: 2,
