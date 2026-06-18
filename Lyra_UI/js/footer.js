@@ -190,7 +190,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
         async function sendMessage() {
             const input = document.getElementById('user-input');
             const sendBtn = document.getElementById('send-chat');
-            const contentDiv = document.getElementById('content');
+            const contentDiv = document.querySelector('.chat-content');
             const userMessage = input.value.trim();
             if (!userMessage) return;
             
@@ -204,7 +204,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                     </div>
                 </div>
             `;
-            
+            contentDiv.scrollTop = contentDiv.scrollHeight;
 
             input.value = '';
             sendBtn.disabled = true;
@@ -219,6 +219,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                     </div>
                 </div>
             `;
+
             contentDiv.scrollTop = contentDiv.scrollHeight;
 
             conversationHistory.push({ role: 'user', content: userMessage });
@@ -294,6 +295,7 @@ document.querySelectorAll('.radio-card-style').forEach(radio => {
                 actions.hidden = false;
                 sendBtn.disabled = false;
             }
+
         }
 
         function escapeHtml(text) {

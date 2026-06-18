@@ -23,9 +23,9 @@ if ('serviceWorker' in navigator) {
     }
   });
 }
+lyra.setHeadTagType("script", "/project-diana/diana.js");
 
 document.addEventListener('DOMContentLoaded', () => {
-    lyra.setHeadTagType("script", "/project-diana/diana.js");
     lyra.setHeadTagType("script", [
         "https://unpkg.com/lenis@1.3.20/dist/lenis.min.js"
     ])

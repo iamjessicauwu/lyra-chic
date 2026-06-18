@@ -848,10 +848,6 @@
         width: 100%;
     }
 
-    dialog h1 {
-        font-size: 28px;
-    }
-
     dialog .tab-content {
         height: auto;
     }
@@ -1366,6 +1362,7 @@ dialog.open {
 }
 
 dialog .dialog-header {
+    background-color: var(--color-surface-500);
     display: flex;
     width: 100%;
     position: sticky;
@@ -1373,7 +1370,7 @@ dialog .dialog-header {
     z-index: 1;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 24px 14px 24px;
+    padding: 15px 24px 15px 24px;
 }
 
 .dialog-mintopbar {
@@ -1407,7 +1404,7 @@ dialog .dialog-topbar {
     align-items: center;
 }
 
-.dialog-header .close-btn {
+.close-btn {
     position: relative;
     width: 30px;
     height: 30px;
@@ -1456,13 +1453,13 @@ dialog .dialog-topbar {
     padding: 0;
 }
 
-.talk-to-lyra .greeting {
+.greeting {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 10px;
+    padding: 10px 16px 10px 16px;
     animation: fadeIn 2.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -1476,7 +1473,7 @@ dialog .dialog-topbar {
     max-width: 70%;
     padding: 10px 16px;
     border-radius: 24px;
-    animation: fadeIn .25s cubic-bezier(0.19, 1, 0.22, 1);
+    animation: fadeInUp .25s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .bubble-message p {
@@ -1523,17 +1520,14 @@ dialog .dialog-topbar {
     padding: 12px 16px 12px 8px;
 }
 
-.talk-to-lyra .greeting h1 {
+.greeting h1 {
     font-style: italic;
     font-weight: 500;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 12px;
 }
 
-.talk-to-lyra .greeting p {
-    text-align: center;
-}
 
 .chat-content {
     display: flex;
@@ -1547,6 +1541,26 @@ dialog .dialog-topbar {
 
 .chat-content:has(.greeting) {
     padding: 10px 16px 0px 16px;
+}
+
+.lyra-labs-greeting {
+    padding: 4em 16px;
+    background: url('https://fastly.picsum.photos/id/120/4928/3264.jpg?hmac=i-8mkfKj_gRyQt9ZJVhbIBXbtIBNcsbI_gwNe_39vus') no-repeat;
+    margin-bottom: 5px;
+    background-position: center;
+    background-size: cover;
+}
+
+.lyra-labs-greeting * {
+    color: white;
+}
+
+.lyra-labs-greeting h1 {
+    font-size: 40px;
+}
+
+.lyra-labs-greeting p {
+    text-align: center !important; /* why, and why it doesn't center the text ?!! */
 }
 
 .chat-input {
@@ -2585,7 +2599,7 @@ section {
 }
 
 .social-media span {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--monospace);
     color: var(--color-text-main);
 }
 
@@ -3322,16 +3336,27 @@ label {
 }
 
 .check-group {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 8px;
+    margin: 4px 0;
 }
 
 .check-item {
+    position: relative;
+    width: 100%;
+    padding: 12px 16px;
     display: flex;
     align-items: center;
     gap: 12px;
+    transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
+}
+
+.check-item.radio {
+    padding: 18px 16px;
+    border: 1px solid var(--color-border-100);
 }
 
 .check-item input {
@@ -3363,7 +3388,22 @@ label {
 
 .check-label {
     font-size: 13px;
+    max-width: 70%;
     color: var(--color-text-main);
+}
+
+.check-item.radio .check-label {
+    font-size: 16px;
+}
+
+.check-item.radio:has(input:checked), .check-item.radio:hover {
+    background-color: var(--color-surface-100);
+    border-color: var(--tan);
+}
+
+.check-label span.gray {
+    font-size: 13px;
+    color: var(--color-surface-text);
 }
 
 .radio-dot {
@@ -3378,12 +3418,26 @@ label {
     flex-shrink: 0;
 }
 
+.check-item i {
+    padding: 0 6px;
+    font-size: 35px;
+    color: var(--color-border-100);
+    position: absolute;
+    bottom: 0;
+    right: 0
+}
+
 .check-item input:checked+.radio-dot::after {
     content: '';
     width: 8px;
     height: 8px;
+    animation: fadeIn .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     border-radius: 50%;
     background: var(--color-primary-500);
+}
+
+.check-item.radio .radio-dot {
+    display: none;
 }
 
 /* Lainnya */
@@ -3963,7 +4017,12 @@ header,
 .header-right {
     flex-grow: 1;
     flex-shrink: 1;
+    gap: 6px;
     flex-basis: 0%;
+}
+.header-left {
+    display: flex;
+    justify-content: flex-start;
 }
 .header-center {
     display: flex;
@@ -4025,7 +4084,6 @@ header,
     padding: 20px 12px;
     cursor: pointer;
     transition: none;
-    width: 100%;
     height: inherit;
     word-spacing: 2px;
     white-space: nowrap;
@@ -4212,7 +4270,7 @@ header,
     width: 760px;
     z-index: 10;
     overflow-y: auto;
-    animation: fadeInRight .3s cubic-bezier(0.475, 0.12, 0.165, 1);
+    animation: fadeInRight .3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .side-panel::-webkit-scrollbar {
@@ -4611,7 +4669,7 @@ header,
     font-size: 1.2rem;
     padding: 6px 8px;
     color: var(--color-text-main);
-    transition: color .2s, padding-left .5s cubic-bezier(0.075, 0.82, 0.165, 1));
+    transition: color .2s, padding-left .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     font-family: var(--sans-serif);
     cursor: pointer;
     text-transform: none;
@@ -4797,15 +4855,6 @@ header,
 .nav-pane .content-item.flex {
     display: none;
 }
-
-.content h1 {
-    font-size: 1.5em;
-}
-
-.content h2 {
-    padding: 20px 0.7em 10px 0.7em;
-}
-
 .nav-pane .footer {
     display: flex;
     flex-direction: column;
@@ -5141,6 +5190,46 @@ html:has(.nav-pane:not(.hidden)) {
         font-size: 20px;
     }
 
+    main {
+        margin-top: 60px;
+        padding: 0;
+    }
+
+    .hero-section {
+        padding: 0 14px;
+    }
+
+    .flex {
+        justify-content: center;
+    }
+
+    .hero-section .role {
+        max-width: 100%;
+        font-size: 3rem;
+    }
+
+    .hero-section p {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .hero-caption {
+        padding: 0 1em;
+    }
+
+
+    .section {
+        padding: 1em 0;
+    }
+
+    .section-desc {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (max-width: 900px) {
     .header-container {
         padding: 3px 7px 3px 7px;
     }
@@ -5195,46 +5284,6 @@ html:has(.nav-pane:not(.hidden)) {
         width: auto;
     }
 
-    main {
-        margin-top: 60px;
-        padding: 0;
-    }
-
-    .hero-section {
-        padding: 0 14px;
-    }
-
-    .flex {
-        justify-content: center;
-    }
-
-    .hero-section .role {
-        max-width: 100%;
-        font-size: 3rem;
-    }
-
-    .hero-section p {
-        font-size: 14px;
-        width: 100%;
-    }
-
-    .hero-caption {
-        padding: 0 1em;
-    }
-
-
-    .section {
-        padding: 1em 0;
-    }
-
-    .section-desc {
-        font-size: 14px;
-        margin: 0;
-        padding: 0;
-    }
-}
-
-@media (max-width: 900px) {
     .tab-buttons {
         gap: 20px;
     }

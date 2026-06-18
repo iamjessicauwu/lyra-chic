@@ -139,7 +139,7 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
         btn.classList.add('active');
         
         requestAnimationFrame(() => { 
-            navpane.style.animation = `fadeInRight .3s cubic-bezier(0.475, 0.12, 0.165, 1)`;
+            navpane.style.animation = `fadeIn .45s cubic-bezier(0.22, 1, 0.36, 1`;
             btn.classList.add('no-pointer');
             navpane.classList.remove('hidden');
 
@@ -158,7 +158,7 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
         requestAnimationFrame(() => {
             btn.classList.remove('active');
             setTimeout(() => {
-                navpane.style.animation = `fadeOutRight .3s cubic-bezier(0.8, 0.292, 0.333, 1)`;
+                navpane.style.animation = `fadeOut .45s cubic-bezier(0.22, 1, 0.36, 1)`;
             }, 0);
             
             overlay.classList.remove('showOverlay');

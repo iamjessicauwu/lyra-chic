@@ -1,7 +1,7 @@
 console.log("Diana script loaded.");
 
 const zodiacCbx = document.getElementById('zodiacCbx');
-const zodiacState = localStorage.getItem('zodiac');
+const zodiacState = localStorage.getItem('zodiac') === 'true';
 
 document.body.classList.toggle('zodiac', zodiacState);
 zodiacCbx.checked = zodiacState;
@@ -34,6 +34,7 @@ if (document.body.classList.contains('editable-sections')) {
         title.setAttribute('aria-label', 'Editable section title. Click to edit.');
         title.addEventListener('input', () => {
             title.style.outline = '2px solid var(--color-primary-500)';
+            title.setAttribute('spellcheck', 'false');
             clearTimeout(title._outlineTimeout);
             title._outlineTimeout = setTimeout(() => {
                 title.style.outline = '';

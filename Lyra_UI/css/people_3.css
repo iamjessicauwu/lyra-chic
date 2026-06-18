@@ -39,14 +39,15 @@
 }
 
 .people:hover {
-    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(61, 43, 31, 0.1);
 }
 
 .people .people-img {
     object-fit: cover;
-    width: 150px;
+    width: 130px;
     border-radius: 0;
-    height: 150px;
+    height: 130px;
     background: rgba(117, 115, 113, 0.1) url('/assets/logo/lyra.webp') no-repeat;
     background-position: center center;
 }
@@ -68,7 +69,7 @@
 .people .people-img img {
     object-fit: cover;
     border-radius: 50%;
-    width: 150px;
+    width: 130px;
     height: 100%;
     object-position: center center;
     background-color: rgba(131, 131, 131, 0.034);
@@ -87,18 +88,19 @@
 }
 
 .people .name {
-    row-gap: 3px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
 }
 
 .people .people-bio {
     user-select: none;
     width: 100%;
-    gap:24px;
+    gap:14px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     padding: 10px 14px;
     transition: opacity .2s, transform .4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }

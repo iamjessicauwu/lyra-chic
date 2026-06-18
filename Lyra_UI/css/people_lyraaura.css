@@ -1,3 +1,48 @@
+.side-panel .people-banner {
+    display: none;
+}
+
+.people-panel {
+    width: 540px !important;
+}
+
+.people-type.alt, .side-panel .name, .side-panel .people-name, .side-panel .badge-row, .side-panel .social-media {
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.side-panel .people-info, .side-panel .social-media, .people-type.alt, .side-panel .people-name {
+    width: 100%;
+    padding: 0 8px;
+}
+
+.side-panel .people-type.alt {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 4em;
+}
+
+.side-panel .name {
+    row-gap: 4px
+}
+
+.side-panel .name h2 {
+    font-size: 26px;
+}
+
+.side-panel .people-bio {
+    margin: 10px 12px;
+}
+
+.side-panel .people-img {
+    margin-inline: 8px;
+}
+
+.side-panel .people-img img {
+    width: 130px;
+    height: 130px;
+}
+
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 0 10px;
@@ -26,8 +71,10 @@
     pointer-events: auto ;
     border: none;
     border-radius: 42px;
-    backface-visibility: hidden;
-    isolation: isolate;
+}
+.people:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(61, 43, 31, 0.1);
 }
 .grid.accordion .people {
     flex: 0 0 auto;

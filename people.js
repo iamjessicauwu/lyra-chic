@@ -200,7 +200,8 @@ people.forEach(card => {
                 badges.appendChild(category);
             }) 
         } else {
-            badges.textContent = `No badges yet!`;
+            badges.textContent = ``;
+            badges.style.display = 'none';
         }
     }
     
