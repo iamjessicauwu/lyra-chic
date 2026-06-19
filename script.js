@@ -25,7 +25,11 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    lyra.setHeadTagType("script", "./project-diana/diana.js");
+    const script = document.createElement("script");
+    script.defer = true;
+    script.src = '/project-diana/diana.js';
+    document.head.appendChild(script);
+    
     lyra.setHeadTagType("script", [
         "https://unpkg.com/lenis@1.3.20/dist/lenis.min.js"
     ])

@@ -8,36 +8,6 @@ fetch('./elements/footer.html')
             if (!parent) return null;
             return parent.querySelector(selector);
         }
-        
-        const diana = document.querySelector('.project-diana');
-        let link = document.querySelector('link.people-card-style');
-        if (!link) {
-            const style = document.createElement("link");
-            style.rel = "stylesheet";
-            style.classList.add('people-card-style');
-            style.href = "/Lyra_UI/css/people_3.css";
-            document.head.appendChild(style);
-            link = style;
-        }
-        const appliedStyle = localStorage.getItem('selectedStyle');
-        const BASE_PATH = '/Lyra_UI/css/';
-
-        if (appliedStyle) {
-            link.href = BASE_PATH + appliedStyle;
-        }
-
-        diana.querySelectorAll('.radio-card-style').forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                const value = e.target.value;
-        
-                link.href = BASE_PATH + value;
-                localStorage.setItem('selectedStyle', value);
-            });
-        
-            if (radio.value === appliedStyle) {
-                radio.checked = true;
-            }
-        });
 
         // Gets the current year for id "year"
         let year = document.getElementById("year");
