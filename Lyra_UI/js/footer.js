@@ -1,9 +1,17 @@
+function loadDiana() {
+    const script = document.createElement("script");
+    script.defer = true;
+    script.src = '/project-diana/diana.js';
+    document.head.appendChild(script);
+}
+
 fetch('./elements/footer.html')
     .then(responsefooter => responsefooter.text())
     .then(footerData => {
         document.querySelector('footer').innerHTML = footerData;
     })
     .finally(() => {
+        loadDiana();
         function safe(parent, selector ) {
             if (!parent) return null;
             return parent.querySelector(selector);
@@ -174,15 +182,19 @@ fetch('./elements/footer.html')
             const input = document.getElementById('user-input');
             const sendBtn = document.getElementById('send-chat');
             const contentDiv = document.querySelector('.chat-content');
+            
             const userMessage = input.value.trim();
             if (!userMessage) return;
             
             document.querySelector('.greeting')?.remove();
 
+            const existingBubbles = chatContent.querySelectorAll('.bubble-message');
+            existingBubbles.forEach(bubble => bubble.classList.remove('animate'));
+
             // Render user bubble message
             chatContent.innerHTML += `
                 <div class="bubble-message user">
-                    <div class="message">
+                    <div class="message user-input">
                         <p>${escapeHtml(userMessage)}</p>
                     </div>
                 </div>
@@ -194,11 +206,10 @@ fetch('./elements/footer.html')
 
             // Thinking indicator
             const thinkingId = 'thinking-' + Date.now();
-            const thinkingNow = 'Lyra is thinking. We are finding memories right now...';
             chatContent.innerHTML += `
                 <div class="bubble-message ai thinking" id="${thinkingId}">
                     <div class="message lyra" style="font-style: italic; opacity: 0.6;">
-                        <p>${thinkingNow}</p>
+                        <div class="lyra-dot"></div>
                     </div>
                 </div>
             `;
@@ -223,7 +234,6 @@ fetch('./elements/footer.html')
                 
                 conversationHistory.push({ role: 'assistant', content: aiText });
 
-                document.getElementById(thinkingId)?.remove();
                 
                 const bubble = document.createElement('div');
                 bubble.className = 'bubble-message ai';
@@ -236,6 +246,7 @@ fetch('./elements/footer.html')
                         </div>
                     </div>
                 `;
+                bubble.classList.add('animate');
                 chatContent.appendChild(bubble);
 
                 const actions = bubble.querySelector('.actions-buttons');

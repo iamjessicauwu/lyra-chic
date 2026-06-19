@@ -36,7 +36,7 @@ function renderCard() {
             
             roles.forEach(el => el.textContent = role);
 
-            name.forEach(n => { n.textContent = person.name; });
+            name.forEach(n => { n.textContent = person.name; n.setAttribute('spellcheck', 'false')} );
 
             nicks.forEach(nick => {
                 let text = person.nickname.replace(/&bull;/g, "•");

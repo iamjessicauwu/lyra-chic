@@ -42,10 +42,6 @@
     border-radius: 0;
 }
 
-.people .people-img.centered img, .people-type .people-img.centered img {
-    object-position: center center;
-}
-
 .people:hover .name {
     border-top-color: var(--color-primary-500);
 }
@@ -71,7 +67,7 @@
     align-items: center;
     row-gap: 2px;
     transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), border-top .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    margin: 0px 0px 6px 0px;
+    margin: 0px 0px 4px 0px;
     width: 100%;
     order: -1;
     top: 0;
@@ -124,7 +120,6 @@
     font-family: var(--serif);
     font-weight: 500;
     font-style: italic;
-    transition: padding-left .5s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
 }
 
 .people:hover .name h2, .people.focus .name h2 {

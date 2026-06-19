@@ -1,3 +1,8 @@
+.grid {
+    row-gap: 0;
+    padding: 0 60px;
+}
+
 .people {
     break-inside: avoid;
     position: relative;
@@ -29,13 +34,7 @@
     object-fit: cover;
     width: 70px;
     height: 70px;
-    background: var(--color-surface-0) url('/assets/logo/lyra.webp') no-repeat;
     border-radius: 50px;
-}
-
-.people .people-img.centered img,
-.people-type .people-img.centered img {
-    object-position: center center;
 }
 
 .people-img img {
@@ -69,7 +68,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-    padding: 18px 8px 18px 8px;
+    padding: 16px 8px 16px 8px;
 }
 
 .people .name {
@@ -82,12 +81,21 @@
     top: -4px;
 }
 
+.people .name h2 {
+    font-family: var(--serif);
+}
+
+.people .role {
+    font-family: var(--monospace);
+    font-size: 14px;
+}
+
 .people .alias::after {
     content: "|";
     margin: 0 8px;
 }
 
-.people .person-zodiac {
+.person-zodiac {
     display: none;
     width: 18px;
     height: 18px;

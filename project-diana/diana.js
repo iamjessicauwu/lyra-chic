@@ -1,4 +1,5 @@
 console.log('Diana script loaded!');
+
 const diana = document.querySelector('.project-diana');
 
 const zodiacCbx = diana.querySelector('#zodiacCbx');

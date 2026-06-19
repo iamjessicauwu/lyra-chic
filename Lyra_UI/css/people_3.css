@@ -48,12 +48,7 @@
     width: 130px;
     border-radius: 0;
     height: 130px;
-    background: rgba(117, 115, 113, 0.1) url('/assets/logo/lyra.webp') no-repeat;
     background-position: center center;
-}
-
-.people .people-img.centered img, .people-type .people-img.centered img {
-    object-position: center center;
 }
 
 .people:hover .name {
@@ -63,7 +58,7 @@
     padding-left: 0;
 }
 .people-img:has(img) {
-    background: rgba(100, 100, 100, 0) no-repeat !important;
+    background: rgba(100, 100, 100, 0) no-repeat;
 }
 
 .people .people-img img {
@@ -115,20 +110,14 @@
 }
 
 .people .role {
-    font-size: 14px !important; 
+    font-size: 14px; 
     word-spacing: 4px;
     text-transform: uppercase;
 }
 
-.people .people-bio span {
-    color: var(--color-primary-500);
-    font-weight: 500;
-    font-size: 20px;
-}
-
 .people .people-bio .alias {
     font-weight: 700;
-    color: inherit !important;
+    color: inherit;
 }
 
 .people .alias::after {
@@ -184,7 +173,7 @@
 
 @media (max-width: 1024px) {
     .people {
-        transition: none !important;
+        transition: none;
     }
     .grid .people.expr {
         margin-left: 0;
@@ -214,7 +203,7 @@
     .grid.rtl, .grid.two-column {
         grid-template-columns: repeat(1, 1fr);
         padding: 16px 10px 16px 10px;
-        gap: 1.2em !important;
+        gap: 1.2em;
         direction: ltr;
     }
     .people.row-2 {

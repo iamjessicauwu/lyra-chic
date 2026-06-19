@@ -69,7 +69,7 @@
 .people {
     position: relative;
     overflow: hidden;
-    transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), width .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+    transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), width .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
     padding: 0px 0px;
     pointer-events: auto ;
     border: none;
@@ -102,18 +102,14 @@
     object-fit: cover;
     height: 460px;
     width: 100%;
-    background: var(--color-surface-500) url('/assets/logo/lyra.webp') no-repeat;
 }
 
-.people .people-img.centered img, .people-type .people-img.centered img {
-    object-position: center top;
-}
 .people:hover .name {
     border-top-color: var(--color-primary-500);
 }
 
 .people-img:has(img) {
-    background: rgba(244, 244, 244, 0) no-repeat !important;
+    background: rgba(244, 244, 244, 0) no-repeat;
 }
 
 .people .people-img img {
@@ -215,8 +211,7 @@
 .people .name h2 {
     color: var(--color-text-muted);
     font-size: 24px;   
-    font-weight: 600;
-    transition: padding-left .5s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+    font-weight: 600;;
     text-shadow: 1px 1px 8px #202020;
 }
 
@@ -234,7 +229,7 @@
 
 .people .role {
     width: auto;
-    font-size: 18px !important; 
+    font-size: 18px; 
     letter-spacing: 0;
     text-transform: none;
     color: var(--color-text-muted);
@@ -245,7 +240,7 @@
 
 .people .people-bio .alias {
     font-weight: 700;
-    color: inherit !important;
+    color: inherit;
 }
 
 .people .alias::after {
@@ -271,7 +266,7 @@
 }
 
 .people .social-media a {
-    color: inherit !important;
+    color: inherit ;
 }
 
 .people .people-btns {
@@ -279,12 +274,12 @@
 }
 
 .people .social-media {
-    width: fit-content !important;
+    width: fit-content;
     gap: 2em;
     flex-wrap: wrap;
     justify-content: flex-start;
     margin: 8px 10px;
-    padding: 6px 10px !important;
+    padding: 6px 10px;
     background-color: rgba(100, 100, 100, 0.05);
 }
 
@@ -294,7 +289,7 @@
 
 .people .social-media i {
     padding: 4px;
-    font-size: 32px !important;
+    font-size: 32px;
 }
 
 .people .social-media i:hover {

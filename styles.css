@@ -30,7 +30,7 @@
 .gallery-container img {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity .4s cubic-bezier(0.075, 0.82, 0.165, 1), transform .5s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+    transition: opacity .4s cubic-bezier(0.075, 0.82, 0.165, 1), transform .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .visible, .gallery-container img.visible {
