@@ -3347,37 +3347,6 @@ details[open] .accordion-header::after {
     display: inline-block;
 }
 
-.chevrondown {
-    width: 9px;
-    height: 9px;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    border-bottom-color: #cfcfcf;
-    border-right-color: #e78607;
-    transform: rotate(45deg);
-    display: inline-block;
-}
-
-.searchBtn {
-    width: 50px;
-    min-height: 45px;
-    font-size: 23px;
-    border: 2px solid transparent;
-    background-color: transparent;
-    position: absolute;
-    right: 35px;
-    cursor: pointer;
-}
-
-.searchBtn:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.searchBtn i {
-    display: flex;
-    place-content: center center;
-}
-
 label {
     display: inline-flex;
     font-weight: 600;
@@ -5071,6 +5040,7 @@ footer a:hover {
 
 .footer-logo img {
     object-fit: cover;
+    width: 150px; height: 50px;
 }
 
 .footer-logo {
@@ -5088,6 +5058,10 @@ footer a:hover {
     font-size: 4rem;
     padding: 20px 0.7em 10px 0.7em;
     letter-spacing: .8px;
+}
+
+#back-to-top {
+    font-size: 14px;
 }
 
 .contact-section,
@@ -5490,6 +5464,16 @@ html:has(.nav-pane:not(.hidden)) {
 }
 
 @media (max-width: 768px) {
+    .form-group.fixed {
+        position: relative;
+        left: 0; right: 0
+    }
+    .search-panel .content-notop {
+        margin-top: 20px;
+    }
+    .search-panel .search-result {
+        margin-top: 50px;
+    }
     .section.compact {
         padding-inline: 10px;
     }

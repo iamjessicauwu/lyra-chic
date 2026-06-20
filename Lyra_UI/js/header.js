@@ -1,6 +1,11 @@
 const url = './elements/header.html';
 
 fetch(url).then(response => response.text()).then(html => { document.querySelector('header').innerHTML = html; }).finally(() => {
+    const input = document.getElementById('search-input');
+    const suggested = document.querySelector('.suggested-search');
+    input.addEventListener('input', (e) => {
+        if (e.target.value === '' || e.target.value === null) { suggested.classList.remove('hidden') } else { suggested.classList.add('hidden') }
+    });
     const navBtns = document.querySelectorAll('.navigation .navBtn');
     const currentPath = window.location.pathname;
 
@@ -241,5 +246,4 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
         document.body.classList.toggle('high-contrast', enabled);
         localStorage.setItem('hc', enabled);
     })
-
 })
