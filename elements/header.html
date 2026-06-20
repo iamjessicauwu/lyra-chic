@@ -159,14 +159,6 @@
                     <span class="slider"></span>
                 </label>
             </div>
-            <span class="divider">Debugging</span>
-            <div class="accordion-item">
-                <h5 class="accordion-item-title">Show layout bounds</h5> 
-                <label class="toggle">
-                    <input type="checkbox" class="toggleCheckbox" id="boundsCbx" />
-                    <span class="slider"></span>
-                </label>
-            </div>
         </div>
     </div>
 </dialog>
@@ -194,17 +186,118 @@
 </dialog>
 <dialog class="fullscreen search-panel" data-lenis-prevent>
     <div class="dialog-header">
-        <div>
-            <h1 class="dialog-mintopbar"></h1>
-        </div>
         <div class="dialog-btns">
-            <button class="close-btn" data-dialog-close data-dialog-anim="scaleOut"><div class="line div-1"></div><div class="line div-2"></div></button>
+            <button class="close-btn fixed" data-dialog-close data-dialog-anim="scaleOut"><div class="line div-1"></div><div class="line div-2"></div></button>
         </div>
     </div>
-    <div class="content">
-        <div class="search-container flex">
-            <input type="text" id="search-input" placeholder="Search for products, blog posts, and more..." autofocus>
-            <button class="btn btn-primary" id="search-button"><i class="ri-search-line"></i></button>
+    <div class="content content-notop compact">
+        <div class="form-group flex fixed">
+            <div class="search-wrap">
+                <span class="search-icon">⌕</span>
+                <input type="search" class="input" id="search-input" placeholder="Search for articles, magazine, and communities..." />
+            </div>
+        </div>
+        <div class="search-result" id="search-result">
+            <div class="suggested-search">
+                <span class="section-label">Top communities</span>
+                <div class="pc-grid">
+                    <div class="pc-card">
+                        <div class="pc-avatar">
+                            <img src="./assets/logo/stargainz_logo.webp" alt="STARGAINZ logo" />
+                        </div>
+                        <p class="pc-eyebrow">Grup Dance</p>
+                        <h2 class="pc-name">ST☆RGΛINZ</h2>
+                        <div class="pc-rule"></div>
+                        <p class="pc-desc">
+                            ST☆RGΛINZ adalah grup dance di Kediri, Indonesia yang menampilkan bintang dancer seperti Velanie, Carin, dan Sharon. 
+                        </p>
+                        <div class="pc-footer">
+                            <span ></span>
+                            <a class="pc-action" href="#">Selengkapnya →</a>
+                        </div>
+                    </div>
+                    <div class="pc-card">
+                        <div class="pc-avatar">
+                            <img src="./assets/image/note.webp" alt="note logo" />
+                        </div>
+                        <p class="pc-eyebrow">Komunitas</p>
+                        <h2 class="pc-name">catatan by monnn</h2>
+                        <div class="pc-rule"></div>
+                        <p class="pc-desc">
+                            Yuk gabung ke komunitas ini dan kita akan curhat tentang apapun "dengan filter :)" bersama
+                            saya, Monique.
+                        </p>
+                        <div class="pc-footer">
+                            <span class="badge badge-roast">Private</span>
+                            <a class="pc-action" href="#">Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <span class="section-label">Top member(s)</span>
+                <div class="pc-grid">
+                    <div class="pc-card">
+                        <div class="pc-avatar">
+                            <img src="/assets/image/member_avatar/monnn.webp" />
+                        </div>
+                        <p class="pc-eyebrow"></p>
+                        <h2 class="pc-name">Monique Tri Tunggadewi</h2>
+                        <div class="pc-rule"></div>
+                        <p class="pc-desc">
+                            
+                        </p>
+                        <div class="pc-footer">
+                            <span ></span>
+                            <a class="pc-action" href="#">Selengkapnya →</a>
+                        </div>
+                    </div>
+                    <div class="pc-card">
+                        <div class="pc-avatar">
+                            <img src="/assets/image/member_avatar/sharon.webp" />
+                        </div>
+                        <p class="pc-eyebrow"></p>
+                        <h2 class="pc-name">Sharon Bethania Djwa</h2>
+                        <div class="pc-rule"></div>
+                        <p class="pc-desc">
+                            
+                        </p>
+                        <div class="pc-footer">
+                            <span ></span>
+                            <a class="pc-action" href="#">Selengkapnya →</a>
+                        </div>
+                    </div>
+                    <div class="pc-card">
+                        <div class="pc-avatar">
+                            <img src="/assets/image/jessica_noleen/Jessica.webp" />
+                        </div>
+                        <p class="pc-eyebrow"></p>
+                        <h2 class="pc-name">Jessica Noleen Alka</h2>
+                        <div class="pc-rule"></div>
+                        <p class="pc-desc">
+                            
+                        </p>
+                        <div class="pc-footer">
+                            <span ></span>
+                            <a class="pc-action" href="#">Selengkapnya →</a>
+                        </div>
+                    </div>
+                    <div class="pc-card">
+                        <div class="pc-avatar">
+                            <img src="/assets/image/member_avatar/carin.webp"  />
+                        </div>
+                        <p class="pc-eyebrow"></p>
+                        <h2 class="pc-name">Carin Miracle</h2>
+                        <div class="pc-rule"></div>
+                        <p class="pc-desc">
+                            
+                        </p>
+                        <div class="pc-footer">
+                            <span></span>
+                            <a class="pc-action" href="#">Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </dialog>

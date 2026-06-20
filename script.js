@@ -28,12 +28,13 @@ if ('serviceWorker' in navigator) {
         }
     });
 }
+lyra.setHeadTagType("script", [
+    "https://unpkg.com/lenis@1.3.20/dist/lenis.min.js",
+    "/js/result.js"
+])
+lyra.setHeadTagType("stylesheet", "https://unpkg.com/lenis@1.3.20/dist/lenis.css");
 
 document.addEventListener('DOMContentLoaded', () => {
-    lyra.setHeadTagType("script", [
-        "https://unpkg.com/lenis@1.3.20/dist/lenis.min.js"
-    ])
-    lyra.setHeadTagType("stylesheet", "https://unpkg.com/lenis@1.3.20/dist/lenis.css");
     
     var Lenis = window.Lenis;
     const lenis = new Lenis({

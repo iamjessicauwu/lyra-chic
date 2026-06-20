@@ -1,7 +1,7 @@
 
 <button class="btn float-button" id="talk" data-dialog-open="settings-ui" data-tooltip-key="floatMenu" aria-label="Accessibilityfloating button"><i class="ri-accessibility-line"></i><span>Accessibility</span></button>
 <div class="footer">
-    <div class="footer-logo"><img src="/assets/logo/lyra.webp" width="150" height="30" style="object-fit: cover; " class="lyra-logo" alt="lyra logo" /></div>
+    <div class="footer-logo"><img src="/assets/logo/lyra.webp" class="lyra-logo" alt="lyra logo" /></div>
     <div class="footer-content">
         <a href="/blog.html">
             <div class="footer-section">
@@ -28,10 +28,10 @@
 
     <div class="footer-bottom">
         <div class="footer-copyright">
-            <span style="line-height: var(--spacing-1);">&copy; 2026 Lyra Chic &bull; <a href="/privacy_policy.html">Privacy Policy</a> &bull; <a href="/disclaimer.html">Disclaimer</a> </span>
+            <span>&copy; 2026 Lyra Chic &bull; <a href="/privacy_policy.html">Privacy Policy</a> &bull; <a href="/disclaimer.html">Disclaimer</a> </span>
         </div>
         <div class="footer-btt">
-            <button class="btn btn-outline medium" style="font-size: 16px" id="back-to-top">Back to top</button>
+            <button class="btn btn-outline medium" id="back-to-top">Back to top</button>
         </div>
     </div>
 </div>
@@ -90,15 +90,17 @@
 <dialog class="side-panel project-diana" data-lenis-prevent>
     <div class="dialog-header">
         <div>
-            <h1 class="dialog-mintopbar">Labs <span class="status small">Beta</span></h1>
+            <h1 class="dialog-mintopbar"></h1>
         </div>
         <div class="dialog-btns">
             <button class="close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><div class="line div-1"></div><div class="line div-2"></div></button>
         </div>
     </div>
     <div class="greeting lyra-labs-greeting">
-        <h1 class="h1">Welcome to Lyra Labs!</h1>
-        <p>Here, we’re going to let our imaginations run wild and create something beyond Lyra Chic’s capabilities. Enjoy the features! </p>
+        <div class="greeting-content">
+            <h1 class="h1">Welcome to <b>Lyra Labs</b>!</h1>
+            <p>Here, we’re going to let our imaginations run wild and create something beyond Lyra Chic’s capabilities. Enjoy the features! </p>
+        </div>
     </div>
     <div class="content" id="content">
         <div class="item">
@@ -143,10 +145,18 @@
                 </div>
             </div>
             <span class="divider">Debugging</span>
+            <p>These settings are intended solely for development purposes. Some settings can degrade web performance, or showing unusual behavior. Use it with caution.</p>
             <div class="accordion-item">
                 <h5 class="accordion-item-title">Show layout bounds<br><span class="accordion-item-desc">Show clip bounds, margins, etc.</span></h5> 
                 <label class="toggle">
                     <input type="checkbox" class="toggleCheckbox" id="boundsCbx" />
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="accordion-item">
+                <h5 class="accordion-item-title">Show only developer members</h5> 
+                <label class="toggle">
+                    <input type="checkbox" class="toggleCheckbox" id="hideMember" />
                     <span class="slider"></span>
                 </label>
             </div>

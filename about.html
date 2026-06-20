@@ -10,22 +10,15 @@
       content="
         default-src 'self';
         script-src
-          'self'
-          https://cdnjs.cloudflare.com
-          https://unpkg.com;
+          'self' https://cdnjs.cloudflare.com https://unpkg.com;
         style-src
-          'self'
-          https://cdnjs.cloudflare.com
-          https://unpkg.com;
+          'self' https://cdnjs.cloudflare.com https://unpkg.com;
         font-src
-          'self'
-          https://cdnjs.cloudflare.com
-          https://fonts.gstatic.com;
+          'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
         img-src
-          'self'
-          data:
-          https:;
+          'self' data: https:;
         object-src 'none';
+        connect-src 'self' https://cdnjs.cloudflare.com https://unpkg.com;
       ">
     
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.20/dist/lenis.css">
@@ -175,7 +168,7 @@
                             <a class="pc-action" href="#">Selengkapnya →</a>
                         </div>
                     </div>
-                    <div class="people special">
+                    <div class="people">
                         <span class="labelTag person-role"></span>
                         <div class="people-bio" data-people="jessica">
                             <div class="people-img">
@@ -336,7 +329,7 @@
                             <a class="pc-action" href="#">Selengkapnya →</a>
                         </div>
                     </div>
-                    <div class="people special">
+                    <div class="people">
                         <span class="labelTag person-role"></span>
                         <div class="people-bio" data-people="reagan">
                             <div class="people-img">

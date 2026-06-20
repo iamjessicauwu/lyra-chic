@@ -2,31 +2,31 @@ console.log('Diana script loaded!');
 
 const diana = document.querySelector('.project-diana');
 
-const zodiacCbx = diana.querySelector('#zodiacCbx');
-const zodiacState = localStorage.getItem('zodiac') === 'true';
+function saveToggleState(...pairs) {
+    pairs.forEach(([cbx, preferredClassName, state]) => {
+        const checkEl = diana.querySelector(cbx);
+        if (!checkEl) return;
 
-document.body.classList.toggle('zodiac', zodiacState);
-zodiacCbx.checked = zodiacState;
+        const savedState = localStorage.getItem(state) === 'true' /* for checkbox state, don't remove `=== 'true'` because it will always return false. */;
+    
+        document.body.classList.toggle(preferredClassName, savedState);
+        checkEl.checked = savedState; /* will return true or false */
+    
+        checkEl.addEventListener('change', () => {
+            const enabled = checkEl.checked;
+    
+            document.body.classList.toggle(preferredClassName, enabled);
+            localStorage.setItem(state, enabled);
+        })
+    })
+}
 
-zodiacCbx.addEventListener('change', () => {
-    const enabled = zodiacCbx.checked;
+saveToggleState(
+    ['#zodiacCbx', 'zodiac', 'zodiac'],
+    ['#editableSections', 'editable-sections', 'editableSection'],
+    ['#boundsCbx', 'bounds', 'bounds']
 
-    document.body.classList.toggle('zodiac', enabled);
-    localStorage.setItem('zodiac', enabled);
-})
-
-const editableSectionsCbx = diana.querySelector('#editableSections');
-const editableSectionsState = localStorage.getItem('editableSections') === 'true';
-
-document.body.classList.toggle('editable-sections', editableSectionsState);
-editableSectionsCbx.checked = editableSectionsState;
-
-editableSectionsCbx.addEventListener('change', () => {
-    const enabled = editableSectionsCbx.checked;
-
-    document.body.classList.toggle('editable-sections', enabled);
-    localStorage.setItem('editableSections', enabled);
-})
+)
 
 const sectionTitles = document.querySelectorAll('.section-title, .people .name h2, .side-panel .name h2');
     
@@ -45,17 +45,17 @@ if (document.body.classList.contains('editable-sections')) {
     })
 }
 
-const bounds = diana.querySelector('#boundsCbx');
-const boundsState = localStorage.getItem('bounds') === 'true';
+const hideMember = diana.querySelector('#hideMember');
+const hideState = localStorage.getItem('hide') === 'true';
 
-document.body.classList.toggle('bounds', boundsState);
-bounds.checked = boundsState;
+document.querySelectorAll('.people.special').forEach(el => el.classList.toggle('hidden', hideState));
+hideMember.checked = hideState;
 
-bounds.addEventListener('change', () => {
-    const enabled = bounds.checked;
+hideMember.addEventListener('change', () => {
+    const enabled = hideMember.checked;
 
-    document.body.classList.toggle('bounds', enabled);
-    localStorage.setItem('bounds', enabled);
+    document.querySelectorAll('.people.special').forEach(el => el.classList.toggle('hidden', enabled));
+    localStorage.setItem('hide', enabled);
 });
 let link = document.querySelector('link.people-card-style');
 if (!link) {
