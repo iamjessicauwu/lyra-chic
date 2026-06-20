@@ -5,6 +5,8 @@
  */
 
 /* Lyra UI preparation */
+@layer theme, base, components, utilities;
+
 @layer theme {
     :root {
         /* custom */
@@ -888,8 +890,6 @@
     }
 }
 
-@layer base, components;
-
 @layer base {
     .form-group {
         margin-bottom: 24px;
@@ -1353,6 +1353,30 @@
         border-color: var(--ochre);
         color: var(--roast);
     }
+    .side-panel .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 5px;
+}
+
+.side-panel .name h2 {
+    color: var(--color-text-main);
+    font-size: 28px;
+    text-align: center;
+    font-weight: 450;
+}
+
+.side-panel .nickname {
+    word-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: .8px;
+    color: var(--color-surface-text);
+    font-weight: 500;
+}
 }
 
 .vl {
@@ -2917,6 +2941,11 @@ section {
     cursor: pointer;
 }
 
+.social-media a {
+    display: flex;
+    align-items: center;
+}
+
 .sponsored {
     display: flex;
     flex-direction: row;
@@ -4348,37 +4377,6 @@ header * {
     padding: 0 0px;
 }
 
-.side-panel .name {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 7px;
-    margin-bottom: 5px;
-}
-
-.side-panel .name h2 {
-    color: var(--color-text-main);
-    font-size: 28px;
-    text-align: center;
-    font-weight: 450;
-}
-
-.side-panel .role {
-    display: flex;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.side-panel .nickname {
-    word-spacing: 4px;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: .8px;
-    color: var(--color-surface-text);
-    font-weight: 500;
-}
-
 .side-panel .badge-row {
     justify-content: center;
     margin: 8px 0;
@@ -5726,11 +5724,6 @@ html:has(.nav-pane:not(.hidden)) {
 
     .people-type.alt {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .people-type.alt .name {
         flex-direction: column;
         align-items: center;
     }

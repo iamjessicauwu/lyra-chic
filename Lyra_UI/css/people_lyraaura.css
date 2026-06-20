@@ -1,3 +1,47 @@
+.side-panel .people-type.alt, .side-panel .people-name {
+    width: 100%;
+    padding: 0 6px;
+}
+
+.side-panel .people-banner {
+    display: none;
+}
+
+.side-panel .people-info, .side-panel .people-bio {
+    padding-inline: 16px;
+}
+
+.side-panel .people-type.alt {
+    flex-direction: row;
+    width: 100%;
+    margin-top: 4em;
+}
+
+.side-panel .people-name {
+    column-gap: 24px;
+}
+
+.people-name * {
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.side-panel .badge-row {
+    justify-content: flex-start;
+}
+
+.side-panel .people-img {
+    width: 150px;
+    height: 150px;
+    margin-inline: 0px;
+}
+
+.side-panel .people-img img {
+    width: 150px;
+}
+
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 0 10px;
