@@ -70,7 +70,7 @@ fetch('./elements/footer.html')
 
         const conversationHistory = [];
         
-        function typeWriter(element, text, speed = 20) {
+        function typeWriter(element, text, speed = 12) {
             element.textContent = '';
             let i = 0;
             return new Promise(resolve => {
