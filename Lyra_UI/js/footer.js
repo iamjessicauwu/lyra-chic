@@ -192,13 +192,18 @@ fetch('./elements/footer.html')
             existingBubbles.forEach(bubble => bubble.classList.remove('animate'));
 
             // Render user bubble message
-            chatContent.innerHTML += `
-                <div class="bubble-message user">
-                    <div class="message user-input">
-                        <p>${escapeHtml(userMessage)}</p>
-                    </div>
+            const userBubble = document.createElement('div');
+            userBubble.className = 'bubble-message user';
+            userBubble.innerHTML = `
+                <div class="message user-input">
+                    <p></p>
                 </div>
             `;
+            
+            const userInput = userBubble.querySelector('p');
+            userInput.textContent = `${escapeHtml(userMessage)}`;
+            chatContent.appendChild(userBubble);
+            
             contentDiv.scrollTop = contentDiv.scrollHeight;
 
             input.value = '';
@@ -232,9 +237,10 @@ fetch('./elements/footer.html')
                 const data = await response.json();
                 const aiText = data.content?.map(b => b.text || '').join('') || "Sorry, I couldn't generate a response right now. Try again later.";
                 
+                document.getElementById(thinkingId)?.remove();
+                
                 conversationHistory.push({ role: 'assistant', content: aiText });
 
-                
                 const bubble = document.createElement('div');
                 bubble.className = 'bubble-message ai';
                 bubble.innerHTML = `

@@ -1,4 +1,9 @@
-// Initialize Rave framework
+// Because inline scripts are blocked by CSP, we need to change `rel` attribute of preloaded stylesheets here
+document.querySelectorAll('link[rel="preload"][as="style"').forEach(style => {
+    style.onload = null;
+    style.rel = "stylesheet";
+})
+
 import Lyra, { Security } from "./Lyra_UI/js/main.js";
 
 const lyra = Lyra ? new Lyra("1.0", "Nathania Anneta") : null;

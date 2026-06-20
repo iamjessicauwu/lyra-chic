@@ -8,17 +8,19 @@
     <meta name="description" content="Check out the history and member stories at Lyra Chic." />
     <meta http-equiv="Content-Security-Policy"
       content="
+        default-src 'self';
         script-src
           'self'
-          'unsafe-inline'
-          https:;
+          https://cdnjs.cloudflare.com
+          https://unpkg.com;
         style-src
           'self'
-          'unsafe-inline'          
-          https:;
+          https://cdnjs.cloudflare.com
+          https://unpkg.com;
         font-src
           'self'
-          https:;
+          https://cdnjs.cloudflare.com
+          https://fonts.gstatic.com;
         img-src
           'self'
           data:
@@ -30,9 +32,9 @@
     <link rel="prefetch" href="./json/peopleBio.json" as="fetch" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-    <link rel="preload" href="./Lyra_UI/css/Lyra_UI.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-    <link rel="preload" href="./styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" as="style" />
+    <link rel="preload" href="./Lyra_UI/css/Lyra_UI.css" as="style" />
+    <link rel="preload" href="./styles.css" as="style" />
 
     <link rel="stylesheet" href="./Lyra_UI/css/Lyra_UI.css">
     <link rel="stylesheet" href="./styles.css" />
@@ -48,7 +50,7 @@
 </head>
 <body data-title="Playground" class="wrapper">
     <header></header>
-    <!-- ══ 2. TYPOGRAPHY ══════════════════════════════════════ -->
+
     <section class="section">
         <span class="section-label">§ 01 — Typography</span>
         <h1 class="h1">The Art of <em>Simplicity</em></h1>
@@ -59,11 +61,9 @@
         <p class="body-text">Teks isi disajikan dalam DM Sans weight 300, memberikan kesan udara dan keterbacaan pada halaman. Panjang baris dijaga agar nyaman dibaca, tidak terlalu lebar. Warna espresso menjaga kontras yang cukup tanpa terasa keras.</p>
         <p class="caption">Caption — 11px · Uppercase · Spaced · Muted</p>
     </section>
-
-    <!-- DIVIDER: Editorial text -->
+    
     <div class="divider-editorial">typographie &amp; formes</div>
 
-    <!-- ══ 3. BUTTONS ═════════════════════════════════════════ -->
     <section class="section">
         <span class="section-label">§ 02 — Tombol</span>
         <div class="btn-row">
@@ -74,10 +74,8 @@
         </div>
     </section>
 
-    <!-- DIVIDER: Double rule -->
     <div class="divider-double"></div>
 
-    <!-- ══ 4. FORM INPUTS ═════════════════════════════════════ -->
     <section class="section">
         <span class="section-label">§ 03 — Input &amp; Form</span>
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0 28px;">
@@ -113,11 +111,9 @@
             </div>
         </div>
     </section>
-
-    <!-- DIVIDER: Ornament -->
+    
     <div class="divider-ornament"><span>✦ ✦ ✦</span></div>
-
-    <!-- ══ 5. CHECKBOX & RADIO & TOGGLE ══════════════════════ -->
+    
     <section class="section">
         <span class="section-label">§ 04 — Pilihan &amp; Toggle</span>
         <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; align-items: start;">
@@ -183,10 +179,8 @@
         </div>
     </section>
 
-    <!-- DIVIDER: Bold rule -->
     <hr class="divider-bold" />
 
-    <!-- ══ 6. BADGE / TAG ═════════════════════════════════════ -->
     <section class="section">
         <span class="section-label">§ 05 — Badge &amp; Tag</span>
         <div class="badge-row">
@@ -201,10 +195,8 @@
         </div>
     </section>
 
-    <!-- DIVIDER: Dash ornament -->
     <div class="divider-dash">— — —</div>
 
-    <!-- ══ 7. CARDS ═══════════════════════════════════════════ -->
     <section class="section">
         <span class="section-label">§ 06 — Kartu</span>
         <div class="card-grid">
@@ -226,10 +218,8 @@
         </div>
     </section>
 
-    <!-- DIVIDER: Editorial text 2 -->
     <div class="divider-editorial">citation &amp; citations</div>
 
-    <!-- ══ 8. BLOCKQUOTE ══════════════════════════════════════ -->
     <section class="section">
         <span class="section-label">§ 07 — Kutipan</span>
         <blockquote class="blockquote">
@@ -237,11 +227,9 @@
             <cite>— Dieter Rams, Ten Principles of Good Design</cite>
         </blockquote>
     </section>
-
-    <!-- DIVIDER: Ornament 2 -->
+    
     <div class="divider-ornament"><span>· · ·</span></div>
 
-    <!-- ══ 9. PROGRESS ════════════════════════════════════════ -->
     <section class="section">
         <span class="section-label">§ 08 — Progress</span>
         <div class="progress-item">
@@ -258,10 +246,8 @@
         </div>
     </section>
 
-    <!-- DIVIDER: Double rule 2 -->
     <div class="divider-double"></div>
 
-    <!-- ══ 10. TABLE ══════════════════════════════════════════ -->
     <section class="section">
         <span class="section-label">§ 09 — Tabel</span>
         <div class="table-wrap">
@@ -284,10 +270,8 @@
         </div>
     </section>
 
-    <!-- DIVIDER: Editorial text 3 -->
     <div class="divider-editorial">alertes &amp; navigation</div>
 
-    <!-- ══ 11. ALERTS ═════════════════════════════════════════ -->
     <section class="section">
         <span class="section-label">§ 10 — Notifikasi</span>
         <div style="display:flex; flex-direction:column; gap:12px;">
@@ -301,11 +285,9 @@
             </div>
         </div>
     </section>
-
-    <!-- DIVIDER: Dash 2 -->
+    
     <div class="divider-dash">✦ &nbsp; ✦ &nbsp; ✦</div>
 
-    <!-- ══ 12. BREADCRUMB ═════════════════════════════════════ -->
     <section class="section">
         <span class="section-label">§ 11 — Breadcrumb</span>
         <nav class="breadcrumb">
@@ -319,7 +301,6 @@
         </nav>
     </section>
 
-    <!-- ══ 13. TABS ═══════════════════════════════════════════ -->
     <section class="section" style="padding-top: 20px;">
         <span class="section-label">§ 12 — Tab</span>
         <div class="tab-bar">
@@ -333,10 +314,8 @@
         </div>
     </section>
 
-    <!-- DIVIDER: Bold 2 -->
     <hr class="divider-bold" style="margin-top: 16px;" />
 
-    <!-- ══ 14. AVATAR GROUP & PAGINATION ══════════════════════ -->
     <section class="section">
         <span class="section-label">§ 13–14 — Avatar &amp; Paginasi</span>
         <div style="display:flex; align-items:center; gap:40px; flex-wrap:wrap; margin-bottom: 32px;">
@@ -365,10 +344,8 @@
         </div>
     </section>
 
-    <!-- DIVIDER: Ornament final -->
     <div class="divider-ornament"><span>❧</span></div>
 
-    <!-- ══ 15. COMBINED CTA SECTION ═══════════════════════════ -->
     <section class="section" style="background:var(--cream); border:1px solid var(--sand); padding:48px; margin-bottom: 64px;">
         <span class="section-label">§ 15 — Ajakan Bertindak</span>
         <h2 class="h2" style="max-width:440px;">Mulai membangun sesuatu yang <em>layak diingat.</em></h2>

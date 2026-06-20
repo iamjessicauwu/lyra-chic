@@ -10,34 +10,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
     <meta http-equiv="Content-Security-Policy"
       content="
+        default-src 'self';
         script-src
           'self'
-          'unsafe-inline'
-          https:;
+          https://cdnjs.cloudflare.com
+          https://unpkg.com;
         style-src
           'self'
-          'unsafe-inline'          
-          https:;
+          https://cdnjs.cloudflare.com
+          https://unpkg.com;
         font-src
           'self'
-          https:;
+          https://cdnjs.cloudflare.com
+          https://fonts.gstatic.com;
         img-src
           'self'
           data:
           https:;
         object-src 'none';
-        
       ">
-
 
     
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.20/dist/lenis.css">
     <link rel="prefetch" href="./json/peopleBio.json" as="fetch" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-    <link rel="preload" href="./Lyra_UI/css/Lyra_UI.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-    <link rel="preload" href="./styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" as="style" />
+    <link rel="preload" href="./Lyra_UI/css/Lyra_UI.css" as="style" />
+    <link rel="preload" href="./styles.css" as="style" />
     <link rel="stylesheet" href="./Lyra_UI/css/Lyra_UI.css">
     <link rel="stylesheet" href="./styles.css" />
 
