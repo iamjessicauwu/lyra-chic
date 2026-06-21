@@ -47,7 +47,7 @@ fetch('./elements/footer.html')
             const dialog = closeBtn?.closest('dialog');
             if (closeBtn) {
                 requestAnimationFrame(() => {
-                    dialog.style.animation = `${closeBtn.dataset.dialogAnim} .3s cubic-bezier(0.8, 0.292, 0.333, 1)`;
+                    dialog.style.animation = `${closeBtn.dataset.dialogAnim} 350ms cubic-bezier(0.5, 0, 0.75, 0)`;
                     dialog.addEventListener('animationend', () => {
                         closeBtn.closest('dialog')?.close();
                         dialog.style.animation = '';
