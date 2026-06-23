@@ -5,7 +5,7 @@ document.addEventListener('click', (e) => {
 
     const slug = link.getAttribute('href').split('/').pop().replace(/\.md$/, '');
     
-    fetch(`/public/articles-manifest.json`)
+    fetch(`/json/rticles-manifest.json`)
         .then(res => res.json())
         .then(manifest => {
             const path = manifest[slug];
