@@ -1,3 +1,4 @@
+"use strict"
 let data = [];
 
 async function fetchPeople(url) {
@@ -103,16 +104,8 @@ people.forEach(card => {
         hiddenCounts++;
     }
     
-    
-    
     function showPeoplePanel() {
         document.body.style.overflowY = 'hidden';
-        document.querySelectorAll('.side-panel div').forEach((item, i) => {
-            setTimeout(() => {
-                item.classList.add('fade-in');
-                
-            }, i * 70)
-        })
         const bio = card.querySelector('.people-bio');
         const key = bio.dataset.people;
         const person = data.find(p => String(p.id) === key);

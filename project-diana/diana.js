@@ -62,7 +62,7 @@ if (!link) {
     const style = document.createElement("link");
     style.rel = "stylesheet";
     style.classList.add('people-card-style');
-    style.href = "/Lyra_UI/css/people_3.css";
+    style.href = "/Lyra_UI/css/people.css";
     document.head.appendChild(style);
     link = style;
 }

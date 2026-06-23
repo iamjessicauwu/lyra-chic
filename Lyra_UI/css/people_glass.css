@@ -1,0 +1,421 @@
+.people-panel {
+    width: 530px;
+}
+
+.side-panel .people-type, .side-panel .people-name {
+    width: 100%;
+    padding: 0 6px;
+}
+
+.side-panel .people-banner {
+    display: none;
+}
+
+.side-panel .people-info, .side-panel .people-bio {
+    padding-inline: 16px;
+}
+
+.side-panel .people-type {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 4em;
+}
+
+.side-panel .people-name {
+    column-gap: 24px;
+    order: -1;
+}
+
+.people-name * {
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.side-panel .badge-row {
+    justify-content: flex-start;
+}
+
+.side-panel .people-img {
+    width: 170px;
+    height: 170px;
+    justify-content: flex-start;
+    margin-inline: 0px;
+}
+
+.side-panel .people-img img {
+    width: 170px;
+}
+
+.grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 0 10px;
+    gap: 20px;
+}
+
+.grid.accordion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+@media (min-width: 1440px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
+
+.people {
+    position: relative;
+    overflow: hidden;
+    transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), width .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), box-shadow .2s;
+    padding: 0px 0px;
+    cursor: pointer;
+    pointer-events: auto;
+    border: none;
+    border-radius: 42px;
+}
+.people:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(61, 43, 31, 0.1);
+}
+.grid.accordion .people {
+    flex: 0 0 auto;
+    width: 150px;
+}
+
+.people * {
+    transition: none;
+}
+.people.row-2 {
+    grid-column: 1 / span 2;
+}
+.people.span-1 {
+    grid-column: span 27;
+}
+.people.span-2 {
+    margin-top: 6em;
+    grid-row: span 23;
+}
+
+.people .people-img {
+    object-fit: cover;
+    height: 460px;
+    width: 100%;
+}
+
+.people:hover .name {
+    border-top-color: var(--color-primary-500);
+}
+
+.people-img:has(img) {
+    background: rgba(244, 244, 244, 0) no-repeat;
+}
+
+.people .people-img img {
+    object-fit: cover;
+    border-radius: 16px;
+    width: 100%;
+    height: 460px;
+    transform: scale(1.07);
+    object-position: center center;
+    background-color: var(--color-surface-500);
+    aspect-ratio: 3 / 4;
+}
+
+.people .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 12px 28px 2.5em 32px;
+    transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1), border-top .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    row-gap: 6px;
+    z-index: 3;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+}
+
+.grid.accordion .people .name {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.grid.accordion .people:hover .name, .grid.accordion .people.focus .name {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.grid.accordion .people:hover {
+    width: 500px
+}
+
+/* Layer 1: dark gradient for readability */
+.people .people-bio::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    pointer-events: none;
+    z-index: 2;
+    background: linear-gradient(
+        to top,
+        rgba(131, 124, 117, 0.5) 0%,
+        rgba(150, 150, 150, 0.1) 25%,
+        transparent 60%
+    );
+}
+
+/* Layer 2: blur only at the bottom */
+.people .people-bio::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    mask-image: linear-gradient(
+        to top,
+        black 0%,
+        black 12%,
+        transparent 75%
+    );
+    -webkit-mask-image: linear-gradient(
+        to top,
+        black 0%,
+        black 12%,
+        transparent 75%
+    );
+    pointer-events: none;
+    z-index: 1;
+    transform: translateZ(0);
+}
+
+.badge::before, .people .name h2::before {
+    display: none;
+    content: "";
+    position: absolute;
+    left: 0px;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: var(--color-primary-500);
+}
+
+.people .people-bio {
+    position: relative;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: opacity .2s, transform .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.people .name h2 {
+    color: var(--color-text-muted);
+    font-size: 24px;   
+    font-weight: 600;;
+    text-shadow: 1px 1px 8px #202020;
+}
+
+.person-zodiac {
+    display: none !important;
+}
+
+.people .role {
+    width: auto;
+    font-size: 18px; 
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--color-text-muted);
+    font-weight: 450;
+    word-spacing: 6px;
+    text-shadow: 1px 1px 8px #202020
+}
+
+.people .people-bio .alias {
+    font-weight: 700;
+    color: inherit;
+}
+
+.people .alias::after {
+    content: "|";
+    margin: 0 8px;
+}
+
+.people .people-bio p {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 26px;
+    overflow: hidden;
+    max-height: calc(2em * 5);
+    display: none;
+    line-clamp: 4;
+    font-weight: 400;
+    box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.people-bio p.empty {
+    color: rgb(100, 100, 100);
+}
+
+.people .social-media a {
+    color: inherit ;
+}
+
+.people .people-btns {
+    display: none;
+}
+
+.people .social-media {
+    width: fit-content;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 8px 10px;
+    padding: 6px 10px;
+    background-color: rgba(100, 100, 100, 0.05);
+}
+
+.people .social-media span {
+    display: none;
+}
+
+.people .social-media i {
+    padding: 4px;
+    font-size: 32px;
+}
+
+.people .social-media i:hover {
+    color: var(--color-primary-100);
+}
+
+.people-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 5px #808080;
+}
+
+.people .social-media i[class="ri-instagram-line"] {
+    position: relative;
+    background: #833ab4;
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-emphasis-color: transparent;
+}
+
+.people .social-media i[class="ri-tiktok-fill"] {
+    position: relative;
+    background: transparent;
+    color: inherit;
+}
+
+.side-panel .name h2 {
+    font-size: 28px;
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    main {
+        margin: 60px 0 0 0;
+    }
+    .people {
+        width: 100%; height: unset;
+    }
+    .grid {
+        justify-items: stretch;
+        align-items: stretch;
+        padding: 4px 4px 4px 4px;
+        gap: 20px;
+    }
+    .grid.rtl, .grid.two-column {
+        grid-template-columns: repeat(2, 50vw);
+        padding: 4px 4px 4px 10px;
+    }
+}
+
+@media (max-width: 570px) {
+    .grid.rtl, .grid.two-column {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 4px 2px 4px 2px;
+        gap: 4px;
+    }
+    .people {
+        width: 100%;
+    }
+    .people.span-2 {
+        grid-row: unset;
+        margin-top: 0;
+    }
+    .people .name {
+        padding-inline: 24px;
+    }
+    .people .name h2 {
+        font-size: 22px;
+    }
+    .side-panel .people-type {
+        flex-wrap: wrap;
+    }
+    .side-panel .people-name {
+        order: 0;
+    }
+}
+
+@media (min-width: 1025px) {
+    .people .people-bio::before {
+        backdrop-filter: blur(20px);
+        will-change: transform;
+        mask-image: linear-gradient(
+            to top,
+            var(--espresso) 0%,
+            var(--espresso) 5%,
+            transparent 65%
+        );
+        -webkit-mask-image: linear-gradient(
+            to top,
+            var(--espresso) 0%,
+            var(--espresso) 5%,
+            transparent 65%
+        );
+    }
+    .people .people-bio {
+        background: linear-gradient(
+            to top,
+            rgba(var(--espresso), 0.9) 0%,
+            rgba(var(--espresso), 0.1) 20%,
+            transparent 85%
+        );
+    }
+    @media (prefers-color-scheme: dark) {
+        .people .people-bio::after {
+            background: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 0.9) 0%,
+                rgba(0, 0, 0, 0.3) 14%,
+                transparent 60%
+            );
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .people .people-img img {
+        background-color: var(--color-surface-0);
+    }
+    .people .people-bio::after {
+        background: linear-gradient(
+            to top,
+            rgba(29, 29, 29, 0.9) 0%,
+            rgba(29, 29, 29, 0.8) 20%,
+            transparent 60%
+        );
+    }
+    .people .role {
+        color: var(--color-primary-0 );
+    }
+}
