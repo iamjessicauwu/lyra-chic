@@ -17,5 +17,5 @@ function walkDir(dir) {
 }
 
 walkDir(ROOT);
-writeFileSync('/public/articles-manifest.json', JSON.stringify(manifest, null, 2));
+writeFileSync('public/articles-manifest.json', JSON.stringify(manifest, null, 2));
 console.log(`Built manifest with ${Object.keys(manifest).length} articles.`);
