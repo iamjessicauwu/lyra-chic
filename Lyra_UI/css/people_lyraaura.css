@@ -1,57 +1,5 @@
-@layer components, utilities;
-
-@layer components {
-    .side-panel .name {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 7px;
-    }
-    .side-panel:has(.people-type) {
-        width: 480px;
-    }
-}
-
-@layer utilities {
-    .people-panel, .side-panel:has(.people-type) {
-        width: 540px;
-    }
-    .side-panel .name h2 {
-        font-size: 28px;
-        font-weight: 550;
-        text-align: left;
-        font-style: italic;
-    }
-    
-    .side-panel .name {
-        width: 100%;
-        margin-bottom: 0;
-    }
-    .side-panel .social-media i {
-        background-color: var(--color-icon-bg);
-        border: 1px solid var(--color-border-100);
-        border-radius: 12px;
-        padding: 6px;
-        font-size: 22px;
-    }
-    .side-panel .nickname {
-        word-spacing: normal;
-        max-width: 150px;
-        font-size: 16px;
-        text-align: right;
-        letter-spacing:normal;
-        font-family: var(--monospace);
-        color: var(--color-primary-500);
-        font-weight: 500;
-    }
-}
-
-.people-type .people-name {
-    column-gap: 24px;
-    order: -1;
-    align-items: flex-start;
-    justify-content: flex-start;
+.people-panel {
+    width: 540px;
 }
 
 .side-panel .people-type, .side-panel .people-name {
@@ -68,40 +16,45 @@
 }
 
 .side-panel .people-type {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 4em;
+}
+
+.side-panel .people-name {
+    column-gap: 24px;
+    order: -1;
+}
+
+.people-name * {
     align-items: flex-start;
-    margin-top: 5em;
+    justify-content: flex-start;
+    align-self: flex-start;
+    text-align: left;
 }
 
 .side-panel .badge-row {
     justify-content: flex-start;
-
 }
 
-.people-type .people-img {
-    width: 360px;
-    height: 400px;
-    order: 2;
-    margin-block: 10px;
+.side-panel .people-img {
+    width: 150px;
+    height: 150px;
+    justify-content: flex-start;
+    border: none;
     margin-inline: 0px;
 }
+
 .side-panel .people-img img {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 3 / 4;
-    border-radius: 0px;
+    width: 150px;
 }
-.side-panel .social-media {
-    row-gap: 12px
-}
-.side-panel .social-media span {
-    display: inline;
-}
+
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-    padding: 0 10px;
+    padding: 0 20px;
     gap: 20px;
     overflow: hidden;
 }

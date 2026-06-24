@@ -6,16 +6,16 @@ async function fetchPeople(url) {
         const response = await fetch(url);
         data = await response.json();
 
-        renderCard();
+        renderCard('.people-bio');
     } catch (err) {
         console.error("Error fetching people bio", err);
     }
 }
 
-function renderCard() {
+function renderCard(peopleBioEl) {
     const map = new Map();
 
-    document.querySelectorAll(".people-bio").forEach(el => {
+    document.querySelectorAll(peopleBioEl).forEach(el => {
         const key = el.dataset.people;
         if (!map.has(key)) {
             map.set(key, []);
@@ -83,7 +83,6 @@ peopleImg.forEach((e) => {
     e.setAttribute("fetchpriority", "high");
 });
 const people = document.querySelectorAll('.people');
-const overlay = document.querySelector('.overlay');
 const panel = document.querySelector('.people-panel');
 const nameEl = panel.querySelector('.name h2');
 const roleEl = panel.querySelector('.nickname');
@@ -153,7 +152,6 @@ people.forEach(card => {
         profileImg.alt = `${person.name}'s profile picture.`;
         profileImg.src = person.image;
 
-
         if (person.banner_image !== ""  || person.banner_image ||bannerImg) {
             const image = person.banner_image;
             bannerImg.alt = `${person.name}'s banner image.`;
@@ -212,9 +210,10 @@ function closePanel() {
     if (activeCard) {
         activeCard.classList.remove('focus');
     }
-    panel.scrollTop = 0;
+    panel.addEventListener('animationend', () => {
+        panel.scrollTop = 0;
+    }, {once: true});
 }
 
-overlay.addEventListener('click', closePanel);
 document.querySelector('#close-panel').addEventListener('click', closePanel);
 

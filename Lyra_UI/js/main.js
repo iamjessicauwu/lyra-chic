@@ -83,25 +83,6 @@ export default class Lyra {
     }
 
     /**
-     * @summary Add parallax effect to each section in scrollable element (usually body). "section" and "scrollableELement" parameters must be filled with HTML tag name with lowercase.
-     * @version 1.0
-     */
-    addParallaxEffect(elements) {
-        const secs = document.querySelectorAll(elements);
-
-        secs.forEach(section => {
-            const offsetTop = section.offsetTop;
-            const rect = section.getBoundingClientRect().top;
-            const viewHeight = window.innerHeight;
-            
-            let distance = 1 - ((rect + viewHeight - offsetTop) / (rect + viewHeight));
-            distance = Math.min(1, Math.max(0, distance));
-
-            section.style.transform = `translateY(${distance * 80}px)`;
-        })
-    }
-
-    /**
      * 
      * @param {*} elements - list of elements to apply Windows 10-style tilt effect
      * @summary Add Windows 10-style tilt effect to specified elements when clicked and dragged.
@@ -148,35 +129,6 @@ export default class Lyra {
         });
     }
 
-    /**
-     * @param {*} toggleElement - Toggle element selector such as button, checkbox, and radio.
-     * @param {*} checkbox - ID of the checkbox element
-     * @summary Switch web theme to dark mode.
-     * @version 1.0
-     */
-    switchToDarkMode(toggleElement, checkbox) {
-        const darkMode = localStorage.getItem('darkMode') === "true";
-        if (darkMode) { document.body.classList.add('dark-mode'); }
-
-        const toggle = document.querySelector(toggleElement);
-        const cbx = document.querySelector(checkbox);
-
-        toggle.addEventListener('click', () => {
-            const checkIfBodyHasDarkMode = document.body.classList.contains('dark-mode');
-            document.body.classList.toggle("dark-mode");
-            document.documentElement.classList.toggle("dark-mode");
-
-            cbx.checked = true;
-            if (!checkIfBodyHasDarkMode) {
-                if (cbx.checked) {
-                    localStorage.setItem("darkMode", "true");
-                } else {
-                    localStorage.setItem("darkMode", "false");
-                }
-            } else { localStorage.setItem("darkMode", "false"); }
-        })
-    }
-
     loadElementSequentially(elements) {
         const elems = document.querySelectorAll(elements);
         elems.forEach((el, index) => {
@@ -190,137 +142,43 @@ export default class Lyra {
         })
     }
 
-    /**
-     * Set platform compatibility for specific features on affected elements.
-     * @param {'windows' | 'android' | 'ios' | 'all'} platform
-     * @param {'tilt' | 'parallax' | 'blur' | 'animation' | 'all' } includeFeatures
-     * @param {string} affectedElements 
-     */
-    setPlatformCompatibility(platform, includeFeatures, affectedElements) {
-        const userAgent = navigator.userAgent.toLowerCase();
-        const elements = document.querySelectorAll(affectedElements);
-        elements.forEach(el => {
-            if (platform === "windows" || platform === "win" || userAgent.indexOf("windows") !== -1) {
-                switch (includeFeatures) {
-                    case 'blur':
-                        el.style.backdropFilter = 'blur(10px)';
-                        break;
-                    case 'tilt':
-                        el.style.transformStyle = 'preserve-3d';
-                        break;
-                }
-            } else if (platform === "android" || platform === "ios" || userAgent.indexOf("android") !== -1) {
-                switch (includeFeatures) {
-                    case 'blur':
-                        el.style.backdropFilter = 'none';
-                        break;
-                    case 'tilt':
-                        el.style.transformStyle = 'flat';
-                        break;
-                }
-            }
-        })
-    }
-
-    switchToggle(checkbox, actions) {
-        const cbxs = document.querySelectorAll(checkbox);
-        const leftOptions = document.querySelectorAll('.leftOption');
-        const rightOptions = document.querySelectorAll('.rightOption');
-        cbxs.forEach((cbx, index) => {
-            const leftOption = leftOptions[index];
-            const rightOption = rightOptions[index];
-            cbx.addEventListener('change', () => {
-                const isChecked = cbx.checked;
-                // leftOptions.forEach(leftOption => leftOption.classList.toggle('active', !isChecked));
-                // rightOptions.forEach(rightOption => rightOption.classList.toggle('active', isChecked));
-                if (isChecked) {
-                    leftOption?.classList.remove('active');
-                    rightOption?.classList.add('active');
-                } else {
-                    leftOption?.classList.add('active');
-                    rightOption?.classList.remove('active');
-                }
-
-                actions();
-            })
-        })
-    }
-
-    observeCards(parentContainer, cardSelector, delay = 50) {
-        const cards = document.querySelectorAll(cardSelector); 
-        const parent = document.querySelectorAll(parentContainer);
-        
-
-        const allFlexCard = [...cards, ...parent];
-        const position = allFlexCard.map(el => ({
-            el,
-            top: el.getBoundingClientRect().top
-        }))
-
-        position.sort((a, b) => a.top - b.top);
-
-        const all = position.map(item => item.el);
-
-        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { 
-        if (!entry.isIntersecting) return;         
-         setTimeout(() => { 
-             entry.target.style.opacity = 1;
-             entry.target.style.transform = 'translate(0px, 0px)'; 
-             entry.target.style.visibility = 'visible';
-              
-         
-             observer.unobserve(entry.target); 
-         }, delay); 
-         
-         delay += 50; 
-         
-                                  
-     }); 
-     
-     if (delay > 1000) { console.warn('Warning: Card animation delay exceeds 1 second, this may cause performance issues on low-end devices.'); 
-     }
-     });
-
-        all.forEach(card => observer.observe(card));
-    }
-    
     animateOnScroll(selector, options = {}) {
         const {
             target = null,
             animationClass = 'visible',
             stagger = 0,
-            threshold = 0.4,
+            threshold = 0.5,
             once = true
-            
+
         } = options;
-        
+
         const elements = document.querySelectorAll(selector);
-        const observer = new IntersectionObserver((entries, obs) => { 
+        const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
-                
+
                 const el = entry.target;
-                
+
                 if (target) {
                     const items = el.querySelectorAll(target);
-                    
+
                     items.forEach((item, i) => {
                         if (stagger) {
                             item.style.transitionDelay = `${i * stagger}s`;
                         }
                         item.classList.add(animationClass);
-                        
+
                     });
                 } else {
                     el.classList.add(animationClass);
                 }
-                
+
                 if (once) {
                     obs.unobserve(el);
                 }
             });
-        }, {threshold, rootMargin: '0px 0px -10% 0px'});
-        
+        }, { threshold, rootMargin: '0px 0px -10% 0px' });
+
         elements.forEach(el => observer.observe(el));
     }
 
@@ -335,7 +193,7 @@ export default class Lyra {
 
         const elements = document.querySelectorAll(selector);
         const top = document.documentElement.scrollTop || document.body.scrollTop;
-        
+
         elements.forEach(element => {
             const customThreshold = parseInt(element.dataset.threshold) || threshold;
 
@@ -366,49 +224,48 @@ export default class Lyra {
         requestAnimationFrame(() => {
             elements.forEach(el => { el.style.pointerEvents = 'none'; });
             position.sort((a, b) => a.top - b.top);
-    
+
             const all = position.map(item => item.el);
-            const observer = new IntersectionObserver((entries) => { 
-                entries.forEach(entry => { 
-                    if (!entry.isIntersecting) return; 
-                    setTimeout(() => { 
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    setTimeout(() => {
                         if (transformType === 'translate') {
-                            entry.target.style.transform = 'translate(0px, 0px)'; 
+                            entry.target.style.transform = 'translate(0px, 0px)';
                         } else if (transformType === 'translateY') {
-                            entry.target.style.transform = 'translateY(0px)'; 
+                            entry.target.style.transform = 'translateY(0px)';
                         } else if (transformType === 'translateX') {
-                            entry.target.style.transform = 'translateX(0px)'; 
+                            entry.target.style.transform = 'translateX(0px)';
                         } else if (transformType === 'scaleTranslateX') {
-                            entry.target.style.transform = 'scale(1) translateX(0px)'; 
+                            entry.target.style.transform = 'scale(1) translateX(0px)';
                         } else if (transformType === 'scaleTranslateY') {
-                            entry.target.style.transform = 'scale(1) translateY(0px)'; 
+                            entry.target.style.transform = 'scale(1) translateY(0px)';
                         } else if (transformType === 'scale') {
-                            entry.target.style.transform = 'scale(1)'; 
+                            entry.target.style.transform = 'scale(1)';
                         } else {
-                            entry.target.style.transform = 'translate(0px, 0px)'; 
+                            entry.target.style.transform = 'translate(0px, 0px)';
                         }
-    
-                        entry.target.style.opacity = 1; 
-                        entry.target.style.visibility = 'visible'; 
-                        entry.target.style.pointerEvents = 'auto'; 
-    
-                        observer.unobserve(entry.target); 
-                    }, delay); 
-                    delay += 50; 
+
+                        entry.target.style.opacity = 1;
+                        entry.target.style.visibility = 'visible';
+                        entry.target.style.pointerEvents = 'auto';
+
+                        observer.unobserve(entry.target);
+                    }, delay);
+                    delay += 50;
                 });
-            
-                
-                if (delay > 1000) { console.warn('Warning: Card animation delay exceeds 1 second, this may cause performance issues on low-end devices.'); } 
-            }, {rootMargin: '-10% 0px -10% 0px'});
-    
+
+
+                if (delay > 1000) { console.warn('Warning: Card animation delay exceeds 1 second, this may cause performance issues on low-end devices.'); }
+            }, { rootMargin: '-10% 0px -10% 0px' });
+
             all.forEach(el => observer.observe(el));
         })
-        
+
 
 
     }
 
-    
     /**
      * @param {string} json Set the JSON files that be used for carousel caption content.
      * @version 1.1
@@ -644,70 +501,35 @@ export default class Lyra {
         suasana.innerHTML = t >= 0 && t < 11 ? "Selamat pagi" : t >= 11 && t < 15 ? "Selamat siang" : t >= 15 && t < 18 ? "Selamat sore" : "Selamat malam"
     }
 
-    initializeIndexPath() {
-    if (window.location.pathname.endsWith("index.html")) {
-      const e =
-        window.location.origin +
-        window.location.pathname.replace("index.html", "");
-      window.location.href !== e && history.replaceState({}, document.title, e);
-    }
-  }
-  setCardTagExpiration(e) {
-    const t = document.querySelectorAll(e),
-      n = new Date();
-    t.forEach((e) => {
-      if ("Baru" === !e.textContent.trim() || "New" === !e.textContent.trim())
-        return;
-      const t = new Date(e.dataset.added);
-      (n - t) / 864e5 > 7 && e.classList.add("hidden");
-    });
-  }
-  updateClock(e, t) {
-    let n = document.getElementById(e),
-      o = document.getElementById(t),
-      s = new Date(),
-      r = String(s.getHours()).padStart(2, "0"),
-      a = String(s.getMinutes()).padStart(2, "0");
-    n.innerText = `${r}:${a}`;
-    const l = new Date().getHours();
-    o.innerHTML =
-      l >= 0 && l < 11
-        ? "Selamat pagi"
-        : l >= 11 && l < 15
-          ? "Selamat siang"
-          : l >= 15 && l < 18
-            ? "Selamat sore"
-            : "Selamat malam";
-  }
-  animateCounter() {
-    function animateCount(obj, start, end, duration) {
-      let startTimestamp = null;
-      const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-  
-          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          obj.innerHTML = Math.floor(progress * (end - start) + start);
-  
-          if (progress < 1) {
-              window.requestAnimationFrame(step);
-          }
-        };
-        window.requestAnimationFrame(step);
-    }
+    animateCounter() {
+        function animateCount(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
 
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const targetValue = parseInt(el.getAttribute('data-count-target'), 10);
-          animateCount(el, 0, targetValue, 2000);
-          obs.unobserve(el);
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
         }
-      })
-    });
 
-    document.querySelectorAll('[data-count-target]').forEach(el => observer.observe(el));
-  }
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const targetValue = parseInt(el.getAttribute('data-count-target'), 10);
+                    animateCount(el, 0, targetValue, 2000);
+                    obs.unobserve(el);
+                }
+            })
+        });
+
+        document.querySelectorAll('[data-count-target]').forEach(el => observer.observe(el));
+    }
 
 
 }
@@ -809,16 +631,6 @@ export class Security extends Lyra {
             warning.appendChild(warningButton)
 
         })
-    }
-}
-
-/**
- *  @type {Lyra} 
- *  @param {Lyra} instance
- */
-export class Controller extends Lyra {
-    constructor() {
-        super(this.version, this.author);
     }
 }
 

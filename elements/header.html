@@ -2,15 +2,11 @@
     <div class="header-container">
         <div class="header-desktop">
             <div class="header-left">
-                <button class="navBtn" data-dialog-open="search-panel"><i class="ri-search-line" ></i></button>
-                <a href="https://github.com/iamjessicauwu/lyra-chic/releases"><button class="navBtn"  data-tooltip="Releases"><i class="ri-github-fill" ></i></button></a>
-                <div>
-                </div>
-            </div>
-            <div class="header-center flex-column flex-full">
                 <a href="/" class="brand">
                     <img class="logo lyra-logo" src="./assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" />
                 </a>
+            </div>
+            <div class="header-center flex-column flex-full">
                 <nav class="navigation">
                     <div class="drop-down">
                         <a href="./projects.html" data-lang="home"><button class="navBtn">Our Works</button></a>
@@ -52,21 +48,22 @@
                 </nav>
             </div>
             <div class="header-right">
-                <button class="navBtn" data-dialog-open="talk-to-lyra"><i class="ri-chat-ai-line" ></i></button>
-                <button class="navBtn" data-dialog-open="cart-dialog" data-tooltip="Keranjang Anda">
-                    <i class="ri-shopping-bag-line"></i>
+                <button class="navBtn" data-dialog-open="search-panel"><i class="ri-search-line" ></i></button>
+                <a href="https://github.com/iamjessicauwu/lyra-chic/releases"><button class="navBtn"  data-tooltip="Releases"><i class="ri-github-fill" ></i></button></a>
+                <button class="navBtn hamburger" aria-label="hamburger button to open the hamburger menu" id="hamburger">
+                    <div class="line line-1"></div>
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
                 </button>
             </div>
         </div>
         <div class="header-mobile">
             <div class="header-left">
-                <button class="navBtn" data-dialog-open="cart-dialog" data-tooltip="Keranjang Anda">
-                    <i class="ri-shopping-bag-line"></i>
-                </button>
+                <button class="navBtn" data-dialog-open="search-panel"><i class="ri-search-line" ></i></button>
             </div>
             <div class="header-center">
                 <div class="brand">
-                    <a href="/"><img class="logo lyra-logo" src="./assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" /></a>
+                    <a href="/"><img class="logo lyra-logo" src="/assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" /></a>
                 </div>
             </div>
             <div class="header-right">
@@ -98,7 +95,7 @@
 <div class="overlay header-overlay"></div>
 <div class="nav-pane hidden">  
     <div class="nav-pane-header dialog-header">
-        <button class="close-btn" id="close2"><div class="line line-1"></div><div class="line line-2"></div></button>
+        <button class="close-btn fixed"><div class="line div-1"></div><div class="line div-2"></div></button>
     </div>
     <div class="nav-container">
         <div class="content" data-lenis-prevent>
@@ -129,9 +126,6 @@
                 <div class="navpane-footer-actions">
                     <button class="btn btn-primary chat" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
                 </div>
-            </div>
-            <div class="footer-flex-1">
-                <button class="btn btn-primary chat-alt" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
             </div>
         </div>
     </div>

@@ -117,67 +117,77 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
     })
     const header = document.querySelector('header');
     const navpane = document.querySelector('.nav-pane');
-    const btn = document.querySelector('.hamburger');
+    const hamburger = '.hamburger';
     const overlay = document.querySelector('.overlay');
     const menuButtons = document.querySelectorAll('.menuButton');
-    
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) {
-            overlay.classList.remove('showOverlay');
-            navpane.classList.add('hidden');
-            btn.classList.remove('active');
-        }
-    })
-    
-    function openNavPane() {
-        overlay.classList.add('showOverlay');
-        header.classList.add('no-blend');
-        btn.classList.add('active');
-        
-        requestAnimationFrame(() => { 
-            navpane.style.animation = `fadeIn .45s cubic-bezier(0.22, 1, 0.36, 1`;
-            btn.classList.add('no-pointer');
-            navpane.classList.remove('hidden');
 
-            navpane.addEventListener('animationend', () => {
-                if (navpane.style.animation.includes('fadeIn')) {
-                    btn.classList.remove('no-pointer');
-                }
-            }, {once: true} );
-        });
-    }
+    function initializeNavPane(hamburger) {
+        const hamburgers = document.querySelectorAll(hamburger);
 
-    function closeNavPane() {
-        btn.classList.add('no-pointer');
-        btn.classList.add('active');
-        
-        requestAnimationFrame(() => {
-            btn.classList.remove('active');
-            navpane.style.animation = `fadeOut .45s cubic-bezier(0.22, 1, 0.36, 1)`;
-            overlay.classList.remove('showOverlay');
-            
-            navpane.addEventListener('animationend', () => {
-                if (navpane.style.animation.includes('fadeOut')) {
+        hamburgers.forEach(btn => {
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) {
+                    overlay.classList.remove('showOverlay');
                     navpane.classList.add('hidden');
-                    header.classList.remove('no-blend');
-                    btn.classList.remove('no-pointer');
+                    btn.classList.remove('active');
                 }
-            }, {once: true});
-        });
+            })
+            
+            function openNavPane() {
+                overlay.classList.add('showOverlay');
+                header.classList.add('no-blend');
+                btn.classList.add('active');
+                
+                requestAnimationFrame(() => { 
+                    navpane.style.animation = `fadeIn .45s cubic-bezier(0.22, 1, 0.36, 1`;
+                    btn.classList.add('no-pointer');
+                    navpane.classList.remove('hidden');
         
-    }
+                    navpane.addEventListener('animationend', () => {
+                        if (navpane.style.animation.includes('fadeIn')) {
+                            btn.classList.remove('no-pointer');
+                        }
+                    }, {once: true} );
+                });
+            }
+        
+            function closeNavPane() {
+                btn.classList.add('no-pointer');
+                btn.classList.add('active');
+                
+                requestAnimationFrame(() => {
+                    btn.classList.remove('active');
+                    navpane.style.animation = `fadeOut .45s cubic-bezier(0.22, 1, 0.36, 1)`;
+                    overlay.classList.remove('showOverlay');
+                    
+                    navpane.addEventListener('animationend', () => {
+                        if (navpane.style.animation.includes('fadeOut')) {
+                            navpane.classList.add('hidden');
+                            header.classList.remove('no-blend');
+                            btn.classList.remove('no-pointer');
+                        }
+                    }, {once: true});
+                });
+                
+            }
+        
+            function toggleNavPane() {
+                if (navpane.classList.contains('hidden')) {
+                    openNavPane();
+                } else {
+                    closeNavPane();
+                }
+            }
 
-    function toggleNavPane() {
-        if (navpane.classList.contains('hidden')) {
-            openNavPane();
-        } else {
-            closeNavPane();
-        }
-    }
+            btn.addEventListener('click', toggleNavPane);
+            
+            document.querySelector('.nav-pane-header .close-btn').addEventListener('click', closeNavPane);
+            document.querySelector('.header-overlay').addEventListener('click', closeNavPane);
+        })
 
-    btn.addEventListener('click', toggleNavPane);
-    document.querySelector('.nav-pane-header .close-btn').addEventListener('click', closeNavPane);
-    document.querySelector('.header-overlay').addEventListener('click', closeNavPane);
+    }
+    
+    initializeNavPane(hamburger);
     
     const body = document.body;
 

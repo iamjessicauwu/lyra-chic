@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     const ads = document.querySelectorAll('.ad');
     const adBanner = document.querySelector('.ad-banner');
-    const closeBanner = document.querySelector('.ad-banner .btn.close');
+    const closeBanner = document.querySelector('.ad .btn.close');
     const isBannerClosed = localStorage.getItem('banner-closed') === true;
 
     if (isBannerClosed) {
