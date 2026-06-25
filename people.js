@@ -82,12 +82,14 @@ const peopleImg = document.querySelectorAll(".people-img img");
 peopleImg.forEach((e) => {
     e.setAttribute("fetchpriority", "high");
 });
+
 const people = document.querySelectorAll('.people');
 const panel = document.querySelector('.people-panel');
 const nameEl = panel.querySelector('.name h2');
 const roleEl = panel.querySelector('.nickname');
 const desc = panel.querySelector('p');
 const badges = panel.querySelector('.badge-row');
+const portfolioCtr = panel.querySelector('.member-portfolio');
 const peopleCtr = document.querySelector('.grid');
 const activeMembers = ["anneta", "crshyle", "jessica", "velanie", "monique", "mae", "sharon", "quinsha", "charis", "reagan"];
 let hiddenCounts = 0;
@@ -104,7 +106,6 @@ people.forEach(card => {
     }
     
     function showPeoplePanel() {
-        document.body.style.overflowY = 'hidden';
         const bio = card.querySelector('.people-bio');
         const key = bio.dataset.people;
         const person = data.find(p => String(p.id) === key);
@@ -195,6 +196,21 @@ people.forEach(card => {
             badges.textContent = ``;
             badges.style.display = 'none';
         }
+
+        const portfolios = person.portfolio;
+        portfolios.innerHTML = '';
+        
+        if (portfolios && portfolios.length > 0) {
+            portfolios.map(el => {
+                const imgs = document.createElement('img');
+                imgs.src = el;
+
+                portfolioCtr.appendChild(imgs);
+            })
+        } else {
+            portfolios.innerHTML = '';
+            portfolios.style.display = 'none';
+        }
     }
     
     card.addEventListener('click', showPeoplePanel);
@@ -212,6 +228,7 @@ function closePanel() {
     }
     panel.addEventListener('animationend', () => {
         panel.scrollTop = 0;
+        portfolioCtr.innerHTML = ''
     }, {once: true});
 }
 

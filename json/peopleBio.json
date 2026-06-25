@@ -14,6 +14,7 @@
         ],
         "tiktok": "",
         "badges": ["Main Developer", "Creative Leader"],
+        "portfolio": ["./assets/image/nathania_anneta/Nia_banner.webp", "./assets/image/nathania_anneta/Nia_avatar-nobg.png"],
         "zodiac": "Libra"
     },
     {
@@ -25,6 +26,7 @@
         "banner_image": "./assets/image/member_avatar/carin_banner.webp",
         "id": "crshyle",
         "badges": ["SMAKAUG Student", "Creative Dancer", "ST☆RGΛINZ Member"],
+        "portfolio": [],
         "zodiac": ""
     },
     {
@@ -37,6 +39,7 @@
         "id": "jessica",
         "aliases": "jessie m wolen",
         "badges": [],
+        "portfolio": ["./assets/image/jessica_noleen/Jessica.webp"],
         "zodiac": "Taurus"
     }, 
     {
@@ -49,6 +52,7 @@
         "banner_image": "./assets/image/member_avatar/monnn_banner_sd.webp",
         "id": "monique",
         "badges": ["Fashion Designer", "ST☆RGΛINZ Member"],
+        "portfolio": [],
         "zodiac": "Taurus"
     }, 
     {
@@ -61,6 +65,7 @@
         "banner_image": "",
         "id": "mae",
         "badges": ["Performer", "Music Enthusiast"],
+        "portfolio": [],
         "zodiac": ""
     }
     ,
@@ -73,6 +78,7 @@
         "image": "./assets/image/member_avatar/charis.webp",
         "banner_image": "",
         "id": "charis",
+        "portfolio": [],
         "zodiac": ""
     },
     {
@@ -83,6 +89,7 @@
         "aliases": "",
         "image": "./assets/image/member_avatar/reagan.webp",
         "banner_image": "",
+        "portfolio": [],
         "id": "reagan"
     }, 
     {
@@ -95,6 +102,7 @@
         "banner_image": "./assets/image/member_avatar/velanie_banner.webp",
         "id": "velanie",
         "badges": ["Fashion Illuminator", "ST☆RGΛINZ Member"],
+        "portfolio": [],
         "zodiac": "Aries"
     },
     {
@@ -107,6 +115,7 @@
         "banner_image": "",
         "id": "sharon",
         "badges": ["ST☆RGΛINZ Member"],
+        "portfolio": [],
         "zodiac": "Unknown"
     },
     {
@@ -119,6 +128,7 @@
         "banner_image": "",
         "id": "quinsha",
         "badges": ["SMAKAUG Student"],
+        "portfolio": [],
         "zodiac": "Unknown"
     }
 ]

@@ -26,18 +26,6 @@
     font-display: swap;
 }
 
-.people * {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-20px);
-}
-
-.people *.visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
 dialog .content-notop {
     margin-top: -1.5em;
 }

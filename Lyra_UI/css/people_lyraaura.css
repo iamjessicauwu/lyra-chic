@@ -54,7 +54,7 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-auto-rows: auto;
     grid-auto-flow: dense;
-    padding: 0 20px;
+    padding: 0 16px;
     gap: 20px;
     overflow: hidden;
 }
@@ -71,8 +71,17 @@
     border: none;
 }
 .people * {
-    transition: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-40px);
 }
+
+.people *.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
 .people.row-2 {
     grid-column: 1 / span 2;
 }
