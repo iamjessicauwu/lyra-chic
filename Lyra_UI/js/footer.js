@@ -51,22 +51,11 @@ fetch('/elements/footer.html')
                     dialog.addEventListener('animationend', () => {
                         closeBtn.closest('dialog')?.close();
                         dialog.style.animation = '';
+                        dialog.scrollTop = 0;
                     }, {once: true});
                 })
             }
         });
-        
-        fab.addEventListener('pointerdown', (e) => {
-            startTime = setTimeout(() => {
-                console.log('Project Diana is successfully activated!')
-                openDialog('project-diana');
-            }, 3000);
-        });
-
-        fab.addEventListener('pointerup', () => {
-            diana.scrollTop = 0;
-            clearTimeout(startTime);
-        })
 
         const conversationHistory = [];
         

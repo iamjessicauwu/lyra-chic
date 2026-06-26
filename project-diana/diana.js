@@ -1,6 +1,6 @@
 console.log('Diana script loaded!');
 
-const diana = document.querySelector('.project-diana');
+const diana = document.querySelector('.lyra-labs');
 
 function saveToggleState(...pairs) {
     pairs.forEach(([cbx, preferredClassName, state]) => {

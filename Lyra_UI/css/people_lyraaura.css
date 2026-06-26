@@ -65,15 +65,17 @@
 }
 .people {
     grid-row: span 20;
-    transition: transform .7s cubic-bezier(0.175, 0.885, 0.32, 1.275), border .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s cubic-bezier(0.215, 0.610, 0.355, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), border .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .8s cubic-bezier(0.215, 0.610, 0.355, 1);
     padding: 8px 6px;
     pointer-events: auto;
     border: none;
 }
+
 .people * {
     opacity: 0;
+    transition: none;
     pointer-events: none;
-    transform: translateY(-40px);
+    transform: translateY(-20px);
 }
 
 .people *.visible {
@@ -99,6 +101,7 @@
 
 .people .people-img {
     object-fit: cover;
+    transition: inherit;
     border-radius: 0;
 }
 
@@ -127,7 +130,7 @@
     align-items: center;
     row-gap: 2px;
     transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s;
-    margin: 0px 0px 4px 0px;
+    padding: 2px 0 5px 0;
     width: 100%;
     order: -1;
     top: 0;
@@ -151,13 +154,15 @@
     width: 100%;
 }
 
-.badge::before, .people .name h2::before {
-    display: none;
+.people .name h2::before {
+    display: block;
     content: "";
     position: absolute;
     left: 0px;
-    padding: 6px;
-    border-radius: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    transition: width 1s cubic-bezier(0.19, 1, 0.22, 1);
     background-color: var(--color-primary-500);
 }
 
@@ -172,6 +177,7 @@
 }
 
 .people .name h2 {
+    width: auto;
     position: relative;
     display: flex;
     align-items: center;
@@ -182,12 +188,8 @@
     font-style: italic;
 }
 
-.people:hover .name h2, .people.focus .name h2 {
-    padding-left: 25px;
-}
 .people:hover .name h2::before, .people.focus .name h2::before {
-    display: block;
-    animation: fadeIn .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 100%;
 }
 
 .person-zodiac {

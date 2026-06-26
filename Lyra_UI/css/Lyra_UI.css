@@ -1215,32 +1215,33 @@
         position: relative;
         background-color: transparent;
         border: 1px solid transparent;
-        width: 100%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         font-size: 1.2rem;
         padding: 6px 0px;
         color: var(--color-text-main);
-        transition: color .2s, padding-left .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: color .2s;
         font-family: var(--sans-serif);
         cursor: pointer;
         text-transform: none;
     }
 
     .menuButton::before {
-        display: none;
+        display: block;
         content: "";
         position: absolute;
         left: 0px;
-        padding: 6px;
+        bottom: 0;
+        width: 0;
+        height: 1px;
         border-radius: 50%;
+        transition: width 1s cubic-bezier(0.19, 1, 0.22, 1);
         background-color: var(--color-primary-500);
     }
 
     .menuButton:hover::before {
-        display: block;
-        animation: fadeIn .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        width:100% ;
     }
 
     .content-item:hover .menuButton {
@@ -1997,7 +1998,6 @@
         background-size: cover;
     }
 
-
     .lyra-labs-greeting * {
         color: white;
     }
@@ -2279,13 +2279,30 @@
 
     .side-panel .member-portfolio {
         padding: 5px 10px;
+        display: grid;
+        grid-auto-flow: dense;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 
-    .member-portfolio img, .member-portfolio video {
+    .member-portfolio img {
+        break-inside: avoid;
+        width: 240px;
+        height: 250px;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+    }
+
+    .member-portfolio video {
+        break-inside: avoid;
         width: 100%;
         height: 250px;
         aspect-ratio: 16 / 9;
         object-fit: cover;
+    }
+
+    .member-portfolio video::-webkit-media-controls-fullscreen-button, .member-portfolio video::-webkit-media-controls-fullscreen-button {
+        display: none !important;
     }
 
     /* Article */
@@ -4731,10 +4748,6 @@ label {
 .badge-container.custom .badge-old {
     justify-content: flex-start;
     gap: 16px;
-}
-
-.badge-old:hover, .menuButton:hover {
-    padding-left: 25px;
 }
 
 .badge-container.bg .badge-old {

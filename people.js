@@ -202,10 +202,21 @@ people.forEach(card => {
         
         if (portfolios && portfolios.length > 0) {
             portfolios.map(el => {
-                const imgs = document.createElement('img');
-                imgs.src = el;
+                if (el.includes('.jpg') || el.includes('.png') || el.includes('.webp')) {
+                    const imgs = document.createElement('img');
+                    imgs.src = el;
+                    portfolioCtr.appendChild(imgs);
+                }
+                if (el.includes('.mp4')) {
+                    const video = document.createElement('video');
+                    video.controls = 'true';
+                    video.autoplay = 'true';
+                    const source = document.createElement('source');
+                    source.src = el;
+                    video.appendChild(source);
+                    portfolioCtr.appendChild(video);
+                }
 
-                portfolioCtr.appendChild(imgs);
             })
         } else {
             portfolios.innerHTML = '';
