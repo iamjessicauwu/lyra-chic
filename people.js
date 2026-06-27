@@ -210,7 +210,6 @@ people.forEach(card => {
                 if (el.includes('.mp4')) {
                     const video = document.createElement('video');
                     video.controls = 'true';
-                    video.autoplay = 'true';
                     const source = document.createElement('source');
                     source.src = el;
                     video.appendChild(source);

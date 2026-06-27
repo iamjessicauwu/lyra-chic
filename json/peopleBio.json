@@ -48,7 +48,7 @@
         "description": "Monique was actually Noleen and Carin's first friend at school — and it's easy to see why she left an impression. She's passionate about fashion, design, and all things creative, and those interests naturally found a home in Lyra Chic. <br>And yes — she's also part of the same dance group as Carin, <b>ST☆RGΛINZ</b>. So the creative chemistry between them? Totally makes sense. <br>As a fashion designer and creative illustrator, Monique brings a visual flair to the team that's hard to replicate. Whether it's a concept sketch or a full-on design, she puts her whole personality into it. Quietly expressive, endlessly creative.",
         "role": "Artist",
         "aliases": "",
-        "image": "./assets/image/member_avatar/monnn.webp",
+        "image": "./assets/image/member_avatar/monique.webp",
         "banner_image": "./assets/image/member_avatar/monnn_banner_sd.webp",
         "id": "monique",
         "badges": ["Fashion Designer", "ST☆RGΛINZ Member"],
@@ -61,11 +61,11 @@
         "description": "Mae is the kind of person who lights up a room without even trying. At school, she's widely known as one of the most attractive girls around. It's not just looks though; it's the whole package. Noleen and Carin's second friend from school, she's known for her extroverted energy and that infectious laugh that somehow makes everything more fun. <br>As Lyra's performer and resident music enthusiast, Mae brings the hype and heart to the team. She's passionate about performing arts and entertainment, and when she's on — she's really on. If Lyra ever had a hype person, it'd be her.",
         "role": "Performer",
         "aliases": "",
-        "image": "./assets/image/member_avatar/mae.webp",
+        "image": "./assets/image/rhiannon_ava_mae/mae_1.webp",
         "banner_image": "",
         "id": "mae",
         "badges": ["Performer", "Music Enthusiast"],
-        "portfolio": [],
+        "portfolio": ["./assets/image/rhiannon_ava_mae/mae_2.webp"],
         "zodiac": ""
     }
     ,
@@ -128,7 +128,7 @@
         "banner_image": "",
         "id": "quinsha",
         "badges": ["SMAKAUG Student"],
-        "portfolio": [],
+        "portfolio": ["./assets/image/quinsha/quinsha_1.jpg", "./assets/image/quinsha/quinsha_2.jpg"],
         "zodiac": "Unknown"
     }
 ]

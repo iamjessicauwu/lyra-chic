@@ -45,6 +45,7 @@ fetch('/elements/footer.html')
 
             const closeBtn = e.target.closest('[data-dialog-close]');
             const dialog = closeBtn?.closest('dialog');
+            
             if (closeBtn) {
                 requestAnimationFrame(() => {
                     dialog.style.animation = `${closeBtn.dataset.dialogAnim} 350ms cubic-bezier(0.5, 0, 0.75, 0)`;
