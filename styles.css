@@ -38,6 +38,20 @@ dialog:has(.content-notop) .dialog-header {
     overflow: hidden;
 }
 
+input[type=search] {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.05);
+    outline: none;
+    font-family: var(--sans-serif);
+}
+
+input[type="search"]:focus {
+    border-color: var(--color-primary-500);
+}
+
 .search-panel .search-result {
     margin-top:5em;
     height: 100%;
@@ -142,6 +156,22 @@ dialog:has(.lyra-labs-greeting) .dialog-header {
 .wrapper .section {
     display: flex;
     flex-direction: column;
+}
+
+.search-only-icon {
+    display: inline-flex;
+}
+
+.search-button {
+    display: none;
+    padding: 10px 22px;
+}
+
+.header-container.scrolled .search-only-icon { display: none; }
+.header-container.scrolled .search-button { display: inline-flex; }
+
+.search-button i {
+    font-size: 1.5rem;
 }
 
 @media (max-width: 768px) {

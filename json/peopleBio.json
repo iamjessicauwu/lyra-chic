@@ -26,7 +26,7 @@
         "banner_image": "./assets/image/member_avatar/carin_banner.webp",
         "id": "crshyle",
         "badges": ["SMAKAUG Student", "Creative Dancer", "ST☆RGΛINZ Member"],
-        "portfolio": [],
+        "portfolio": ["./assets/image/carin_miracle/crshyle.jpg"],
         "zodiac": ""
     },
     {
@@ -52,7 +52,7 @@
         "banner_image": "./assets/image/member_avatar/monnn_banner_sd.webp",
         "id": "monique",
         "badges": ["Fashion Designer", "ST☆RGΛINZ Member"],
-        "portfolio": [],
+        "portfolio": ["./assets/image/monique/monique.mp4"],
         "zodiac": "Taurus"
     }, 
     {
