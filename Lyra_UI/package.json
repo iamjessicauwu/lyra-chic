@@ -9,7 +9,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "Nathania Anneta",
-    "maintainers": ["Nathania Anneta"],
+    "author": "Jessica Noleen Alka",
+    "maintainers": ["Jessica Noleen Alka"],
     "license": "(GNU OR Apache-2.0)"
 }

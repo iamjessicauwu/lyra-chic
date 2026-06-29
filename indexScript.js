@@ -1,5 +1,5 @@
 import Lyra from "./Lyra_UI/js/main.js";
-const lyra = Lyra ? new Lyra("1.0", "Nathania Anneta") : null;
+const lyra = Lyra ? new Lyra("1.0", "Jessica Noleen Alka") : null;
 
 const labelTags = document.querySelectorAll(".people .labelTag"),
 now = new Date(),
@@ -34,7 +34,6 @@ lyra.animateOnScroll('.grid.rtl', {
     stagger: 0.09
 })
 lyra.animateOnScroll('.people', {
-    target: '.people *',
     stagger: 0.09
 })
 lyra.animateCounter();

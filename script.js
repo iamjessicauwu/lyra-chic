@@ -1,12 +1,12 @@
 // Because inline scripts are blocked by CSP, we need to change `rel` attribute of preloaded stylesheets here
-document.querySelectorAll('link[rel="preload"][as="style"').forEach(style => {
+document.querySelectorAll('link[rel="preload"][as="style"]').forEach(style => {
     style.onload = null;
     style.rel = "stylesheet";
 })
 
 import Lyra, { Security } from "./Lyra_UI/js/main.js";
 
-const lyra = Lyra ? new Lyra("1.0", "Nathania Anneta") : null;
+const lyra = Lyra ? new Lyra("1.0", " Jessica Noleen Alka") : null;
 const security = Security ? new Security('1.0', "Lyra") : null;
 
 lyra.setHeadTagType("icon", "/assets/logo/lyra.png");
@@ -28,49 +28,30 @@ if ('serviceWorker' in navigator) {
         }
     });
 }
-lyra.setHeadTagType("script", [
-    "https://unpkg.com/lenis@1.3.20/dist/lenis.min.js",
-    "/js/result.js"
-])
-lyra.setHeadTagType("stylesheet", "https://unpkg.com/lenis@1.3.20/dist/lenis.css");
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    var Lenis = window.Lenis;
-    const lenis = new Lenis({
-        duration: 2,
-        smooth: true,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        autoRaf: true,
-    })
-
-    if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-    }
-    lenis.scrollTo(0, { immediate: true });
-
-    let lastDirection = 0;
-    
-    lenis.on('scroll', (e) => {
+    window.addEventListener('wheel', (e) => {
         const header = document.querySelector('.header-container');
         const footer = document.querySelector('footer');
-
+    
         const offsetTop = footer.offsetTop;
         const innerHeight = window.innerHeight;
-
-        const direction = e.direction;
-        if (Math.abs(e.velocity) < 0.4) return;
-
-        if (direction !== 0) {
-            lastDirection = direction;
-            header.classList.toggle('hide', direction === 1);
+    
+        const direction = e.deltaY;
+    
+        if (direction < 0) {
+            header.classList.remove('hide');
+        } else if (direction > 0) {
+            header.classList.add('hide');
         }
+
         const reachFooter = e.scroll + innerHeight >= offsetTop + 400;
         if (reachFooter) {
             header.classList.add('hide');
         }
-
     })
+
+    history.scrollRestoration = 'manual';
 
     const root = document.documentElement;
     

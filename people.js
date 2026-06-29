@@ -91,20 +91,12 @@ const desc = panel.querySelector('p');
 const badges = panel.querySelector('.badge-row');
 const portfolioCtr = panel.querySelector('.member-portfolio');
 const peopleCtr = document.querySelector('.grid');
-const activeMembers = ["anneta", "crshyle", "jessica", "velanie", "monique", "mae", "sharon", "quinsha", "charis", "reagan"];
-let hiddenCounts = 0;
-
 let activeCard = null;
 
 people.forEach(card => {
     card.setAttribute('data-dialog-open', 'people-panel');
     const key = card.querySelector('.people-bio').dataset.people;
 
-    if (!activeMembers.includes(key)) {
-        card.classList.add('hidden');
-        hiddenCounts++;
-    }
-    
     function showPeoplePanel() {
         const bio = card.querySelector('.people-bio');
         const key = bio.dataset.people;
@@ -225,12 +217,6 @@ people.forEach(card => {
     
     card.addEventListener('click', showPeoplePanel);
 })
-
-if (hiddenCounts > 0) {
-    const info = document.createElement('div');
-    info.textContent = `and ${hiddenCounts} other unknown members`;
-    peopleCtr.appendChild(info);
-}
 
 function closePanel() {
     if (activeCard) {
