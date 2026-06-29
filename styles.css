@@ -53,12 +53,12 @@ input[type="search"]:focus {
 }
 
 .search-panel .search-result {
+    box-sizing: border-box;
     margin-top:5em;
     height: 100%;
-    max-height: 83vh;
+    max-height: 80vh;
     overflow-y: visible;
     padding-bottom: 20px;
-    animation: scaleIn .4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .lyra-labs-greeting {

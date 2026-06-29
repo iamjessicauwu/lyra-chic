@@ -1,31 +1,39 @@
 .people-panel {
-    width: 540px;
+    width: 600px;
+}
+
+.people-panel .close-btn {
+    z-index: 3;
 }
 
 .side-panel .people-type, .side-panel .people-name {
     width: 100%;
-    padding: 0 6px;
+    padding: 0;
 }
 
 .side-panel .people-banner {
     display: none;
 }
 
-.side-panel .people-info, .side-panel .people-bio {
-    padding-inline: 16px;
+.side-panel .people-info {
+    padding-inline: 40px;
 }
 
 .side-panel .people-type {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
     gap: 20px;
-    margin-top: 4em;
 }
 
 .side-panel .people-name {
     column-gap: 24px;
-    order: -1;
+    background-color: rgba(5, 5, 5, 0.911);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0 40px;
+    z-index: 2;
 }
 
 .people-name * {
@@ -39,16 +47,45 @@
     justify-content: flex-start;
 }
 
+.side-panel .name h2 {
+    color: var(--color-text-muted);
+    max-width: 420px;
+    font-size: clamp(1.6rem, -3rem + 16vw, 3.8rem);
+    font-family: var(--sans-serif);
+}
+
+.side-panel .name h2 span {
+    opacity: 1;
+}
+
+.side-panel .people-banner {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+.people-banner img {
+    height: 100%;
+}
+
 .side-panel .people-img {
     width: 150px;
     height: 150px;
-    justify-content: flex-start;
     border: none;
     margin-inline: 0px;
 }
 
 .side-panel .people-img img {
-    width: 150px;
+    object-position: center 30%;
+}
+
+.side-panel .nickname {
+    font-size: clamp(0.6rem, -3rem + 16vw, 1rem);
+}
+
+.side-panel .people-btns {
+    padding: 20px 0;
 }
 
 .grid {
@@ -66,16 +103,13 @@
 }
 .people {
     grid-row: span 20;
-    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), border .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .8s cubic-bezier(0.215, 0.610, 0.355, 1);
+    transition: transform .7s cubic-bezier(0.215, 0.610, 0.355, 1), border .4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .8s cubic-bezier(0.215, 0.610, 0.355, 1);
     padding: 8px 6px;
     pointer-events: auto;
     border: none;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-20px);
-}
-
-.people {
 }
 
 .people.visible {
@@ -105,10 +139,6 @@
     border-radius: 0;
 }
 
-.people:hover .name {
-    border-top-color: var(--color-primary-500);
-}
-
 .people-img:has(img) {
     background: rgba(100, 100, 100, 0) no-repeat;
 }
@@ -117,8 +147,8 @@
     object-fit: cover;
     border-radius: 0;
     width: 100%;
-    height: 400px;
-    object-position: center;
+    height: 380px;
+    object-position: center 20%;
     background-color: rgba(131, 131, 131, 0.034);
     aspect-ratio: 1 / 1;
 }
@@ -128,29 +158,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1), opacity .4s;
-    padding: 4px 0 4px 0;
     row-gap: 2px;
     width: 100%;
     top: 0;
     position: relative;
-}
-
-
-.people .people-btns::after {
-    content: "";
-    position: absolute;
-    bottom: -0px;
-    left: 0;
-    display: block;
-    width: 0%;
-    background-color: var(--color-border-100);
-    height: 1px;
-    transition: width 2s cubic-bezier(1, 0, 0, 1), background-color .4s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.people *.visible .people-btns::after {
-    width: 100%;
 }
 
 .people .name h2::before {
@@ -167,7 +178,6 @@
 
 .people .people-bio {
     user-select: none;
-    padding: 0px;
     gap: 4px;
     display: flex;
     flex-direction: column;
@@ -242,8 +252,8 @@
 .people .people-btns {
     display: flex;
     flex-direction: column;
-    padding: 10px 20px 10px 20px;
-    justify-content: space-between;
+    margin: 16px 0;
+    padding: 0;
 }
 
 .people .social-media {
@@ -270,8 +280,10 @@
 }
 
 .people-btns .pc-action {
-    align-self: flex-end;
-    font-size: 13px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 12px;
+    position: relative;
 }
 
 .people-icon {
@@ -319,13 +331,8 @@
         margin-right: 0;
     }
     
-    .people-img {
-        order: -1;
-    }
     .people .name {
         padding: 4px 0;
-        flex-direction: row;
-        align-items: center;
     }
 
     .people .name h2 {
@@ -374,6 +381,8 @@
         margin-top: 0;
     }
     .people .people-img, .people .people-img img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
         object-position: center center;
     }
 }

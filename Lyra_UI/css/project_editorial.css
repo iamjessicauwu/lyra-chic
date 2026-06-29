@@ -807,7 +807,7 @@
         border: 1px solid rgba(100, 100, 100, 0.1);
         transition: opacity .5s ease-out;
         opacity: 0;
-        animation: fadeIn .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+        animation: fadeIn .5s cubic-bezier(0.075, 0.82, 0.165, 1)
     }
 
     dialog::backdrop {
@@ -847,7 +847,6 @@
         inset: 0;
         width: 100%;
         height: 100%;
-        animation: scaleIn .3s cubic-bezier(0.475, 0.12, 0.165, 1);
     }
 
     dialog .content {
@@ -3398,7 +3397,6 @@ a,
 
 .tab .btn {
     border-radius: 5px 5px 0 0;
-    ;
 }
 
 .tab .btn.active {
@@ -3477,13 +3475,11 @@ a,
     letter-spacing: 0.256em;
     text-transform: uppercase;
     padding: 13px 24px;
-    border: none;
     cursor: pointer;
     transition: background 0.25s, color 0.25s, box-shadow 0.25s;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    text-decoration: none;
+    gap: 12px;
 }
 
 .action-btn {
@@ -4163,11 +4159,6 @@ a,
 
 .grid.rtl .people {
     direction: ltr;
-}
-
-.people-grid :first-child,
-.people-grid :nth-child(2) {
-    border-top-color: transparent;
 }
 
 .gallery-container {

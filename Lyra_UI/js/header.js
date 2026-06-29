@@ -1,4 +1,4 @@
-const url = '/elements/header.html';
+const url = './elements/header.html';
 
 fetch(url).then(response => response.text()).then(html => { document.querySelector('header').innerHTML = html; }).finally(() => {
     const input = document.getElementById('search-input');

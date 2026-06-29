@@ -133,17 +133,23 @@
 
 .people .people-btns {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 10px;
-    justify-content: space-between;
-    align-items: center;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.people-btns .pc-action {
+    width: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 12px;
+    position: relative;
 }
 
 .people .social-media {
     background-color: transparent;
     gap: 26px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 }
 
 .people .social-media span {

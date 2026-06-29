@@ -109,8 +109,18 @@ people.forEach(card => {
 
         let nick = person.nickname.replace(/&bull;/g, "/");
         if (person.role?.trim()) {
-            nick = `${nick} | ${person.role}`;
+            nick = `${person.role}`;
         }
+
+        const firstNameEl = nameEl;
+        const words = firstNameEl.textContent.trim().split(' ');
+
+        const firstWordMark = document.createElement('span');
+        firstWordMark.style.color = 'var(--color-primary-900)';
+        firstWordMark.textContent = words[0];
+
+        const remainingText = document.createTextNode(" " + words.slice(1).join(" "));
+        firstNameEl.replaceChildren(firstWordMark, remainingText)
         
         roleEl.textContent = nick;
         

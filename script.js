@@ -30,7 +30,7 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.addEventListener('wheel', (e) => {
+    document.documentElement.addEventListener('wheel', (e) => {
         const header = document.querySelector('.header-container');
         const footer = document.querySelector('footer');
     
