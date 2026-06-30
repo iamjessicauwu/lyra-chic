@@ -1,5 +1,6 @@
 .people-panel {
     width: 600px;
+    animation: fadeInUpSmooth 1s cubic-bezier(0.475, 0.12, 0.165, 1);
 }
 
 .people-panel .close-btn {
@@ -86,6 +87,12 @@
 
 .side-panel .people-btns {
     padding: 20px 0;
+}
+
+.side-panel .social-media {
+    margin: 0;
+    background-color: transparent;
+    border-radius: 0;
 }
 
 .grid {

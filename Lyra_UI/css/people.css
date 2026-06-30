@@ -1,3 +1,7 @@
+.side-panel .name h2 span {
+    font-family: var(--serif) !important;
+}
+
 .grid {
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     padding: 0 10px;
@@ -89,7 +93,7 @@
 .people .name {
     display: flex;
     flex-direction: column;
-    row-gap: 2px;
+    row-gap: 4px;
     height: 100%;
 }
 
@@ -109,14 +113,14 @@
 .people .name h2 {
     display: flex;
     position: relative;
-    font-family: var(--serif);
+    font-family: var(--sans-serif);
     color: var(--color-text-main);
-    font-size: 24px;
-    font-weight: 400;
+    font-size: 26px;
+    font-weight: 500;
 }
 
 .people .role {
-    font-size: 14px; 
+    font-size: 16px; 
     word-spacing: 4px;
     text-transform: uppercase;
 }
@@ -134,7 +138,7 @@
 .people .people-btns {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 10px 16px;
     gap: 16px;
     align-items: flex-start;
 }
@@ -148,12 +152,15 @@
 }
 
 .people .social-media {
-    background-color: transparent;
-    gap: 26px;
+    gap: 40px;
 }
 
 .people .social-media span {
     display: none;
+}
+
+.people .social-media i {
+    padding: 0;
 }
 
 .people .social-media i:hover {

@@ -159,16 +159,13 @@ dialog:has(.lyra-labs-greeting) .dialog-header {
 }
 
 .search-only-icon {
-    display: inline-flex;
+    display: none;
 }
 
 .search-button {
-    display: none;
+    display: inline-flex;
     padding: 10px 22px;
 }
-
-.header-container.scrolled .search-only-icon { display: none; }
-.header-container.scrolled .search-button { display: inline-flex; }
 
 .search-button i {
     font-size: 1.5rem;

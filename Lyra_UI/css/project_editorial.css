@@ -895,7 +895,7 @@
     /* Header */
     .header-container {
         position: relative;
-        padding: 16px 60px 5px 60px;
+        padding: 5px 50px 5px 40px;
         background-color: transparent;
         transition: transform 1s cubic-bezier(0.1, 0.14, 0.435, 1), opacity .5s cubic-bezier(0.075, 0.82, 0.165, 1), padding-top .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
@@ -931,7 +931,7 @@
         position: relative;
         display: flex;
         padding: 4px 0;
-        left: -24px;
+        left: 4px;
         align-items: center;
     }
 
@@ -942,6 +942,7 @@
         flex-shrink: 1;
         gap: 40px;
         flex-basis: 0%;
+        transition: opacity .5s cubic-bezier(0.475, 0.82, 0.165, 1);
     }
     .header-left {
         display: flex;
@@ -955,13 +956,13 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        padding-right: 20px;
     }
 
     .brand .logo {
         position: relative;
-        width: 180px;
+        width: 160px;
         height: 58px;
-        aspect-ratio: 3 / 2;
         object-fit: cover;
         opacity: 1;
         transition: opacity .3s cubic-bezier(0.075, 0.82, 0.403, 1), transform .5s cubic-bezier(0.075, 0.92, 0.403, 1);
@@ -988,8 +989,7 @@
     .navigation {
         display: flex;
         align-items: center;
-        gap: 20px;
-        opacity: 1;
+        gap: 30px;
         transition: opacity .8s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
@@ -1145,7 +1145,7 @@
     .nav-pane {
         position: fixed;
         inset: 0;
-        z-index: 10;
+        z-index: 9;
         background-color: var(--color-bg);
     }
 
@@ -1185,7 +1185,7 @@
         font-family: var(--sans-serif);
         cursor: pointer;
         width: fit-content;
-        text-transform: none;
+        text-transform: uppercase;
     }
 
     .menuButton::before {
@@ -1234,7 +1234,7 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        width: 50%;
+        width: 55%;
         height: 80vh;
         position: relative;
         margin: 5em 0 0 0;
@@ -1255,7 +1255,9 @@
         align-items: center;
         gap: 10px;
         grid-area: 1/1;
-        background: #505050;
+        background: url('/assets/image/monique/monnn_banner_sd.webp') no-repeat;
+        background-size: cover;
+        aspect-ratio: 16 / 9;
     }
 
     .preview .category-container {
@@ -2121,9 +2123,17 @@
         padding: 0 16px;
     }
 
+    .side-panel .people-btns {
+        display: flex;
+        justify-content: center;
+    }
+
     .side-panel .social-media {
+        background-color: var(--color-surface-500);
+        border-radius: 50px;
         gap: 26px;
-        margin: 4px 0 4px 0;
+        margin: 8px 0;
+        padding: 8px 0;
     }
 
     .side-panel .social-media span {
@@ -3124,18 +3134,29 @@
     }
 
     .header-container.scrolled {
-        padding: 0 60px 0 60px;
+        padding: 0 50px 0 40px;
         background-color: var(--color-bg);
     }
 
-    .header-container:not(.scrolled) .brand {
-        display: flex;
-        animation: fadeIn .3s ease;
-    }
 
     .header-container.scrolled .navigation {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    header:has(.nav-pane:not(.hidden))  {
+        background-color: transparent;
+    }
+
+    header:has(.nav-pane:not(.hidden)) .header-right {
+        background-color: var(--color-surface-500);
+        border-radius: 50px;
+        padding: 8px 0;
+    }
+
+    header:has(.nav-pane:not(.hidden)) :is(.header-left, .brand) {
         opacity: 0;
-        gap: 0px;
         visibility: hidden;
     }
 }
@@ -3938,7 +3959,7 @@ a,
     bottom: 0;
     height: 100%;
     top: 0;
-    padding: 9.5% 4.5em 20px 4.5em;
+    padding: 8.5% 4.5em 20px 4.5em;
 }
 
 .hero-top p {
@@ -4087,29 +4108,22 @@ a,
 }
 
 .card {
-    background: var(--cream);
-    border: 1px solid var(--sand);
     padding: 28px;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(61, 43, 31, 0.1);
-}
-
 .card-num {
     font-family: var(--serif);
-    font-size: 48px;
+    font-size: 6rem;
     font-weight: 700;
-    color: rgba(100, 100, 100, 0.35);
+    color: rgba(100, 100, 100, 0.3);
     line-height: 1;
     margin-bottom: 12px;
 }
 
 .card-title {
     font-family: var(--serif);
-    font-size: 22px;
+    font-size: 36px;
     color: var(--color-text-main);
     margin-bottom: 8px;
 }
@@ -4775,7 +4789,8 @@ label {
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    gap: 6px;
+    gap: 10px;
+    transform: scale(1.4);
     cursor: pointer;
 }
 
@@ -4790,31 +4805,16 @@ label {
 
 
 .hamburger .line {
-    height: 2px;
-    transform: scale(1.12);
+    width: 40px;
+    height: 1px;
+    transform: scale(1);
     border-radius: 50px;
     background-color: var(--color-text-main);
     transition: all .7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.hamburger .line-1 {
-    width: 22px;
-}
-
-.hamburger .line-2 {
-    width: 32px;
-}
-
-.hamburger .line-3 {
-    width: 18px;
-}
-
 .hamburger:hover .line {
     background-color: var(--color-primary-500);
-}
-
-.hamburger:hover :is(.line-1, .line-3) {
-    width: 32px;
 }
 
 .hamburger.active .line {
@@ -4823,17 +4823,12 @@ label {
 
 .hamburger.active .line-1 {
     width: 32px;
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
 }
 
 .hamburger.active .line-2 {
-    opacity: 0;
-    transform: translateX(-20px);
-}
-
-.hamburger.active .line-3 {
     width: 32px;
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
 }
 
 
@@ -4922,15 +4917,17 @@ label {
         gap: 2em
     }
 
-    .product {
-        display: none;
-    }
 }
 
 @media (max-width: 1024px) {
+    .navigation {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
     .hero-top {
-        max-width: 100%;
-        padding: 20px 20px;
+        width: 50%;
+        padding: 8.5% 20px;
     }
 
     .hero-top h1 {
@@ -4948,10 +4945,6 @@ label {
         padding: 0;
     }
 
-    .hero-section {
-        padding: 0 14px;
-    }
-
     .flex {
         justify-content: center;
     }
@@ -4959,20 +4952,6 @@ label {
     .hero-section .role {
         max-width: 100%;
         font-size: 3rem;
-    }
-
-    .hero-section p {
-        font-size: 14px;
-        width: 100%;
-    }
-
-    .hero-caption {
-        padding: 0 1em;
-    }
-
-
-    .section {
-        padding: 1em 0;
     }
 
     .section-desc {
@@ -4988,18 +4967,8 @@ label {
         padding-inline: 10px;
     }
 
-    .header-container.scrolled .brand, .header-container:not(.scrolled) .brand {
-        display: flex !important;
-        animation: none;
-    }
-    
-    .header-container.scrolled {
-        border-bottom-color: transparent;
-    }
-    
-    header:has(.nav-pane:not(.hidden)) :is(.header-left, .brand) {
-        opacity: 0;
-        visibility: hidden;
+    header:has(.nav-pane:not(.hidden), .header-container.scrolled)  {
+        background-color: transparent;
     }
 
     .header-desktop {
@@ -5010,17 +4979,18 @@ label {
         display: flex;
     }
 
-    .actions {
-        padding: 0;
-        gap: 10px;
-    }
-
     .brand {
         left: 0;
         padding: 0;
         width: 100%;
         justify-content: center;
         animation: none;
+    }
+
+    .header-right { padding-right: 0; }
+
+    .hamburger {
+        transform: scale(1);
     }
     
     .brand .logo {

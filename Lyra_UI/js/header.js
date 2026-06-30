@@ -1,4 +1,9 @@
 const url = './elements/header.html';
+// Disable Lenis scrolling in modals or side panel
+const sidePanels = document.querySelectorAll('.side-panel, .nav-pane, dialog');
+for (const panel of sidePanels) {
+    panel.setAttribute('data-lenis-prevent', 'true')
+}
 
 fetch(url).then(response => response.text()).then(html => { document.querySelector('header').innerHTML = html; }).finally(() => {
     const input = document.getElementById('search-input');
@@ -127,15 +132,12 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
         hamburgers.forEach(btn => {
             window.addEventListener('resize', () => {
                 if (window.innerWidth > 900) {
-                    overlay.classList.remove('showOverlay');
                     navpane.classList.add('hidden');
                     btn.classList.remove('active');
                 }
             })
             
             function openNavPane() {
-                overlay.classList.add('showOverlay');
-                header.classList.add('no-blend');
                 btn.classList.add('active');
                 
                 requestAnimationFrame(() => { 
@@ -158,12 +160,10 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
                 requestAnimationFrame(() => {
                     btn.classList.remove('active');
                     navpane.style.animation = `fadeOutRight .75s ease-in-out`;
-                    overlay.classList.remove('showOverlay');
                     
                     navpane.addEventListener('animationend', () => {
                         if (navpane.style.animation.includes('fadeOut')) {
                             navpane.classList.add('hidden');
-                            header.classList.remove('no-blend');
                             btn.classList.remove('no-pointer');
                         }
                     }, {once: true});
@@ -180,11 +180,7 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
             }
 
             btn.addEventListener('click', toggleNavPane);
-            
-            document.querySelector('.nav-pane-header .close-btn').addEventListener('click', closeNavPane);
-            document.querySelector('.header-overlay').addEventListener('click', closeNavPane);
         })
-
     }
     
     initializeNavPane(hamburger);

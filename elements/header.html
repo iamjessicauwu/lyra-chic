@@ -5,9 +5,7 @@
                 <a href="/" class="brand">
                     <img class="logo lyra-logo" src="./assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" />
                 </a>
-            </div>
-            <div class="header-center flex-column flex-full">
-                <nav class="navigation">
+                    <nav class="navigation">
                     <div class="drop-down">
                         <a href="./projects.html" data-lang="home"><button class="navBtn">Our Works</button></a>
                         <div class="drop-down-content">
@@ -43,9 +41,9 @@
                     <a href="/blog.html"><button class="navBtn">Magazine</button></a>
                     <a href="/about.html"><button class="navBtn">About Lyra</button></a>
                     <a href="/gallery.html"><button class="navBtn">Gallery</button></a>
-                    <hr class="vl">
-                    <a href="/playground.html"><button class="navBtn serif">Lyra UI</button></a>
                 </nav>
+            </div>
+            <div class="header-center flex-column flex-full">
             </div>
             <div class="header-right">
                 <button class="navBtn search-only-icon" data-dialog-open="search-panel"><i class="ri-search-line"></i></button>
@@ -53,7 +51,6 @@
                 <button class="navBtn hamburger" aria-label="hamburger button to open the hamburger menu" id="hamburger">
                     <div class="line line-1"></div>
                     <div class="line line-2"></div>
-                    <div class="line line-3"></div>
                 </button>
             </div>
         </div>
@@ -70,33 +67,12 @@
                 <button class="navBtn hamburger" aria-label="hamburger button to open the hamburger menu" id="hamburger">
                     <div class="line line-1"></div>
                     <div class="line line-2"></div>
-                    <div class="line line-3"></div>
                 </button>
             </div>
         </div>
-        <dialog class="add-wishlist">
-            <div class="dialog-header">
-                <div>
-                    <h1 class="dialog-mintopbar">Add wishlist</h1>
-                </div>
-                <div class="dialog-btns">
-                    <button class="close-btn" data-dialog-close data-dialog-anim="fadeOut"><div class="line div-1"></div><div class="line div-2"></div></button>
-                </div>
-            </div>
-            <div class="content">
-                <form>
-                    <input type="text" id="wishlist-name" placeholder="Search items... e.g. The Book by Mae" required>
-                    <button type="submit" class="accent">Submit</button>
-                </form>
-            </div>
-        </dialog>
     </div>
 </header>
-<div class="overlay header-overlay"></div>
-<div class="nav-pane hidden">  
-    <div class="nav-pane-header dialog-header">
-        <button class="close-btn fixed"><div class="line div-1"></div><div class="line div-2"></div></button>
-    </div>
+<div class="nav-pane hidden" data-lenis-prevent>  
     <div class="nav-container">
         <div class="content" >
             <button class="menuButton" data-dialog-open="search-panel">Search</button><br>
@@ -165,28 +141,6 @@
                     <input type="checkbox" class="toggleCheckbox" id="dyslexiaCbx" />
                     <span class="slider"></span>
                 </label>
-            </div>
-        </div>
-    </div>
-</dialog>
-<dialog class="side-panel cart-dialog">
-    <div class="dialog-header">
-        <div>
-            <h1 class="dialog-mintopbar">Your cart<span class="status small">Alpha</span></h1>
-        </div>
-        <div class="dialog-btns">
-            <button class="close-btn" data-dialog-close data-dialog-anim="fadeOutRight"><div class="line div-1"></div><div class="line div-2"></div></button>
-        </div>
-    </div>
-    <div class="content">
-        <div class="wishlist">
-            <div class="badge-container custom wishlist-item">
-                <span class="divider">On Demand</span>
-                <!-- The products below are just placeholders for testing layouts. We don't sell these products in our actual storefront. -->
-                <div class="pinned-items">
-                    
-                </div>
-                <button class="btn btn-primary" data-dialog-open="add-wishlist"><i class="ri-add-line"></i><span>Add wishlist</span></button>
             </div>
         </div>
     </div>

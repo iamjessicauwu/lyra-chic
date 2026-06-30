@@ -30,28 +30,45 @@ if ('serviceWorker' in navigator) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.documentElement.addEventListener('wheel', (e) => {
+    // Lenis setup
+    lyra.setHeadTagType("script", [
+        "https://unpkg.com/lenis@1.3.20/dist/lenis.min.js"
+    ])
+    var Lenis = window.Lenis;
+    const lenis = new Lenis({
+        duration: 2,
+        smooth: true,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        autoRaf: true,
+    })
+
+    history.scrollRestoration = 'manual';
+    
+
+    let lastDirection = window.scrollY || document.documentElement.scrollTop;
+    window.addEventListener('scroll', (e) => {
         const header = document.querySelector('.header-container');
         const footer = document.querySelector('footer');
     
         const offsetTop = footer.offsetTop;
         const innerHeight = window.innerHeight;
     
-        const direction = e.deltaY;
+        const currentDirection = window.scrollY || document.documentElement.scrollTop;
     
-        if (direction < 0) {
+        if (currentDirection < lastDirection) {
             header.classList.remove('hide');
-        } else if (direction > 0) {
+        } else if (currentDirection > lastDirection) {
             header.classList.add('hide');
         }
 
+        lastDirection = currentDirection <= 0 ? 0 : currentDirection;
+    
         const reachFooter = e.scroll + innerHeight >= offsetTop + 400;
         if (reachFooter) {
             header.classList.add('hide');
         }
-    })
+    }, {passive:true })
 
-    history.scrollRestoration = 'manual';
 
     const root = document.documentElement;
     

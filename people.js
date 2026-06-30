@@ -119,6 +119,7 @@ people.forEach(card => {
         firstWordMark.style.color = 'var(--color-primary-900)';
         firstWordMark.textContent = words[0];
 
+
         const remainingText = document.createTextNode(" " + words.slice(1).join(" "));
         firstNameEl.replaceChildren(firstWordMark, remainingText)
         
