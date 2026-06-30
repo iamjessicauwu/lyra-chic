@@ -205,15 +205,6 @@
     }
 }
 
-@media (max-width: 920px) {
-    .section-header {
-        margin: 10px 14px;
-    }
-    .section-title.title {
-        line-height: normal;
-    }
-}
-
 @media (max-width: 768px) {
     .people {
         width: 100%;

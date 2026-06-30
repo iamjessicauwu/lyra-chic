@@ -5075,17 +5075,10 @@ label {
     .image-container {
         padding: 10px 0px;
     }
-
-    .nested-content {
-        margin: 0 0px;
+    
+    .section {
+        padding: 0 6px;
     }
-
-    .settings {
-        margin: 0;
-        width: 100%;
-        padding: 0;
-    }
-
     .panel {
         width: 100%;
     }
