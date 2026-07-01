@@ -54,8 +54,8 @@ function renderCard(peopleBioEl) {
                 });
                 
                 const old = document.querySelector('.people-card-style');
-                if (old) {
-                    text = `${person.nickname.replace(/&bull;/g, "•")}`;
+                if (old.href.includes('people_lyraaura.css')) {
+                    text = text = `${person.nickname.replace(/&bull;/g, "•")} | ${role}`;
                 }
 
                 nick.textContent = text;
@@ -89,6 +89,7 @@ const nameEl = panel.querySelector('.name h2');
 const roleEl = panel.querySelector('.nickname');
 const desc = panel.querySelector('p');
 const badges = panel.querySelector('.badge-row');
+const info = panel.querySelector('.people-info');
 const portfolioCtr = panel.querySelector('.member-portfolio');
 const peopleCtr = document.querySelector('.grid');
 let activeCard = null;
@@ -105,6 +106,27 @@ people.forEach(card => {
         activeCard = card;
         activeCard.classList.add('focus');
 
+        // Detect if the person is sensitive and show a warning if so
+        if (person.isSensitive) {
+            const warning = document.createElement('div');
+            warning.className = 'alert alert-warm';
+            warning.innerHTML = `
+                <span class="alert-icon"><i class="ri-eye-off-line"></i></span>
+                    <div>
+                        <strong>Sensitive Content</strong>
+                        <span>Sorry to say this without your consent! <br>This member has provided portfolio content that may contain sensitive material. Viewer discretion is advised.
+                        <br>See <a href=${person.chatLink || '#'}>this chat</a> to learn more about this content.</span>
+                    </div>
+            `;
+
+            info.prepend(warning);
+        }
+
+        const panelTheme = person.panel_theme;
+        if (!panelTheme) return;
+
+        info.classList.add(`${panelTheme}`);
+
         nameEl.textContent = person.name;
 
         let nick = person.nickname.replace(/&bull;/g, "/");
@@ -118,7 +140,6 @@ people.forEach(card => {
         const firstWordMark = document.createElement('span');
         firstWordMark.style.color = 'var(--color-primary-900)';
         firstWordMark.textContent = words[0];
-
 
         const remainingText = document.createTextNode(" " + words.slice(1).join(" "));
         firstNameEl.replaceChildren(firstWordMark, remainingText)
@@ -234,8 +255,14 @@ function closePanel() {
         activeCard.classList.remove('focus');
     }
     panel.addEventListener('animationend', () => {
+        // Reset the panel data
         panel.scrollTop = 0;
-        portfolioCtr.innerHTML = ''
+        portfolioCtr.innerHTML = '';
+        const warning = panel.querySelector('.alert');
+        if (warning) {
+            warning.remove();
+        }
+        info.classList.remove('dark', 'default', 'light');
     }, {once: true});
 }
 

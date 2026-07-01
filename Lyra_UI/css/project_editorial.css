@@ -460,8 +460,10 @@
         margin: 4px 0;
     }
 
-    .h1 { font-size: 52px; line-height: 1.08; font-weight: 700; margin: 10px 0; }
+    .h1 { font-size: 56px; line-height: 1.08; font-weight: 700; margin: 10px 0; }
     .h1.right { text-align: right; }
+    .h1 div.pc-rule { width: 50px; }
+    .h1.right div.pc-rule { align-self: flex-end }
     .h2 { font-size: 36px; line-height: 1.15; font-weight: 700; margin-bottom: 12px; }
     .h3 { font-size: 24px; line-height: 1.3; font-weight: 400; font-style: italic; margin-bottom: 8px; }
     .h4 {
@@ -479,7 +481,8 @@
     li,
     ul,
     ol,
-    span {
+    span,
+    strong {
         font-family: var(--sans-serif);
     }
 
@@ -660,6 +663,8 @@
     }
 
     a {
+        display: inline-flex;
+        width: auto;
         color: var(--color-surface-text);
     }
 
@@ -845,7 +850,9 @@
 
     dialog.fullscreen {
         inset: 0;
-        width: 100%;
+        margin: 0;
+        min-width: 100%;
+        max-width: 100%;
         height: 100%;
     }
 
@@ -1727,7 +1734,7 @@
     }
 
     .badge {
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 500;
         letter-spacing: 0.15em;
         text-transform: uppercase;
@@ -1764,17 +1771,25 @@
 
     .alert {
         border-left: 3px solid;
-        padding: 14px 20px;
+        padding: 12px 20px;
         display: flex;
-        align-items: flex-start;
-        gap: 14px;
-        font-size: 13px;
+        gap: 20px;
+        font-size: 16px;
+    }
+
+    .alert strong {
+        font-size: 20px; text-transform:uppercase;
+    }
+
+    .alert div {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-family: var(--sans-serif);
     }
 
     .alert-icon {
-        font-size: 16px;
-        margin-top: 1px;
-        flex-shrink: 0;
+        font-size: 32px;
     }
 
     .alert-info {
@@ -1785,7 +1800,7 @@
 
     .alert-warm {
         background: #F7EDE2;
-        border-color: var(--ochre);
+        border-color: red;
         color: var(--roast);
     }
 
@@ -2067,9 +2082,9 @@
     
     .side-panel p {
         font-size: 15px;
-        line-height: 28px;
-        font-weight: 400;
-        margin: 0px 0px 0px 0;
+        line-height: 1.4;
+        font-weight: 500;
+        margin: 0;
     }
 
     .side-panel .people-banner {
@@ -2182,8 +2197,8 @@
         width: 480px;
     }
 
-
     .people-type {
+        position: relative;
         flex-direction: column;
         align-items: center;
     }
@@ -2243,14 +2258,14 @@
 
     .side-panel .badge-row {
         justify-content: center;
-        margin: 8px 0;
+        padding: 4px 0;
     }
 
-    .side-panel .people-info {
+    .side-panel .people-info, .people-info.default {
+        background-color: var(--color-surface-500);
         padding: 0px 24px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         gap: 16px;
     }
 
@@ -2258,17 +2273,14 @@
         padding: 5px 5px;
         gap: 10px;
         display: grid;
-        grid-auto-flow: dense;
-        grid-auto-rows: auto;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     }
 
     .member-portfolio img {
         break-inside: avoid;
         border: 1px solid rgba(100, 100, 100, 0.1);
-        width: 210px;
-        height: 250px;
-        aspect-ratio: 3 / 4;
+        width: 100%;
+        height: auto;
         object-fit: cover;
     }
 
@@ -3152,7 +3164,7 @@
     header:has(.nav-pane:not(.hidden)) .header-right {
         background-color: var(--color-surface-500);
         border-radius: 50px;
-        padding: 8px 0;
+        padding: 8px 20px 8px 20px;
     }
 
     header:has(.nav-pane:not(.hidden)) :is(.header-left, .brand) {
@@ -3800,7 +3812,7 @@ a,
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--ochre);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     display: block;
 }
 
@@ -4787,7 +4799,6 @@ label {
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     justify-content: center;
     gap: 10px;
     transform: scale(1.4);
@@ -4810,7 +4821,7 @@ label {
     transform: scale(1);
     border-radius: 50px;
     background-color: var(--color-text-main);
-    transition: all .7s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all .9s cubic-bezier(0.79, 1, 0.22, 1);
 }
 
 .hamburger:hover .line {
@@ -4822,13 +4833,13 @@ label {
 }
 
 .hamburger.active .line-1 {
-    width: 32px;
-    transform: translateY(6px) rotate(45deg);
+    width: 40px;
+    transform: translateY(5.9px) rotate(45deg);
 }
 
 .hamburger.active .line-2 {
-    width: 32px;
-    transform: translateY(-6px) rotate(-45deg);
+    width: 40px;
+    transform: translateY(-5.9px) rotate(-45deg);
 }
 
 
