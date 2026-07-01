@@ -5390,8 +5390,7 @@ label {
 
     .member-portfolio img {
         width: 100%;
-        height: 250px;
-        aspect-ratio: 16 / 9;
+        
     }
 
     .people.row-2 {
