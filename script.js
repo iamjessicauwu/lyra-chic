@@ -77,35 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('anim-disabled');
     }
     
-    window.showTab = showTab;
-
-    function showTab(tab) {
-        const tabEl = document.getElementById(tab);
-        if (!tabEl) return;
-
-        const group = tabEl.closest('.tab-container');
-        if (!group) return;
-        
-
-        const tabs =  group.querySelectorAll(`.tab-content`);
-        const buttons = group.querySelectorAll(`.tab-button`);
-
-        tabs.forEach(tab => tab.classList.remove('active'));
-        buttons.forEach(button => button.classList.remove('active'));
-
-        tabEl.classList.add('active');
-        const targetEl = group.querySelector(`#${tab}-tab`);
-        if (targetEl) {
-            targetEl.classList.add('active');
-        }
-    }
-
     // Initialize the elements on the page.
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.setAttribute('draggable', 'false')
-    })
-
     const dataTitle = document.body.getAttribute('data-title');
     if (dataTitle) {
         document.title = dataTitle + ' - Lyra Chic';

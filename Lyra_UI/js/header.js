@@ -6,6 +6,31 @@ for (const panel of sidePanels) {
 }
 
 fetch(url).then(response => response.text()).then(html => { document.querySelector('header').innerHTML = html; }).finally(() => {
+    function switchTab(tab) {
+        const tabEl = document.querySelector(`.tab-index[data-tab="${tab}"]`);
+        if (!tabEl) return;
+
+        const group = tabEl.closest('.tab-content');
+        if (!group) return;
+
+        const tabs = group.querySelectorAll(`.tab-index`);
+        const buttons = group.querySelectorAll(`.tab-btn`);
+        
+        tabs.forEach(tabItem => tabItem.classList.remove('active'));
+        buttons.forEach(button => button.classList.remove('active'));
+
+        tabEl.classList.add('active');
+        const targetEl = group.querySelector(`.tab-btn[data-tab-target="${tab}"]`);
+        if (targetEl) {
+            targetEl.classList.add('active');
+        }
+    }
+
+    const tabButtons = document.querySelectorAll(`.tab-btn[data-tab-target]`);
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => switchTab(btn.dataset.tabTarget));
+    });
+
     const input = document.getElementById('search-input');
     const suggested = document.querySelector('.suggested-search');
     input.addEventListener('input', (e) => {
@@ -120,7 +145,7 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
 
         });
     })
-    const header = document.querySelector('header');
+    const header = document.querySelector('.header-container');
     const navpane = document.querySelector('.nav-pane');
     const hamburger = '.hamburger';
     const overlay = document.querySelector('.overlay');
@@ -130,20 +155,14 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
         const hamburgers = document.querySelectorAll(hamburger);
 
         hamburgers.forEach(btn => {
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 900) {
-                    navpane.classList.add('hidden');
-                    btn.classList.remove('active');
-                }
-            })
-            
             function openNavPane() {
                 btn.classList.add('active');
                 
                 requestAnimationFrame(() => { 
-                    navpane.style.animation = `fadeInRight .75s ease-in-out`;
+                    navpane.style.animation = `fadeIn .4s ease-in-out`;
                     btn.classList.add('no-pointer');
                     navpane.classList.remove('hidden');
+                    header.classList.add('transparent');   
         
                     navpane.addEventListener('animationend', () => {
                         if (navpane.style.animation.includes('fadeIn')) {
@@ -159,12 +178,13 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
                 
                 requestAnimationFrame(() => {
                     btn.classList.remove('active');
-                    navpane.style.animation = `fadeOutRight .75s ease-in-out`;
+                    navpane.style.animation = `fadeOut .5s ease-in-out`;
                     
                     navpane.addEventListener('animationend', () => {
                         if (navpane.style.animation.includes('fadeOut')) {
                             navpane.classList.add('hidden');
                             btn.classList.remove('no-pointer');
+                            header.classList.remove('transparent');   
                         }
                     }, {once: true});
                 });
@@ -195,7 +215,6 @@ fetch(url).then(response => response.text()).then(html => { document.querySelect
         const cbx = document.querySelector(checkbox);
         const isAnimEnabled = localStorage.getItem('anim-mode') === 'enabled';
         
-
         if (isAnimEnabled) {
             document.body.classList.add('anim-disabled');
             cbx.checked = true;

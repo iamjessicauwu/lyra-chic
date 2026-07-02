@@ -5,38 +5,11 @@
                 <a href="/" class="brand">
                     <img class="logo lyra-logo" src="./assets/logo/lyra.webp" fetchpriority="high" loading="eager" alt="Lyra logo" />
                 </a>
-                    <nav class="navigation">
+                <nav class="navigation">
                     <div class="drop-down">
                         <a href="./projects.html" data-lang="home"><button class="navBtn">Our Works</button></a>
-                        <div class="drop-down-content">
-                            <div class="preview">
-                                <div class="preview-item">
-                                    <span class="section-label">Preferred</span>
-                                    <div class="category-container">
-                                        <div class="category">Interior Design</div>
-                                        <div class="category">Fashion and Muse</div>
-                                        <div class="category">UI/UX Designer</div>
-                                        <div class="category">Art and Music</div>
-                                        <div class="category">Dance and Performer</div>
-                                    </div>
-                                    <span class="section-label">SEO and Wordpress</span>
-                                    <div class="category-container">
-                                        <div class="category">Wordpress Blog</div>
-                                        <a href="./seo.html"><div class="category">SEO Analyzer</div></a>
-                                        <a href="./wordpress.html#retainer"><div class="category">Wordpress Retainer</div></a>
-                                    </div>
-                                    <span class="section-label">technology</span>
-                                    <div class="category-container">
-                                        <div class="category">Self Improvement</div>
-                                        <a href="./seo.html"><div class="category">Counseling</div></a>
-                                        <div class="category">Web Development</div>
-                                    </div>
-                                </div>
-                                <div class="preview-item">
-                                    <img src="/assets/image/art-by-jessica-pethica.webp">
-                                </div>
-                            </div>
-                        </div>
+                        <div class="drop-down-content"></div>
+                            
                     </div>
                     <a href="/blog.html"><button class="navBtn">Magazine</button></a>
                     <a href="/about.html"><button class="navBtn">About Lyra</button></a>
@@ -73,44 +46,77 @@
     </div>
 </header>
 <div class="nav-pane hidden" data-lenis-prevent>  
-    <div class="nav-container">
-        <div class="content" >
-            <button class="menuButton" data-dialog-open="search-panel">Search</button><br>
-            <span class="divider">Explore</span>
-            <div class="content-item menu">
-                <a href="./projects.html"><button class="menuButton" id="projects">Our Works</button></a>
-                <a href="./blog.html"><button class="menuButton" id="blog">Magazine</button></a>
-                <a href="./about.html"><button class="menuButton" id="about">About Lyra</button></a>
-                <a href="./gallery.html"><button class="menuButton" id="gallery">Gallery</button></a>
+    <h1 class="nav-pane-headline">Navigation</h1>
+    <div class="nav-pane-content">
+        <div class="tab-content">
+            <div class="tab-bar">
+                <button class="tab-btn active" data-tab-target="explore">Explore</button>
+                <button class="tab-btn" data-tab-target="features">Features</button>
+                <button class="tab-btn" data-tab-target="lyra-universe">Lyra Universe</button>
+                <button class="tab-btn" data-tab-target="star-member">Star Member</button>
+                <button class="tab-btn" data-tab-target="jessica-noleen"><img src="/assets/logo/jessica_noleen_logo.png" alt="provider logo 1"></button>
             </div>
-            <span class="divider">Get in touch</span>
-            <div class="content-item menu">
-                <a href="./contact.html"><button class="menuButton">Contact Us!</button></a>
-                <a href="./starmember.html"><button class="menuButton">Star Member<span class="status small">
-                    Beta
-                </span></button></a>
+            <div class="tab-index row active" data-tab="explore">
+                <div class="menu-container">
+                    <div class="flex column">
+                        <h1 class="divider">General</h1>
+                        <button class="menuButton" data-dialog-open="search-panel">Search</button>
+                        <button class="menuButton">Our Works</button>
+                        <button class="menuButton">Magazine</button>
+                        <button class="menuButton">About Lyra</button>
+                        <button class="menuButton">Gallery</button>
+                    </div>
+                    <div class="flex column">
+                        <h1 class="divider">Productivity</h1>
+                        <button class="menuButton">Event & Agenda</button>
+                        <button class="menuButton">Maps</button>
+                        <button class="menuButton">Get in touch!</button>
+                        <button class="menuButton">help</button>
+                    </div>
+                </div>
+                <div class="tab-preview">
+                    
+                </div>
             </div>
-            <span class="divider">Lyra Universe</span>
-            <div class="content-item menu">
-                <a href="./playground.html"><button class="menuButton">Editorial UI</button></a>
-                <a href="https://netaaawp.github.io/Lyra-Aura"><button class="menuButton">Lyra Aura</button></a>
-                <a href="https://lyraaurania.vercel.app"><button class="menuButton">Lyra Chic Legacy</button></a>
-                <button class="menuButton" data-dialog-open="lyra-labs">Labs</button>
-            </div>
-            <div class="footer"> 
-                <div class="footer-flex">
-                    <div class="navpane-footer-actions">
-                        <button class="btn btn-primary chat" data-dialog-open="talk-to-lyra">Talk to Lyra<i class="ri-arrow-right-up-line"></i></button>
+            <div class="tab-index" data-tab="features">
+                <div class="preview">
+                    <div class="preview-item">
+                        <span class="section-label">Preferred</span>
+                        <div class="category-container">
+                            <div class="category">Interior Design</div>
+                            <div class="category">Fashion and Muse</div>
+                            <div class="category">UI/UX Designer</div>
+                            <div class="category">Art and Music</div>
+                            <div class="category">Dance and Performer</div>
+                        </div>
+                        <span class="section-label">SEO and Wordpress</span>
+                        <div class="category-container">
+                            <div class="category">Wordpress Blog</div>
+                            <a href="./seo.html"><div class="category">SEO Analyzer</div></a>
+                            <a href="./wordpress.html#retainer"><div class="category">Wordpress Retainer</div></a>
+                        </div>
+                        <span class="section-label">technology</span>
+                        <div class="category-container">
+                            <div class="category">Self Improvement</div>
+                            <a href="./seo.html"><div class="category">Counseling</div></a>
+                            <div class="category">Web Development</div>
+                        </div>
+                    </div>
+                    <div class="preview-item">
+                        <img src="/assets/image/art-by-jessica-pethica.webp">
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="preview">
-            s
+            <div class="tab-index" data-tab="lyra-universe">
+                Konten tab aktif akan muncul di sini. Setiap tab menyimpan pandangan yang berbeda — ringkasan memberi gambaran, artikel mendalami narasi, galeri memperlihatkan visual.\
+            </div>
+            <div class="tab-index" data-tab="star-member">
+                Konten tab aktif akan muncul di sini. Setiap tab menyimpan pandangan yang berbeda — ringkasan memberi gambaran, artikel mendalami narasi, galeri memperlihatkan visual.\
+            </div>
         </div>
     </div>
 </div>
-<dialog class="settings-ui" >
+<dialog class="side-panel left settings-ui" >
     <div class="dialog-header">
         <div>
             <h1 class="dialog-mintopbar">Accessibility</h1>

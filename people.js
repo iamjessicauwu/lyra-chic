@@ -114,7 +114,7 @@ people.forEach(card => {
                 <span class="alert-icon"><i class="ri-eye-off-line"></i></span>
                     <div>
                         <strong>Sensitive Content</strong>
-                        <span>Sorry to say this without your consent! <br>This member has provided portfolio content that may contain sensitive material. Viewer discretion is advised.
+                        <span>This member has provided portfolio content that may contain sensitive material. Viewer discretion is advised.
                         <br>See <a href=${person.chatLink || '#'}>this chat</a> to learn more about this content.</span>
                     </div>
             `;
